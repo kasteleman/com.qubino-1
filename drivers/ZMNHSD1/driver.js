@@ -168,13 +168,13 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 
 module.exports.on('initNode', (token) => {
 
-    								const node = module.exports.nodes[token];
-    										if (node) {
-        										node.instance.CommandClass.COMMAND_CLASS_METER.on('report', (command, report) => {
-            										console.log(command);
-            										console.log('COMMAND NAME LOG: ' + JSON.stringify(command.name, null, 4));
-            										console.log(report);
-            										console.log('REPORT LOG: ' + JSON.stringify(report, null, 4));
-        });
-    }
+	const node = module.exports.nodes[token];
+	if (node) {
+		node.instance.CommandClass.COMMAND_CLASS_METER.on('report', (command, report) => {
+		console.log(command);
+		console.log('COMMAND NAME LOG: ' + JSON.stringify(command.name, null, 4));
+		console.log(report);
+		console.log('REPORT LOG: ' + JSON.stringify(report, null, 4));
+	});
+	}
 });
