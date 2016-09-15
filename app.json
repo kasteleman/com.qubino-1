@@ -236,7 +236,7 @@
                      }
             },
             {
-             "id": "Dimming_time_(soft_on/off)",
+             "id": "Dimming_time_soft_on_off",
              "type": "number",
              "label": {
                        "en": "Dimming time (soft on/off)"
@@ -500,7 +500,7 @@
                 }
         },
         {
-        "id": "Dimming_time_(soft_on/off)",
+        "id": "Dimming_time_soft_on_off",
         "type": "number",
         "label": {
         "en": "Dimming time (soft on/off)"
@@ -787,7 +787,7 @@
                 }
         },
         {
-        "id": "Dimming_time_(soft_on/off)",
+        "id": "Dimming_time_soft_on_off",
         "type": "number",
         "label": {
         "en": "Dimming time (soft on/off)"
@@ -993,7 +993,7 @@
                 }
         },
         {
-        "id": "Dimming_time_(soft_on/off)",
+        "id": "Dimming_time_soft_on_off",
         "type": "number",
         "label": {
         "en": "Dimming time (soft on/off)"

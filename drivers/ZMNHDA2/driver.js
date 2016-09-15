@@ -4,7 +4,7 @@ const path			= require('path');
 const ZwaveDriver	= require('homey-zwavedriver');
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	 debug: false,
+	debug: false,
 	capabilities: {
 
 		onoff: {
@@ -12,16 +12,13 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
 			command_set_parser: function (value) {
-
 				return {
-					'Value': (value > 0) ? 'on/enable' : 'off/disable',
+					Value: (value > 0) ? 'on/enable' : 'off/disable',
 					'Dimming Duration': 1,
 				};
 			},
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: function (report) {
-				return report['Value (Raw)'][0] > 0;
-			},
+			command_report_parser: report => report['Value (Raw)'][0] > 0,
 		},
 
 		dim: {
@@ -30,14 +27,12 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_set: 'SWITCH_MULTILEVEL_SET',
 			command_set_parser: function (value) {
 				return {
-					'Value': value * 100,
+					Value: value * 100,
 					'Dimming Duration': 1,
 				};
 			},
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: function (report) {
-				return report['Value (Raw)'][0] / 100;
-			},
+			command_report_parser: report => report['Value (Raw)'][0] / 100,
 		},
 
 		measure_temperature: {
@@ -46,136 +41,133 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get_parser: function () {
 				return {
 					'Sensor Type': 'Temperature (version 1)',
-					'Properties1': {
-						'Scale': 0,
+					Properties1: {
+						Scale: 0,
 					},
 				};
 			},
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
-			command_report_parser: function (report) {
-				return report['Sensor Value (Parsed)'];
-			},
+			command_report_parser: report => report['Sensor Value (Parsed)'],
 		},
 
 		measure_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
-			command_get_parser: () => {
+			command_get_parser: function () {
 				return {
-					'Properties1': {
-						'Scale': 7,
+					Properties1: {
+						Scale: 7,
 					},
 				};
 			},
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {
-				// console.log(report.Properties2['Scale bits 10']);
-				if (report.Properties2['Scale bits 10'] === 2) {
+				if (report.hasOwnProperty('Properties2')
+				&& report.Properties2.hasOwnProperty('Scale bits 10')
+				&& report.Properties2['Scale bits 10'] === 2) {
 					return report['Meter Value (Parsed)'];
-					// console.log(report['Meter Value (Parsed)']);
-				} else return null;
+				} return null;
 			},
 		},
-
 
 		meter_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
-			command_get_parser: () => {
+			command_get_parser: function () {
 				return {
-					'Properties1': {
-						'Scale': 0,
+					Properties1: {
+						Scale: 0,
 					},
 				};
 			},
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {
-				// console.log(report.Properties2['Scale bits 10']);
-				if (report.Properties2['Scale bits 10'] === 0) {
+				if (report.hasOwnProperty('Properties2')
+				&& report.Properties2.hasOwnProperty('Scale bits 10')
+				&& report.Properties2['Scale bits 10'] === 0) {
 					return report['Meter Value (Parsed)'];
-					// console.log(report['Meter Value (Parsed)']);
-				} else return null;
+				} return null;
 			},
 		},
 	},
 
-	settings: {
-		'Input_1_type': {
-			'index': 1,
-			'size': 1,
-			'parser': function (input) {
+	settings:	{
+		Input_1_type: {
+			index: 1,
+			size: 1,
+			parser: function (input) {
 				return new Buffer([parseInt(input)]);
 			},
 		},
-		'Input_2_contact_type': {
-			'index': 2,
-			'size': 1,
-			'parser': function (input) {
+		Input_2_contact_type: {
+			index: 2,
+			size: 1,
+			parser: function (input) {
 				return new Buffer([parseInt(input)]);
 			},
 		},
-		'Input_3_contact_type': {
-			'index': 3,
-			'size': 1,
-			'parser': function (input) {
+		Input_3_contact_type: {
+			index: 3,
+			size: 1,
+			parser: function (input) {
 				return new Buffer([parseInt(input)]);
 			},
 		},
-		'Deactivate/Activate_ALL_ON_/_ALL_OFF': {
-			'index': 10,
-			'size': 1,
-			'parser': function (input) {
+		Deactivate_Activate_ALL_ON__ALL_OFF: {
+			index: 10,
+			size: 1,
+			parser: function (input) {
 				return new Buffer([parseInt(input)]);
 			},
 		},
-		'State_of_device_after_power_failure': {
-			'index': 30,
-			'size': 1,
-			'parser': function (input) {
+		State_of_device_after_power_failure: {
+			index: 30,
+			size: 1,
+			parser: function (input) {
 				return new Buffer([(input === true) ? 1 : 0]);
 			},
 		},
-		'Power_report_on_power_change': {
-			'index': 40,
-			'size': 1,
-			'parser': function (input) {
+		Power_report_on_power_change: {
+			index: 40,
+			size: 1,
+			parser: function (input) {
 				return new Buffer([parseInt(input)]);
 			},
 		},
-		'Power_report_by_time_interval': {
-			'index': 42,
-			'size': 2,
-			'parser': function (input) {
+		Power_report_by_time_interval: {
+			index: 42,
+			size: 2,
+			parser: function (input) {
 				return new Buffer([parseInt(input)]);
 			},
 		},
-		'Maximum_dimming_value': {
-			'index': 61,
-			'size': 1,
-			'parser': function (input) {
+		Maximum_dimming_value: {
+			index: 61,
+			size: 1,
+			parser: function (input) {
 				return new Buffer([parseInt(input)]);
 			},
 		},
-		'Minimum_dimming_value': {
-			'index': 60,
-			'size': 1,
-			'parser': function (input) {
+		Minimum_dimming_value: {
+			index: 60,
+			size: 1,
+			parser: function (input) {
 				return new Buffer([parseInt(input)]);
 			},
 		},
-		'Dimming_time_(soft_on/off)': {
-			'index': 65,
-			'size': 1,
-			'parser': function (input) {
+		Dimming_time_soft_on_off: {
+			index: 65,
+			size: 1,
+			parser: function (input) {
 				return new Buffer([parseInt(input)] * 100);
 			},
 		},
-		'Dimming_time_when_key_pressed': {
-			'index': 66,
-			'size': 1,
-			'parser': function (input) {
-			 												return new Buffer([parseInt(input)]);
-			 	},
+		Dimming_time_when_key_pressed: {
+			index: 66,
+			size: 1,
+			parser: function (input) {
+				return new Buffer([parseInt(input)]);
+			},
 		},
 	},
 });
@@ -192,7 +184,7 @@ module.exports.on('initNode', (token) => {
 				console.log(report['Sensor Value (Parsed)']);
 				const trigger = 'ZMNHDA2_temp_changed';
 				const state = report['Sensor Value (Parsed)'];
-				const tokens = { 'ZMNHDA2_temp': report['Sensor Value (Parsed)'] };
+				const tokens = { ZMNHDA2_temp: report['Sensor Value (Parsed)'] };
 				Homey.manager('flow').triggerDevice(trigger, tokens, state, node.device_data);
 			}
 		});
