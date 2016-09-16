@@ -115,42 +115,36 @@
             "values": [
                         {
                             "id": "0",
-                            "value": "0",
                             "label": {
                                 "en": "mono-stable switch type"
                             }
                         },
                         {
                             "id": "1",
-                            "value": "1",
                             "label": {
                                 "en": "Bi-stable switch type"
                             }
                         },
                         {
                             "id": "2",
-                            "value": "2",
                             "label": {
                                 "en": "Potentiometer"
                             }
                         },
                         {
                             "id": "3",
-                            "value": "3",
                             "label": {
                                 "en": "0-10V Temperature sensor (regulated output)"
                             }
                         },
                         {
                             "id": "4",
-                            "value": "4",
                             "label": {
                                 "en": "0-10V Illumination sensor (regulated output)"
                             }
                         },
                         {
                             "id": "5",
-                            "value": "5",
                             "label": {
                                 "en": "0-10V General propose sensor (regulated output)"
                             }

@@ -15,11 +15,14 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 
 				return {
 					Value: (value > 0) ? 'on/enable' : 'off/disable',
-					'Dimming Duration': 1,
+					'Dimming Duration': 10,
 				};
 			},
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Value (Raw)'][0] > 0,
+			command_report_parser: report => {
+				console.log(JSON.stringify(report));
+				return report['Value (Raw)'] > 0;
+			},
 		},
 
 		dim: {
@@ -29,11 +32,14 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_set_parser: function (value) {
 				return {
 					Value: value * 100,
-					'Dimming Duration': 1,
+					'Dimming Duration': 10,
 				};
 			},
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Value (Raw)'][0] / 100,
+			command_report_parser: report => {
+				console.log(JSON.stringify(report));
+				return report['Value (Raw)'][0] / 100;
+			},
 		},
 
 		measure_temperature: {
@@ -56,72 +62,42 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		Input_1_type: {
 			index: 1,
 			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 		Automatic_turning_off_output_after_set_time: {
 			index: 11,
 			size: 2,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 		Automatic_turning_on_output_after_set_time: {
 			index: 12,
 			size: 2,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 		State_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
-			parser: function (input) {
-				return new Buffer([(input === true) ? 1 : 0]);
-			},
 		},
 		Maximum_dimming_value: {
 			index: 61,
 			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 		Minimum_dimming_value: {
 			index: 60,
 			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 		Dimming_time_soft_on_off: {
 			index: 65,
 			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)] * 100);
-			},
 		},
 		Dimming_time_when_key_pressed: {
 			index: 66,
 			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 		Temperature_sensor_offset: {
 			index: 110,
 			size: 2,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 		Digital_temperature_sensor_reporting: {
 			index: 120,
 			size: 2,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 	},
 });
@@ -145,7 +121,7 @@ module.exports.on('initNode', (token) => {
 	}
 });
 
-Homey.manager('flow').on('trigger.ZMNHVD1_temp_changed', (callback, args, state) => {
+Homey.manager('flow').on('trigger.ZMNHVD1_temp_changed', (callback) => {
 	callback(null, true);
 	return;
 });

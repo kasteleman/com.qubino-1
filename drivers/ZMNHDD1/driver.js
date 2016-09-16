@@ -8,18 +8,16 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
 
 		onoff: {
-			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
-			command_get: 'SWITCH_MULTILEVEL_GET',
-			command_set: 'SWITCH_MULTILEVEL_SET',
+			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
+			command_get: 'SWITCH_BINARY_GET',
+			command_set: 'SWITCH_BINARY_SET',
 			command_set_parser: function (value) {
-
 				return {
-					Value: (value > 0) ? 'on/enable' : 'off/disable',
-					'Dimming Duration': 1,
+					'Switch Value': value,
 				};
 			},
-			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Value (Raw)'][0] > 0,
+			command_report: 'SWITCH_BINARY_REPORT',
+			command_report_parser: report => report['Value (Raw)'] === 'on/enable',
 		},
 
 		dim: {
@@ -81,100 +79,34 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		Input_1_type: {
 			index: 1,
 			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 		Input_2_type: {
 			index: 1,
 			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
-		},
-		Input_2_contact_type: {
-			index: 3,
-			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
-		},
-		Input_3_contact_type: {
-			index: 4,
-			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 		DeActivate_ALL_ON__ALL_OFF: {
 			index: 10,
 			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 		Automatic_turning_off_output_after_set_time: {
 			index: 11,
 			size: 2,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 		Automatic_turning_on_output_after_set_time: {
 			index: 12,
 			size: 2,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
+		},
+		Time_Unit: {
+			index: 15,
+			size: 1,
 		},
 		State_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
-			parser: function (input) {
-				return new Buffer([(input === true) ? 1 : 0]);
-			},
 		},
-		Power_report_on_power_change: {
-			index: 40,
+		Output_Switch_selection: {
+			index: 63,
 			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
-		},
-		Power_report_by_time_interval: {
-			index: 42,
-			size: 2,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
-		},
-		Maximum_dimming_value: {
-			index: 61,
-			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
-		},
-		Minimum_dimming_value: {
-			index: 60,
-			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
-		},
-		Dimming_time_soft_on_off: {
-			index: 65,
-			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)] * 100);
-			},
-		},
-		Dimming_time_when_key_pressed: {
-			index: 66,
-			size: 1,
-			parser: function (input) {
-				return new Buffer([parseInt(input)]);
-			},
 		},
 	},
 });
