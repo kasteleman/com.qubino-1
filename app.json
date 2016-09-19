@@ -347,14 +347,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "mono-stable switch type"
                           }
                       },
                       {
                           "id": "1",
-                          "value": "1",
                           "label": {
                               "en": "Bi-stable switch type"
                           }
@@ -374,14 +372,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "NO (normally open) input type"
                           }
                       },
                       {
-                          "id": "",
-                          "value": "1",
+                          "id": "1",
                           "label": {
                               "en": "NC (normally close) input type"
                           }
@@ -401,14 +397,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "NO (normally open) input type"
                           }
                       },
                       {
                           "id": "1",
-                          "value": "1",
                           "label": {
                               "en": "NC (normally close) input type"
                           }
@@ -577,14 +571,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "mono-stable switch type"
                           }
                       },
                       {
                           "id": "1",
-                          "value": "1",
                           "label": {
                               "en": "Bi-stable switch type"
                           }
@@ -604,14 +596,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "mono-stable switch type"
                           }
                       },
                       {
                           "id": "1",
-                          "value": "1",
                           "label": {
                               "en": "Bi-stable switch type"
                           }
@@ -631,14 +621,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "NO (normally open) input type"
                           }
                       },
                       {
                           "id": "",
-                          "value": "1",
                           "label": {
                               "en": "NC (normally close) input type"
                           }
@@ -658,14 +646,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "NO (normally open) input type"
                           }
                       },
                       {
                           "id": "1",
-                          "value": "1",
                           "label": {
                               "en": "NC (normally close) input type"
                           }
@@ -864,14 +850,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "mono-stable switch type"
                           }
                       },
                       {
                           "id": "1",
-                          "value": "1",
                           "label": {
                               "en": "Bi-stable switch type"
                           }

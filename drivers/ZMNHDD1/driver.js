@@ -20,8 +20,8 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			},
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
 			command_report_parser: report => {
-				// console.log(JSON.stringify(report));
-				return report['Value (Raw)'] > 0;
+				console.log(JSON.stringify(report));
+				return report['Value (Raw)'][0] > 0;
 			},
 		},
 
@@ -115,6 +115,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		State_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
+			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
 		Power_report_on_power_change: {
 			index: 40,

@@ -97,6 +97,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		State_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
+			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
 		Power_report_on_power_change: {
 			index: 40,
