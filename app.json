@@ -115,42 +115,36 @@
             "values": [
                         {
                             "id": "0",
-                            "value": "0",
                             "label": {
                                 "en": "mono-stable switch type"
                             }
                         },
                         {
                             "id": "1",
-                            "value": "1",
                             "label": {
                                 "en": "Bi-stable switch type"
                             }
                         },
                         {
                             "id": "2",
-                            "value": "2",
                             "label": {
                                 "en": "Potentiometer"
                             }
                         },
                         {
                             "id": "3",
-                            "value": "3",
                             "label": {
                                 "en": "0-10V Temperature sensor (regulated output)"
                             }
                         },
                         {
                             "id": "4",
-                            "value": "4",
                             "label": {
                                 "en": "0-10V Illumination sensor (regulated output)"
                             }
                         },
                         {
                             "id": "5",
-                            "value": "5",
                             "label": {
                                 "en": "0-10V General propose sensor (regulated output)"
                             }
@@ -236,7 +230,7 @@
                      }
             },
             {
-             "id": "Dimming_time_(soft_on/off)",
+             "id": "Dimming_time_soft_on_off",
              "type": "number",
              "label": {
                        "en": "Dimming time (soft on/off)"
@@ -353,14 +347,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "mono-stable switch type"
                           }
                       },
                       {
                           "id": "1",
-                          "value": "1",
                           "label": {
                               "en": "Bi-stable switch type"
                           }
@@ -380,14 +372,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "NO (normally open) input type"
                           }
                       },
                       {
-                          "id": "",
-                          "value": "1",
+                          "id": "1",
                           "label": {
                               "en": "NC (normally close) input type"
                           }
@@ -407,14 +397,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "NO (normally open) input type"
                           }
                       },
                       {
                           "id": "1",
-                          "value": "1",
                           "label": {
                               "en": "NC (normally close) input type"
                           }
@@ -500,7 +488,7 @@
                 }
         },
         {
-        "id": "Dimming_time_(soft_on/off)",
+        "id": "Dimming_time_soft_on_off",
         "type": "number",
         "label": {
         "en": "Dimming time (soft on/off)"
@@ -583,14 +571,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "mono-stable switch type"
                           }
                       },
                       {
                           "id": "1",
-                          "value": "1",
                           "label": {
                               "en": "Bi-stable switch type"
                           }
@@ -610,14 +596,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "mono-stable switch type"
                           }
                       },
                       {
                           "id": "1",
-                          "value": "1",
                           "label": {
                               "en": "Bi-stable switch type"
                           }
@@ -637,14 +621,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "NO (normally open) input type"
                           }
                       },
                       {
                           "id": "",
-                          "value": "1",
                           "label": {
                               "en": "NC (normally close) input type"
                           }
@@ -664,14 +646,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "NO (normally open) input type"
                           }
                       },
                       {
                           "id": "1",
-                          "value": "1",
                           "label": {
                               "en": "NC (normally close) input type"
                           }
@@ -787,7 +767,7 @@
                 }
         },
         {
-        "id": "Dimming_time_(soft_on/off)",
+        "id": "Dimming_time_soft_on_off",
         "type": "number",
         "label": {
         "en": "Dimming time (soft on/off)"
@@ -870,14 +850,12 @@
           "values": [
                       {
                           "id": "0",
-                          "value": "0",
                           "label": {
                               "en": "mono-stable switch type"
                           }
                       },
                       {
                           "id": "1",
-                          "value": "1",
                           "label": {
                               "en": "Bi-stable switch type"
                           }
@@ -993,7 +971,7 @@
                 }
         },
         {
-        "id": "Dimming_time_(soft_on/off)",
+        "id": "Dimming_time_soft_on_off",
         "type": "number",
         "label": {
         "en": "Dimming time (soft on/off)"
