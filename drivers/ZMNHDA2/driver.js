@@ -48,6 +48,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			},
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
 			command_report_parser: report => report['Sensor Value (Parsed)'],
+			optional: true,
 		},
 
 		measure_power: {
