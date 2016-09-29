@@ -16,4 +16,5 @@ Version 1.04
 * Powermeasurement in kWh and Watt added.
 * Moved to mobile devicecards. Be aware, not al values are visible because at this moment there is no scrollbar and items in Chrome are limited to 4 and in IOS to 3.
 * ZMNHDA2 Flush Dimmer: If no temperaturesensor connected, -999,90 °C is shown as value.
-* ZMNHVD1 & ZMNHDA2 Flow trigger added for Temperature changed.
+* ZMNHVD1, ZMNHDD1 & ZMNHDA2 Flow trigger added for Temperature changed.
+* Added option in capability in case there is no temperaturesensor connected to prevent drivercrash (not tested yet)

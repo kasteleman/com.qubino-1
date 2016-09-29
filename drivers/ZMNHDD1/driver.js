@@ -81,6 +81,22 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				} return null;
 			},
 		},
+
+		measure_temperature: {
+			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
+			command_get: 'SENSOR_MULTILEVEL_GET',
+			command_get_parser: function () {
+				return {
+					'Sensor Type': 'Temperature (version 1)',
+					Properties1: {
+						Scale: 0,
+					},
+				};
+			},
+			command_report: 'SENSOR_MULTILEVEL_REPORT',
+			command_report_parser: report => report['Sensor Value (Parsed)'],
+			optional: true,
+		},
 	},
 
 	settings: {
@@ -142,4 +158,28 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 		},
 	},
+});
+
+// bind Flow
+module.exports.on('initNode', (token) => {
+
+	const node = module.exports.nodes[token];
+	if (node) {
+		node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
+			if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
+				console.log('Flow: New report value came in');
+				console.log(node.device_data);
+				console.log(report['Sensor Value (Parsed)']);
+				const trigger = 'ZMNHDD1_temp_changed';
+				const state = report['Sensor Value (Parsed)'];
+				const tokens = { ZMNHDD1_temp: report['Sensor Value (Parsed)'] };
+				Homey.manager('flow').triggerDevice(trigger, tokens, state, node.device_data);
+			}
+		});
+	}
+});
+
+Homey.manager('flow').on('trigger.ZMNHDD1_temp_changed', (callback) => {
+	callback(null, true);
+	return;
 });

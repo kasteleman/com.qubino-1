@@ -63,6 +63,28 @@
   						"filter": "driver_id=ZMNHDA2"
   					}
   				]
+  			},
+        {
+  				"id": "ZMNHDD1_temp_changed",
+  				"title": {
+  					"en": "Temperature has changed",
+  					"nl": "Temperatuur is veranderd"
+  				},
+          "tokens": [
+            {
+              "name": "ZMNHDD1_temp",
+              "title":  {
+                "en": "temp"
+              }
+            }
+          ],
+  				"args": [
+  					{
+  						"name": "device",
+  						"type": "device",
+  						"filter": "driver_id=ZMNHDD1"
+  					}
+  				]
   			}
   		]
     },
@@ -311,7 +333,7 @@
           "associationGroups": [ 1,4 ]
         },
       "class": "socket",
-      "capabilities": [ "onoff", "dim", "measure_temperature", "measure_power", "meter_power" ],
+      "capabilities": [ "onoff", "dim", "measure_power", "meter_power", "measure_temperature" ],
       "mobile": {
       "components": [
         {
@@ -539,7 +561,7 @@
           "associationGroups": [ 1,4 ]
         },
       "class": "socket",
-      "capabilities": [ "onoff", "dim", "measure_power", "meter_power" ],
+      "capabilities": [ "onoff", "dim", "measure_power", "meter_power", "measure_temperature" ],
       "mobile": {
       "components": [
         {
@@ -557,6 +579,10 @@
         {
             "id": "sensor",
             "capabilities": [ "meter_power" ]
+        },
+        {
+            "id": "sensor",
+            "capabilities": [ "measure_temperature" ]
         }
       ]
       },
