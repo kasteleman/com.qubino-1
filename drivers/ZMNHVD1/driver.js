@@ -47,19 +47,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report_parser: report => report['Sensor Value (Parsed)'],
 			optional: true,
 		},
-
-		measure_power: {
-			command_class: 'COMMAND_CLASS_POWERLEVEL',
-			command_get: 'POWERLEVEL_GET',
-			command_get_parser: () => ({
-				'Sensor Type': 'Temperature (version 1)',
-				Properties1: {
-					Scale: 0,
-				},
-			}),
-			command_report: 'POWERLEVEL_REPORT',
-			command_report_parser: report => report['Power level (Raw)'][0],
-		}
 	},
 
 	settings: {

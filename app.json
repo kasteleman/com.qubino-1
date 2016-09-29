@@ -52,8 +52,7 @@
 			"capabilities": [
 				"onoff",
 				"dim",
-				"measure_temperature",
-				"measure_power"
+				"measure_temperature"
 			],
 			"mobile": {
 				"components": [
@@ -73,12 +72,6 @@
 						"id": "sensor",
 						"capabilities": [
 							"measure_temperature"
-						]
-					},
-					{
-						"id": "sensor",
-						"capabilities": [
-							"measure_power"
 						]
 					}
 				]
@@ -229,7 +222,8 @@
 					"id": "dimming_time_soft_on_off",
 					"type": "number",
 					"label": {
-						"en": "Dimming time (soft on/off)"
+						"en": "Dimming time (soft on/off)",
+						"nl": "Dim periode (soft on/off)"
 					},
 					"value": 100,
 					"attr": {
@@ -237,7 +231,8 @@
 						"max": 255
 					},
 					"hint": {
-						"en": "Set value means time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (Dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds"
+						"en": "Parameter that determines the time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds.",
+						"nl": "Parameter die de dim periode bepaalt bij het schakelen van de dimmer tussen minimale en maximale waarde. Standaard waarde is 100 (1000ms). 1 - 255 = 10 miliseconds – 2550 miliseconds (2,55s), stap is 10 miliseconds."
 					}
 				},
 				{
@@ -304,12 +299,14 @@
 				"learnmode": {
 					"image": "/drivers/ZMNHDA2/assets/learnmode.svg",
 					"instruction": {
-						"en": "For INCLUSION: press service button S your Dimmer for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-						"nl": "Voor TOEVOEGEN: houd de service knop S van je Dimmer langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+						"en": "Press service button (S) for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds).",
+						"nl": "Houd de service knop (S) langer dan 2 seconden ingedrukt of druk knop I1 3 keer binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden)."
 					}
 				},
 				"associationGroups": [
 					1,
+					2,
+					3,
 					4
 				]
 			},
@@ -361,19 +358,21 @@
 			},
 			"settings": [
 				{
-					"id": "Input_1_type",
+					"id": "input_1_type",
 					"type": "dropdown",
 					"values": [
 						{
 							"id": "0",
 							"label": {
-								"en": "mono-stable switch type"
+								"en": "Mono-stable switch type",
+								"nl": "Mono-stable switch type"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "Bi-stable switch type"
+								"en": "Bi-stable switch type",
+								"nl": "Bi-stable switch type"
 							}
 						}
 					],
@@ -382,75 +381,87 @@
 						"en": "Input 1 switch type"
 					},
 					"hint": {
-						"en": "By this parameter the user can set input based on device type"
+						"en": "This parameter sets the type of input switch used.",
+						"nl": "Deze parameter bepaalt het type input switch."
 					}
 				},
 				{
-					"id": "Input_2_contact_type",
+					"id": "input_2_contact_type",
 					"type": "dropdown",
 					"values": [
 						{
 							"id": "0",
 							"label": {
-								"en": "NO (normally open) input type"
+								"en": "NO (normally open) input type",
+								"nl": "NO (normaal open) input type"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "NC (normally close) input type"
+								"en": "NC (normally close) input type",
+								"nl": "NG (normaal gesloten) input type"
 							}
 						}
 					],
 					"value": "0",
 					"label": {
-						"en": "Input 2 contact type"
+						"en": "Input 2 contact type",
+						"nl": "Input 2 contact type"
 					},
 					"hint": {
-						"en": "The parameter defines the contact type"
+						"en": "This parameter sets the contact type of input 2.",
+						"nl": "Deze parameter bepaalt het contact type van input 2."
 					}
 				},
 				{
-					"id": "Input_3_contact_type",
+					"id": "input_3_contact_type",
 					"type": "dropdown",
 					"values": [
 						{
 							"id": "0",
 							"label": {
-								"en": "NO (normally open) input type"
+								"en": "NO (normally open) input type",
+								"nl": "NO (normaal open) input type"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "NC (normally close) input type"
+								"en": "NC (normally close) input type",
+								"nl": "NG (normaal gesloten) input type"
 							}
 						}
 					],
 					"value": "0",
 					"label": {
-						"en": "Input 3 contact type"
+						"en": "Input 3 contact type",
+						"nl": "Input 3 contact type"
 					},
 					"hint": {
-						"en": "The parameter defines the contact type"
+						"en": "This parameter sets the contact type of input 3.",
+						"nl": "Deze parameter bepaalt het contact type van input 3."
 					}
 				},
 				{
-					"id": "State_of_device_after_power_failure",
+					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
-						"en": "State of device after power failure"
+						"en": "Restore previous state of device after power failure",
+						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
 					},
 					"value": false,
 					"hint": {
-						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
+						"nl": "Deze parameter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 					}
 				},
 				{
-					"id": "Power_report_on_power_change",
+					"id": "power_report_on_power_change",
 					"type": "number",
 					"label": {
-						"en": "Power report on power change"
+						"en": "Power report on power change",
+						"nl": "Stroomverbruik update bij verandering van"
 					},
 					"value": 5,
 					"attr": {
@@ -458,14 +469,16 @@
 						"max": 100
 					},
 					"hint": {
-						"en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
+						"en": "The parameter determines if a power report should be sent depending on the predefined power change in percentage",
+						"nl": "Deze parameter zorgt ervoor dat bij de gedefinieerde verandering in stroomverbruik (%) een update wordt verzonden naar Homey"
 					}
 				},
 				{
-					"id": "Power_report_by_time_interval",
+					"id": "power_report_by_time_interval",
 					"type": "number",
 					"label": {
-						"en": "Power report by time Interval"
+						"en": "Power report by time Interval",
+						"nl": "Stroomverbruik update per tijdsinterval"
 					},
 					"value": 300,
 					"attr": {
@@ -473,14 +486,16 @@
 						"max": 65535
 					},
 					"hint": {
-						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Value range: 1 – 65535.",
+						"nl": "Stel het interval (seconden, 1 - 65535) in waarop een stroomverbruik update moet worden verstuurt naar Homey. 0 -> geen updates."
 					}
 				},
 				{
-					"id": "Maximum_dimming_value",
+					"id": "maximum_dimming_value",
 					"type": "number",
 					"label": {
-						"en": "Maximum_dimming_value"
+						"en": "Maximum dimming value",
+						"nl": "Maximale dim waarde"
 					},
 					"value": 99,
 					"attr": {
@@ -488,14 +503,16 @@
 						"max": 99
 					},
 					"hint": {
-						"en": "The parameter defines the maximum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
+						"en": "The parameter defines the maximum dimming value. The maximum level may not be higher than the minimum level.",
+						"nl": "Deze parameter bepaalt de maximale dim waarde. De maximale dim waarde mag niet hoger zijn dan de minimale dim waarde."
 					}
 				},
 				{
-					"id": "Minimum_dimming_value",
+					"id": "minimum_dimming_value",
 					"type": "number",
 					"label": {
-						"en": "Minimum_dimming_value"
+						"en": "Minimum dimming value",
+						"nl": "Minimale dim waarde"
 					},
 					"value": 1,
 					"attr": {
@@ -503,14 +520,16 @@
 						"max": 98
 					},
 					"hint": {
-						"en": "The parameter defines the minimum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
+						"en": "The parameter defines the minimum dimming value. The minimum level may not be higher than the maximum level.",
+						"nl": "Deze parameter bepaalt de minimale dim waarde. De minimale dim waarde mag niet hoger zijn dan de maximale dim waarde."
 					}
 				},
 				{
-					"id": "Dimming_time_soft_on_off",
+					"id": "dimming_time_soft_on_off",
 					"type": "number",
 					"label": {
-						"en": "Dimming time (soft on/off)"
+						"en": "Dimming time (soft on/off)",
+						"nl": "Dim periode (soft on/off)"
 					},
 					"value": 100,
 					"attr": {
@@ -518,22 +537,25 @@
 						"max": 255
 					},
 					"hint": {
-						"en": "Set value means time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (Dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds"
+						"en": "Parameter that determines the time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds.",
+						"nl": "Parameter die de dim periode bepaalt bij het schakelen van de dimmer tussen minimale en maximale waarde. Standaard waarde is 100 (1000ms). 1 - 255 = 10 miliseconds – 2550 miliseconds (2,55s), stap is 10 miliseconds."
 					}
 				},
 				{
-					"id": "Dimming_time_when_key_pressed",
+					"id": "dimming_time_when_key_pressed",
 					"type": "number",
 					"label": {
-						"en": "Dimming time when key pressed"
+						"en": "Dimming duration",
+						"nl": "Dim periode"
 					},
 					"value": 3,
 					"attr": {
-						"min": 1,
+						"min": 50,
 						"max": 255
 					},
 					"hint": {
-						"en": "Time of moving the Dimmer between min. and max dimming values by continues hold of push button I1. 1- 255 = 1 second – 255 seconds"
+						"en": "Time of moving the dimmer between minimum and maximum dimming values by push button I1 (short press). 50 = 500 miliseconds, 255 = 2550 miliseconds.",
+						"nl": "Tijd die nodig is voor het veranderen van het minimale naar maximale dim niveau (d.m.v. korte druk op I1). 50 = 500 miliseconden, 255 = 2550 miliseconden."
 					}
 				}
 			]
@@ -1062,19 +1084,11 @@
 	"flow": {
 		"triggers": [
 			{
-				"id": "ZMNHDA2_temp_changed",
+				"id": "ZMNHDA2_I2_on",
 				"title": {
-					"en": "Temperature has changed",
-					"nl": "Temperatuur is veranderd"
+					"en": "Input 2 turned on",
+					"nl": "Input 2 is ingeschakeld"
 				},
-				"tokens": [
-					{
-						"name": "ZMNHDA2_temp",
-						"title": {
-							"en": "temp"
-						}
-					}
-				],
 				"args": [
 					{
 						"name": "device",
@@ -1084,24 +1098,44 @@
 				]
 			},
 			{
-				"id": "ZMNHDD1_temp_changed",
+				"id": "ZMNHDA2_I2_off",
 				"title": {
-					"en": "Temperature has changed",
-					"nl": "Temperatuur is veranderd"
+					"en": "Input 2 turned off",
+					"nl": "Input 2 is uitgeschakeld"
 				},
-				"tokens": [
-					{
-						"name": "ZMNHDD1_temp",
-						"title": {
-							"en": "temp"
-						}
-					}
-				],
 				"args": [
 					{
 						"name": "device",
 						"type": "device",
-						"filter": "driver_id=ZMNHDD1"
+						"filter": "driver_id=ZMNHDA2"
+					}
+				]
+			},
+			{
+				"id": "ZMNHDA2_I3_on",
+				"title": {
+					"en": "Input 3 turned on",
+					"nl": "Input 3 is ingeschakeld"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHDA2"
+					}
+				]
+			},
+			{
+				"id": "ZMNHDA2_I3_off",
+				"title": {
+					"en": "Input 3 turned off",
+					"nl": "Input 3 is uitgeschakeld"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHDA2"
 					}
 				]
 			}
