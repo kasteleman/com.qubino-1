@@ -146,6 +146,17 @@ module.exports.on('initNode', token => {
 	const node = module.exports.nodes[token];
 
 	if (node) {
+		if (node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL) {
+			node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
+				if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
+					Homey.manager('flow').triggerDevice(
+						'ZMNHDA2_temp_changed',
+						{ ZMNHDA2_temp: report['Sensor Value (Parsed)'] },
+						report['Sensor Value (Parsed)'], node.device_data
+					);
+				}
+			});
+		}
 		if (node.instance.MultiChannelNodes['1']) {
 			node.instance.MultiChannelNodes['1'].CommandClass['COMMAND_CLASS_SENSOR_BINARY']
 				.on('report', (command, report) => {
@@ -172,3 +183,5 @@ module.exports.on('initNode', token => {
 		}
 	}
 });
+
+Homey.manager('flow').on('trigger.ZMNHDA2_temp_changed', callback => callback(null, true));

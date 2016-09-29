@@ -1084,6 +1084,50 @@
 	"flow": {
 		"triggers": [
 			{
+				"id": "ZMNHDA2_temp_changed",
+				"title": {
+					"en": "Temperature has changed",
+					"nl": "Temperatuur is veranderd"
+				},
+				"tokens": [
+					{
+						"name": "ZMNHDA2_temp",
+						"title": {
+							"en": "temp"
+						}
+					}
+				],
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHDA2"
+					}
+				]
+			},
+			{
+				"id": "ZMNHDD1_temp_changed",
+				"title": {
+					"en": "Temperature has changed",
+					"nl": "Temperatuur is veranderd"
+				},
+				"tokens": [
+					{
+						"name": "ZMNHDD1_temp",
+						"title": {
+							"en": "temp"
+						}
+					}
+				],
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHDD1"
+					}
+				]
+			},
+			{
 				"id": "ZMNHDA2_I2_on",
 				"title": {
 					"en": "Input 2 turned on",
