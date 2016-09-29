@@ -92,3 +92,20 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 	},
 });
+
+module.exports.on('initNode', (token) => {
+
+	const node = module.exports.nodes[token];
+	if (node) {
+		node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
+			if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
+				Homey.manager('flow').triggerDevice(
+					'ZMNHVD1_temp_changed',
+					{ ZMNHVD1_temp: report['Sensor Value (Parsed)'] },
+					report['Sensor Value (Parsed)'], node.device_data);
+			}
+		});
+	}
+});
+
+Homey.manager('flow').on('trigger.ZMNHVD1_temp_changed', callback => callback(null, true));
