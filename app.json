@@ -1,1032 +1,1110 @@
 {
-    "id": "com.qubino",
-    "name": {
-				"en": "Qubino"
+	"id": "com.qubino",
+	"name": {
+		"en": "Qubino"
+	},
+	"version": "1.0.4",
+	"compatibility": ">=0.9.0",
+	"description": {
+		"en": "Qubino devices for Homey",
+		"nl": "Qubino apparaten voor Homey"
+	},
+	"category": [
+		"appliances",
+		"lights",
+		"climate"
+	],
+	"images": {
+		"large": "/assets/images/large.png",
+		"small": "/assets/images/small.png"
+	},
+	"author": {
+		"name": "Martin Brasse",
+		"email": "kasteleman@gmail.com"
+	},
+	"drivers": [
+		{
+			"id": "ZMNHVD1",
+			"name": {
+				"en": "ZMNHVD1 Flush Dimmer 0-10V"
 			},
-    "version": "1.0.4",
-    "compatibility": ">=0.9.0",
-    "description": {
-					"en": "Qubino devices for Homey"
-					},
-    "category": [ "appliances", "lights", "climate" ],
-    "images": {
-				"large": "/assets/images/large.png",
-				"small": "/assets/images/small.png"
-			  },
-    "author":	{
-        "name": "Martin Brasse",
-        "email": "kasteleman@gmail.com"
+			"zwave": {
+				"manufacturerId": 345,
+				"productTypeId": 1,
+				"productId": 83,
+				"learnmode": {
+					"image": "/drivers/ZMNHVD1/assets/learnmode.svg",
+					"instruction": {
+						"en": "Press service button (S) for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds).",
+						"nl": "Houd de service knop (S) langer dan 2 seconden ingedrukt of druk knop I1 3 keer binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden)."
+					}
 				},
-
-      "flow": {
-  		"triggers": [
-  			{
-  				"id": "ZMNHVD1_temp_changed",
-  				"title": {
-  					"en": "Temperature has changed",
-  					"nl": "Temperatuur is veranderd"
-  				},
-          "tokens": [
-            {
-              "name": "ZMNHVD1_temp",
-              "title":  {
-                "en": "temp"
-              }
-            }
-          ],
-  				"args": [
-  					{
-  						"name": "device",
-  						"type": "device",
-  						"filter": "driver_id=ZMNHVD1"
-  					}
-  				]
-  			},
-        {
-  				"id": "ZMNHDA2_temp_changed",
-  				"title": {
-  					"en": "Temperature has changed",
-  					"nl": "Temperatuur is veranderd"
-  				},
-          "tokens": [
-            {
-              "name": "ZMNHDA2_temp",
-              "title":  {
-                "en": "temp"
-              }
-            }
-          ],
-  				"args": [
-  					{
-  						"name": "device",
-  						"type": "device",
-  						"filter": "driver_id=ZMNHDA2"
-  					}
-  				]
-  			},
-        {
-  				"id": "ZMNHDD1_temp_changed",
-  				"title": {
-  					"en": "Temperature has changed",
-  					"nl": "Temperatuur is veranderd"
-  				},
-          "tokens": [
-            {
-              "name": "ZMNHDD1_temp",
-              "title":  {
-                "en": "temp"
-              }
-            }
-          ],
-  				"args": [
-  					{
-  						"name": "device",
-  						"type": "device",
-  						"filter": "driver_id=ZMNHDD1"
-  					}
-  				]
-  			}
-  		]
-    },
-
-    "drivers": [
-	    {
-		    "id": "ZMNHVD1",
-		    "name": {
-						"en": "ZMNHVD1 Flush Dimmer 0-10V"
+				"associationGroups": [
+					1,
+					2,
+					3,
+					4,
+					5,
+					6
+				]
+			},
+			"class": "socket",
+			"capabilities": [
+				"onoff",
+				"dim",
+				"measure_temperature",
+				"measure_power"
+			],
+			"mobile": {
+				"components": [
+					{
+						"id": "icon",
+						"capabilities": [
+							"onoff"
+						]
 					},
-		    "zwave": {
-						"manufacturerId": 345,
-						"productTypeId": 1,
-						"productId": 83,
-						"learnmode": {
-										"image": "/drivers/ZMNHVD1/assets/learnmode.svg",
-										"instruction": {
-                      "en": "For INCLUSION: press service button S your Dimmer for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-                      "nl": "Voor TOEVOEGEN: houd de service knop S van je Dimmer langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
-														}
-									},
-						"associationGroups": [ 1,3 ]
-				},
-		    "class": "socket",
-		    "capabilities": [ "onoff", "dim", "measure_temperature" ],
-        "mobile": {
-        "components": [
-          {
-              "id": "icon",
-              "capabilities": [ "onoff" ]
-          },
-          {
-              "id": "slider",
-              "capabilities": [ "dim" ]
-          },
-          {
-              "id": "sensor",
-              "capabilities": [ "measure_temperature" ]
-          }
-        ]
-        },
-		    "images": {
-						"large": "/drivers/ZMNHVD1/assets/images/large.png",
-						"small": "/drivers/ZMNHVD1/assets/images/small.png"
+					{
+						"id": "slider",
+						"capabilities": [
+							"dim"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_temperature"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_power"
+						]
+					}
+				]
+			},
+			"images": {
+				"large": "/drivers/ZMNHVD1/assets/images/large.png",
+				"small": "/drivers/ZMNHVD1/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "input_1_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Mono-stable switch type",
+								"nl": "Mono-stable switch type"
+							}
 						},
-				"settings": [
-			    {
-				    "id": "Input_1_type",
-				    "type": "dropdown",
-            "values": [
-                        {
-                            "id": "0",
-                            "label": {
-                                "en": "mono-stable switch type"
-                            }
-                        },
-                        {
-                            "id": "1",
-                            "label": {
-                                "en": "Bi-stable switch type"
-                            }
-                        },
-                        {
-                            "id": "2",
-                            "label": {
-                                "en": "Potentiometer"
-                            }
-                        },
-                        {
-                            "id": "3",
-                            "label": {
-                                "en": "0-10V Temperature sensor (regulated output)"
-                            }
-                        },
-                        {
-                            "id": "4",
-                            "label": {
-                                "en": "0-10V Illumination sensor (regulated output)"
-                            }
-                        },
-                        {
-                            "id": "5",
-                            "label": {
-                                "en": "0-10V General propose sensor (regulated output)"
-                            }
-                        }
-                    ],
-                    "value": "0",
-                    "label": {
-                      "en": "Input 1 type"
-                    },
-                    "hint": {
-                      "en": "By this parameter the user can set input based on device type. NOTE: After parameter change to value 3,4 or 5 first exclude module then wait at least 30s and then re include the module!"
-				            }
-          },
-          {
-           "id": "Automatic_turning_off_output_after_set_time",
-            "type": "number",
-            "label": {
-                      "en": "Automatic turning off output after set time"
-                      },
-            "value": 0,
-            "attr": {
-                     "min": 0,
-                     "max": 325369
-                    },
-            "hint": {
-                    "en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
-                    }
-            },
-            {
-             "id": "Automatic_turning_on_output_after_set_time",
-              "type": "number",
-              "label": {
-                        "en": "Automatic turning on output after set time"
-                        },
-              "value": 0,
-              "attr": {
-                       "min": 0,
-                       "max": 32536
-                      },
-              "hint": {
-                      "en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
-                      }
-              },
-          {
-          "id": "State_of_device_after_power_failure",
-          "type": "checkbox",
-          "label": {
-          "en": "State of device after power failure"
-            },
-          "value": false,
-          "hint": {
-            "en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
-            }
-          },
-          {
-           "id": "Maximum_dimming_value",
-            "type": "number",
-            "label": {
-                      "en": "Maximum_dimming_value"
-                      },
-            "value": 99,
-            "attr": {
-                     "min": 2,
-                     "max": 99
-                    },
-            "hint": {
-                    "en": "The parameter defines the maximum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
-                    }
-            },
-            {
-             "id": "Minimum_dimming_value",
-             "type": "number",
-             "label": {
-                       "en": "Minimum_dimming_value"
-                      },
-             "value": 1,
-             "attr": {
-                      "min": 1,
-                      "max": 98
-                     },
-             "hint": {
-                      "en": "The parameter defines the minimum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
-                     }
-            },
-            {
-             "id": "Dimming_time_soft_on_off",
-             "type": "number",
-             "label": {
-                       "en": "Dimming time (soft on/off)"
-                      },
-             "value": 100,
-             "attr": {
-                      "min": 1,
-                      "max": 255
-                     },
-             "hint": {
-                      "en": "Set value means time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (Dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds"
-                     }
-            },
-            {
-             "id": "Dimming_time_when_key_pressed",
-             "type": "number",
-             "label": {
-                        "en": "Dimming time when key pressed"
-                      },
-             "value": 3,
-             "attr": {
-                      "min": 1,
-                      "max": 255
-                     },
-             "hint": {
-                       "en": "Time of moving the Dimmer between min. and max dimming values by continues hold of push button I1. 1- 255 = 1 second – 255 seconds"
-                     }
-           },
-           {
-            "id": "Temperature_sensor_offset",
-            "type": "number",
-            "label": {
-                       "en": "Temperature sensor offset"
-                     },
-            "value": 32536,
-            "attr": {
-                     "min": 1,
-                     "max": 1100
-                    },
-            "hint": {
-                      "en": "32536 - offset is 0.0 °C. From 1 to 100 - value from 0.1 °C to 10.0 °C is added to actual measured temperature. From 1001 to 1100 - value from -0.1 °C to -10.0 °C is subtracted to actual measured temperature."
-                    }
-          },
-          {
-           "id": "Digital_temperature_sensor_reporting",
-           "type": "number",
-           "label": {
-                      "en": "Digital temperature sensor reporting"
-                    },
-           "value": 5,
-           "attr": {
-                    "min": 1,
-                    "max": 127
-                   },
-           "hint": {
-                     "en": "Default value 5 = 0,5°C change. 0 - Reporting disabled. 1 - 127 = 0,1°C - 12,7°C, step is 0,1°C."
-                   }
-         }
+						{
+							"id": "1",
+							"label": {
+								"en": "Bi-stable switch type",
+								"nl": "Bi-stable switch type"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Potentiometer",
+								"nl": "Potentiometer"
+							}
+						},
+						{
+							"id": "3",
+							"label": {
+								"en": "0-10V Temperature sensor",
+								"nl": "0-10V Temperatuur sensor"
+							}
+						},
+						{
+							"id": "4",
+							"label": {
+								"en": "0-10V Illumination sensor",
+								"nl": "0-10V Lichtsterkte sensor"
+							}
+						},
+						{
+							"id": "5",
+							"label": {
+								"en": "0-10V General propose sensor",
+								"nl": "0-10V Algemene sensor"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input type (1)"
+					},
+					"hint": {
+						"en": "This parameter sets the input type. When this parameter is set to one of the 0-10V options first exclude module then wait at least 30 seconds and then re-include the module.",
+						"nl": "Deze parameter bepaalt het type van input 1. Wanneer deze parameter is ingesteld op een van de 0-10V opties, exclude de module en wacht 30 seconden voor het opnieuw includen."
+					}
+				},
+				{
+					"id": "automatic_turning_off_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning off output after set time",
+						"nl": "Automatisch uitschakelen van output na"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 325369
+					},
+					"hint": {
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
+					}
+				},
+				{
+					"id": "automatic_turning_on_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning on output after set time",
+						"nl": "Automatisch inschakelen van output na"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 32536
+					},
+					"hint": {
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch intschakelen uit."
+					}
+				},
+				{
+					"id": "state_of_device_after_power_failure",
+					"type": "checkbox",
+					"label": {
+						"en": "Restore previous state of device after power failure",
+						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
+					},
+					"value": false,
+					"hint": {
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
+						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
+					}
+				},
+				{
+					"id": "maximum_dimming_value",
+					"type": "number",
+					"label": {
+						"en": "Maximum dimming value",
+						"nl": "Maximale dim waarde"
+					},
+					"value": 99,
+					"attr": {
+						"min": 2,
+						"max": 99
+					},
+					"hint": {
+						"en": "The parameter defines the maximum dimming value. The maximum level may not be higher than the minimum level.",
+						"nl": "Deze parameter bepaalt de maximale dim waarde. De maximale dim waarde mag niet hoger zijn dan de minimale dim waarde."
+					}
+				},
+				{
+					"id": "minimum_dimming_value",
+					"type": "number",
+					"label": {
+						"en": "Minimum dimming value",
+						"nl": "Minimale dim waarde"
+					},
+					"value": 1,
+					"attr": {
+						"min": 1,
+						"max": 98
+					},
+					"hint": {
+						"en": "The parameter defines the minimum dimming value. The minimum level may not be higher than the maximum level.",
+						"nl": "Deze parameter bepaalt de minimale dim waarde. De minimale dim waarde mag niet hoger zijn dan de maximale dim waarde."
+					}
+				},
+				{
+					"id": "dimming_time_soft_on_off",
+					"type": "number",
+					"label": {
+						"en": "Dimming time (soft on/off)"
+					},
+					"value": 100,
+					"attr": {
+						"min": 1,
+						"max": 255
+					},
+					"hint": {
+						"en": "Set value means time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (Dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds"
+					}
+				},
+				{
+					"id": "dimming_time_when_key_pressed",
+					"type": "number",
+					"label": {
+						"en": "Dimming duration",
+						"nl": "Dim periode"
+					},
+					"value": 3,
+					"attr": {
+						"min": 50,
+						"max": 255
+					},
+					"hint": {
+						"en": "Time of moving the dimmer between minimum and maximum dimming values by push button I1 (short press). 50 = 500 miliseconds, 255 = 2550 miliseconds.",
+						"nl": "Tijd die nodig is voor het veranderen van het minimale naar maximale dim niveau (d.m.v. korte druk op I1). 50 = 500 miliseconden, 255 = 2550 miliseconden."
+					}
+				},
+				{
+					"id": "temperature_sensor_offset",
+					"type": "number",
+					"label": {
+						"en": "Temperature sensor offset"
+					},
+					"value": 32536,
+					"attr": {
+						"min": 1,
+						"max": 32536
+					},
+					"hint": {
+						"en": "32536 = offset is 0.0 °C. From 1 to 100 - value from 0.1 °C to 10.0 °C is added to actual measured temperature. From 1001 to 1100 - value from -0.1 °C to -10.0 °C is subtracted to actual measured temperature.",
+						"nl": "32536 = verschil is 0,0 °C. Van 1 tot 100 - waarde van 0,1 °C tot 10,0 °C wordt opgeteld bij de gemeten temperatuur. Van 1001 tot 1100 - waarde van -0,1 °C tot -10,0 °C wordt afgetrokken van de gemeten temperatuur"
+					}
+				},
+				{
+					"id": "digital_temperature_sensor_reporting",
+					"type": "number",
+					"label": {
+						"en": "Digital temperature change for report",
+						"nl": "Digitale temperatuur waarde verandering voor report"
+					},
+					"value": 5,
+					"attr": {
+						"min": 0,
+						"max": 127
+					},
+					"hint": {
+						"en": "Default value 5 = 0.5 °C change. 0 - Reporting disabled. 1 - 127 = 0.1°C - 12.7°C, step is 0.1°C.",
+						"nl": "Standaard waarde 5 = 0,5 °C verandering. 0 - Reporting uitgeschakeld. 1 - 127 = 0,1 °C - 12,7 °C, stap grootte is 0,1 °C."
+					}
+				}
 			]
-    },
-
-    {
-      "id": "ZMNHDA2",
-      "name": {
-          "en": "ZMNHDA2 Flush Dimmer"
-        },
-      "zwave": {
-          "manufacturerId": 345,
-          "productTypeId": 1,
-          "productId": 1,
-          "learnmode": {
-                  "image": "/drivers/ZMNHDA2/assets/learnmode.svg",
-                  "instruction": {
-                    "en": "For INCLUSION: press service button S your Dimmer for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-                    "nl": "Voor TOEVOEGEN: houd de service knop S van je Dimmer langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
-                          }
-                },
-          "associationGroups": [ 1,4 ]
-        },
-      "class": "socket",
-      "capabilities": [ "onoff", "dim", "measure_power", "meter_power", "measure_temperature" ],
-      "mobile": {
-      "components": [
-        {
-            "id": "icon",
-            "capabilities": [ "onoff" ]
-        },
-        {
-            "id": "slider",
-            "capabilities": [ "dim" ]
-        },
-        {
-            "id": "sensor",
-            "capabilities": [ "measure_power" ]
-        },
-        {
-            "id": "sensor",
-            "capabilities": [ "meter_power" ]
-        },
-        {
-            "id": "sensor",
-            "capabilities": [ "measure_temperature" ]
-        }
-      ]
-      },
-      "images": {
-          "large": "/drivers/ZMNHDA2/assets/images/large.png",
-          "small": "/drivers/ZMNHDA2/assets/images/small.png"
-          },
-      "settings": [
-        {
-          "id": "Input_1_type",
-          "type": "dropdown",
-          "values": [
-                      {
-                          "id": "0",
-                          "label": {
-                              "en": "mono-stable switch type"
-                          }
-                      },
-                      {
-                          "id": "1",
-                          "label": {
-                              "en": "Bi-stable switch type"
-                          }
-                      }
-                  ],
-                  "value": "0",
-                  "label": {
-                    "en": "Input 1 switch type"
-                  },
-                  "hint": {
-                    "en": "By this parameter the user can set input based on device type"
-          }
-        },
-        {
-          "id": "Input_2_contact_type",
-          "type": "dropdown",
-          "values": [
-                      {
-                          "id": "0",
-                          "label": {
-                              "en": "NO (normally open) input type"
-                          }
-                      },
-                      {
-                          "id": "1",
-                          "label": {
-                              "en": "NC (normally close) input type"
-                          }
-                      }
-                  ],
-                  "value": "0",
-                  "label": {
-                    "en": "Input 2 contact type"
-                  },
-                  "hint": {
-                    "en": "The parameter defines the contact type"
-          }
-        },
-        {
-          "id": "Input_3_contact_type",
-          "type": "dropdown",
-          "values": [
-                      {
-                          "id": "0",
-                          "label": {
-                              "en": "NO (normally open) input type"
-                          }
-                      },
-                      {
-                          "id": "1",
-                          "label": {
-                              "en": "NC (normally close) input type"
-                          }
-                      }
-                  ],
-                  "value": "0",
-                  "label": {
-                    "en": "Input 3 contact type"
-                  },
-                  "hint": {
-                    "en": "The parameter defines the contact type"
-          }
-        },
-        {
-        "id": "State_of_device_after_power_failure",
-        "type": "checkbox",
-        "label": {
-        "en": "State of device after power failure"
-          },
-        "value": false,
-        "hint": {
-          "en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
-          }
-        },
-        {
-        "id": "Power_report_on_power_change",
-        "type": "number",
-        "label": {
-        "en": "Power report on power change"
-          },
-        "value": 5,
-        "attr": {
-                "min": 0,
-                "max": 100
-              },
-        "hint": {
-                  "en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
-                }
-        },
-        {
-        "id": "Power_report_by_time_interval",
-        "type": "number",
-        "label": {
-        "en": "Power report by time Interval"
-          },
-        "value": 300,
-        "attr": {
-                "min": 0,
-                "max": 65535
-              },
-        "hint": {
-                  "en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
-                }
-        },
-        {
-        "id": "Maximum_dimming_value",
-        "type": "number",
-        "label": {
-        "en": "Maximum_dimming_value"
-          },
-        "value": 99,
-        "attr": {
-                "min": 2,
-                "max": 99
-              },
-        "hint": {
-                  "en": "The parameter defines the maximum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
-                }
-        },
-        {
-        "id": "Minimum_dimming_value",
-        "type": "number",
-        "label": {
-        "en": "Minimum_dimming_value"
-          },
-        "value": 1,
-        "attr": {
-                "min": 1,
-                "max": 98
-              },
-        "hint": {
-                  "en": "The parameter defines the minimum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
-                }
-        },
-        {
-        "id": "Dimming_time_soft_on_off",
-        "type": "number",
-        "label": {
-        "en": "Dimming time (soft on/off)"
-          },
-        "value": 100,
-        "attr": {
-                "min": 1,
-                "max": 255
-              },
-        "hint": {
-                  "en": "Set value means time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (Dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds"
-                }
-        },
-        {
-        "id": "Dimming_time_when_key_pressed",
-        "type": "number",
-        "label": {
-        "en": "Dimming time when key pressed"
-          },
-        "value": 3,
-        "attr": {
-                "min": 1,
-                "max": 255
-              },
-        "hint": {
-                  "en": "Time of moving the Dimmer between min. and max dimming values by continues hold of push button I1. 1- 255 = 1 second – 255 seconds"
-                }
-        }
-    ]
-    },
-
-    {
-      "id": "ZMNHDD1",
-      "name": {
-          "en": "ZMNHDD1 Flush Dimmer"
-        },
-      "zwave": {
-          "manufacturerId": 345,
-          "productTypeId": 1,
-          "productId": 81,
-          "learnmode": {
-                  "image": "/drivers/ZMNHDD1/assets/learnmode.svg",
-                  "instruction": {
-                            "en": "For INCLUSION: press service button S your Dimmer for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-                            "nl": "Voor TOEVOEGEN: houd de service knop S van je Dimmer langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
-                          }
-                },
-          "associationGroups": [ 1,4 ]
-        },
-      "class": "socket",
-      "capabilities": [ "onoff", "dim", "measure_power", "meter_power", "measure_temperature" ],
-      "mobile": {
-      "components": [
-        {
-            "id": "icon",
-            "capabilities": [ "onoff" ]
-        },
-        {
-            "id": "slider",
-            "capabilities": [ "dim" ]
-        },
-        {
-            "id": "sensor",
-            "capabilities": [ "measure_power" ]
-        },
-        {
-            "id": "sensor",
-            "capabilities": [ "meter_power" ]
-        },
-        {
-            "id": "sensor",
-            "capabilities": [ "measure_temperature" ]
-        }
-      ]
-      },
-      "images": {
-          "large": "/drivers/ZMNHDD1/assets/images/large.png",
-          "small": "/drivers/ZMNHDD1/assets/images/small.png"
-          },
-      "settings": [
-        {
-          "id": "Input_1_type",
-          "type": "dropdown",
-          "values": [
-                      {
-                          "id": "0",
-                          "label": {
-                              "en": "mono-stable switch type"
-                          }
-                      },
-                      {
-                          "id": "1",
-                          "label": {
-                              "en": "Bi-stable switch type"
-                          }
-                      }
-                  ],
-                  "value": "0",
-                  "label": {
-                    "en": "Input 1 switch type"
-                  },
-                  "hint": {
-                    "en": "By this parameter the user can set input based on device type"
-          }
-        },
-        {
-          "id": "Input_2_type",
-          "type": "dropdown",
-          "values": [
-                      {
-                          "id": "0",
-                          "label": {
-                              "en": "mono-stable switch type"
-                          }
-                      },
-                      {
-                          "id": "1",
-                          "label": {
-                              "en": "Bi-stable switch type"
-                          }
-                      }
-                  ],
-                  "value": "0",
-                  "label": {
-                    "en": "Input 2 switch type"
-                  },
-                  "hint": {
-                    "en": "By this parameter the user can set input based on device type"
-          }
-        },
-        {
-          "id": "Input_2_contact_type",
-          "type": "dropdown",
-          "values": [
-                      {
-                          "id": "0",
-                          "label": {
-                              "en": "NO (normally open) input type"
-                          }
-                      },
-                      {
-                          "id": "",
-                          "label": {
-                              "en": "NC (normally close) input type"
-                          }
-                      }
-                  ],
-                  "value": "0",
-                  "label": {
-                    "en": "Input 2 contact type"
-                  },
-                  "hint": {
-                    "en": "The parameter defines the contact type"
-          }
-        },
-        {
-          "id": "Input_3_contact_type",
-          "type": "dropdown",
-          "values": [
-                      {
-                          "id": "0",
-                          "label": {
-                              "en": "NO (normally open) input type"
-                          }
-                      },
-                      {
-                          "id": "1",
-                          "label": {
-                              "en": "NC (normally close) input type"
-                          }
-                      }
-                  ],
-                  "value": "0",
-                  "label": {
-                    "en": "Input 3 contact type"
-                  },
-                  "hint": {
-                    "en": "The parameter defines the contact type"
-          }
-        },
-      {
-      "id": "Automatic_turning_off_output_after_set_time",
-      "type": "number",
-      "label": {
-                "en": "Automatic turning off output after set time"
-                },
-      "value": 0,
-      "attr": {
-              "min": 0,
-              "max": 325369
-              },
-      "hint": {
-              "en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
-             }
-      },
-      {
-      "id": "Automatic_turning_on_output_after_set_time",
-        "type": "number",
-        "label": {
-                  "en": "Automatic turning on output after set time"
-                  },
-        "value": 0,
-        "attr": {
-                "min": 0,
-                "max": 32536
-                },
-        "hint": {
-                "en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
-                }
-        },
-        {
-        "id": "State_of_device_after_power_failure",
-        "type": "checkbox",
-        "label": {
-        "en": "State of device after power failure"
-          },
-        "value": false,
-        "hint": {
-          "en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
-          }
-        },
-        {
-        "id": "Power_report_on_power_change",
-        "type": "number",
-        "label": {
-        "en": "Power report on power change"
-          },
-        "value": 5,
-        "attr": {
-                "min": 0,
-                "max": 100
-              },
-        "hint": {
-                  "en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
-                }
-        },
-        {
-        "id": "Power_report_by_time_interval",
-        "type": "number",
-        "label": {
-        "en": "Power report by time Interval"
-          },
-        "value": 300,
-        "attr": {
-                "min": 0,
-                "max": 65535
-              },
-        "hint": {
-                  "en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
-                }
-        },
-        {
-        "id": "Maximum_dimming_value",
-        "type": "number",
-        "label": {
-        "en": "Maximum_dimming_value"
-          },
-        "value": 99,
-        "attr": {
-                "min": 2,
-                "max": 99
-              },
-        "hint": {
-                  "en": "The parameter defines the maximum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
-                }
-        },
-        {
-        "id": "Minimum_dimming_value",
-        "type": "number",
-        "label": {
-        "en": "Minimum_dimming_value"
-          },
-        "value": 1,
-        "attr": {
-                "min": 1,
-                "max": 98
-              },
-        "hint": {
-                  "en": "The parameter defines the minimum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
-                }
-        },
-        {
-        "id": "Dimming_time_soft_on_off",
-        "type": "number",
-        "label": {
-        "en": "Dimming time (soft on/off)"
-          },
-        "value": 100,
-        "attr": {
-                "min": 1,
-                "max": 255
-              },
-        "hint": {
-                  "en": "Set value means time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (Dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds"
-                }
-        },
-        {
-        "id": "Dimming_time_when_key_pressed",
-        "type": "number",
-        "label": {
-        "en": "Dimming time when key pressed"
-          },
-        "value": 3,
-        "attr": {
-                "min": 1,
-                "max": 255
-              },
-        "hint": {
-                  "en": "Time of moving the Dimmer between min. and max dimming values by continues hold of push button I1. 1- 255 = 1 second – 255 seconds"
-                }
-        }
-    ]
-    },
-
-    {
-      "id": "ZMNHSD1",
-      "name": {
-          "en": "ZMNHSD1 DIN Rail Dimmer"
-        },
-      "zwave": {
-          "manufacturerId": 345,
-          "productTypeId": 1,
-          "productId": 82,
-          "learnmode": {
-                  "image": "/drivers/ZMNHSD1/assets/learnmode.svg",
-                  "instruction": {
-                            "en": "For INCLUSION: press service button S your Dimmer for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-                            "nl": "Voor TOEVOEGEN: houd de service knop S van je Dimmer langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
-                          }
-                },
-          "associationGroups": [ 1,4 ]
-        },
-      "class": "socket",
-      "capabilities": [ "onoff", "dim", "measure_power", "meter_power" ],
-      "mobile": {
-      "components": [
-        {
-            "id": "icon",
-            "capabilities": [ "onoff" ]
-        },
-        {
-            "id": "slider",
-            "capabilities": [ "dim" ]
-        },
-        {
-            "id": "sensor",
-            "capabilities": [ "measure_power" ]
-        },
-        {
-            "id": "sensor",
-            "capabilities": [ "meter_power" ]
-        }
-      ]
-      },
-      "images": {
-          "large": "/drivers/ZMNHSD1/assets/images/large.png",
-          "small": "/drivers/ZMNHSD1/assets/images/small.png"
-          },
-      "settings": [
-        {
-          "id": "Input_1_type",
-          "type": "dropdown",
-          "values": [
-                      {
-                          "id": "0",
-                          "label": {
-                              "en": "mono-stable switch type"
-                          }
-                      },
-                      {
-                          "id": "1",
-                          "label": {
-                              "en": "Bi-stable switch type"
-                          }
-                      }
-                  ],
-                  "value": "0",
-                  "label": {
-                    "en": "Input 1 switch type"
-                  },
-                  "hint": {
-                    "en": "By this parameter the user can set input based on device type"
-          }
-        },
-        {
-         "id": "Automatic_turning_off_output_after_set_time",
-          "type": "number",
-          "label": {
-                    "en": "Automatic turning off output after set time"
-                    },
-          "value": 0,
-          "attr": {
-                   "min": 0,
-                   "max": 325369
-                  },
-          "hint": {
-                  "en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
-                  }
-          },
-          {
-           "id": "Automatic_turning_on_output_after_set_time",
-            "type": "number",
-            "label": {
-                      "en": "Automatic turning on output after set time"
-                      },
-            "value": 0,
-            "attr": {
-                     "min": 0,
-                     "max": 32536
-                    },
-            "hint": {
-                    "en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
-                    }
-            },
-        {
-        "id": "State_of_device_after_power_failure",
-        "type": "checkbox",
-        "label": {
-        "en": "State of device after power failure"
-          },
-        "value": false,
-        "hint": {
-          "en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
-          }
-        },
-        {
-        "id": "Power_report_on_power_change",
-        "type": "number",
-        "label": {
-        "en": "Power report on power change"
-          },
-        "value": 5,
-        "attr": {
-                "min": 0,
-                "max": 100
-              },
-        "hint": {
-                  "en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
-                }
-        },
-        {
-        "id": "Power_report_by_time_interval",
-        "type": "number",
-        "label": {
-        "en": "Power report by time Interval"
-          },
-        "value": 300,
-        "attr": {
-                "min": 0,
-                "max": 65535
-              },
-        "hint": {
-                  "en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
-                }
-        },
-        {
-        "id": "Maximum_dimming_value",
-        "type": "number",
-        "label": {
-        "en": "Maximum_dimming_value"
-          },
-        "value": 99,
-        "attr": {
-                "min": 2,
-                "max": 99
-              },
-        "hint": {
-                  "en": "The parameter defines the maximum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
-                }
-        },
-        {
-        "id": "Minimum_dimming_value",
-        "type": "number",
-        "label": {
-        "en": "Minimum_dimming_value"
-          },
-        "value": 1,
-        "attr": {
-                "min": 1,
-                "max": 98
-              },
-        "hint": {
-                  "en": "The parameter defines the minimum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
-                }
-        },
-        {
-        "id": "Dimming_time_soft_on_off",
-        "type": "number",
-        "label": {
-        "en": "Dimming time (soft on/off)"
-          },
-        "value": 100,
-        "attr": {
-                "min": 1,
-                "max": 255
-              },
-        "hint": {
-                  "en": "Set value means time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (Dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds"
-                }
-        },
-        {
-        "id": "Dimming_time_when_key_pressed",
-        "type": "number",
-        "label": {
-        "en": "Dimming time when key pressed"
-          },
-        "value": 3,
-        "attr": {
-                "min": 1,
-                "max": 255
-              },
-        "hint": {
-                  "en": "Time of moving the Dimmer between min. and max dimming values by continues hold of push button I1. 1- 255 = 1 second – 255 seconds"
-                }
-        }
-    ]
-    }
+		},
+		{
+			"id": "ZMNHDA2",
+			"name": {
+				"en": "ZMNHDA2 Flush Dimmer"
+			},
+			"zwave": {
+				"manufacturerId": 345,
+				"productTypeId": 1,
+				"productId": 1,
+				"learnmode": {
+					"image": "/drivers/ZMNHDA2/assets/learnmode.svg",
+					"instruction": {
+						"en": "For INCLUSION: press service button S your Dimmer for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
+						"nl": "Voor TOEVOEGEN: houd de service knop S van je Dimmer langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+					}
+				},
+				"associationGroups": [
+					1,
+					4
+				]
+			},
+			"class": "socket",
+			"capabilities": [
+				"onoff",
+				"dim",
+				"measure_power",
+				"meter_power",
+				"measure_temperature"
+			],
+			"mobile": {
+				"components": [
+					{
+						"id": "icon",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
+						"id": "slider",
+						"capabilities": [
+							"dim"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_power"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"meter_power"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_temperature"
+						]
+					}
+				]
+			},
+			"images": {
+				"large": "/drivers/ZMNHDA2/assets/images/large.png",
+				"small": "/drivers/ZMNHDA2/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "Input_1_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "mono-stable switch type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Bi-stable switch type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 1 switch type"
+					},
+					"hint": {
+						"en": "By this parameter the user can set input based on device type"
+					}
+				},
+				{
+					"id": "Input_2_contact_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "NO (normally open) input type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "NC (normally close) input type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 2 contact type"
+					},
+					"hint": {
+						"en": "The parameter defines the contact type"
+					}
+				},
+				{
+					"id": "Input_3_contact_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "NO (normally open) input type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "NC (normally close) input type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 3 contact type"
+					},
+					"hint": {
+						"en": "The parameter defines the contact type"
+					}
+				},
+				{
+					"id": "State_of_device_after_power_failure",
+					"type": "checkbox",
+					"label": {
+						"en": "State of device after power failure"
+					},
+					"value": false,
+					"hint": {
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+					}
+				},
+				{
+					"id": "Power_report_on_power_change",
+					"type": "number",
+					"label": {
+						"en": "Power report on power change"
+					},
+					"value": 5,
+					"attr": {
+						"min": 0,
+						"max": 100
+					},
+					"hint": {
+						"en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
+					}
+				},
+				{
+					"id": "Power_report_by_time_interval",
+					"type": "number",
+					"label": {
+						"en": "Power report by time Interval"
+					},
+					"value": 300,
+					"attr": {
+						"min": 0,
+						"max": 65535
+					},
+					"hint": {
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
+					}
+				},
+				{
+					"id": "Maximum_dimming_value",
+					"type": "number",
+					"label": {
+						"en": "Maximum_dimming_value"
+					},
+					"value": 99,
+					"attr": {
+						"min": 2,
+						"max": 99
+					},
+					"hint": {
+						"en": "The parameter defines the maximum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
+					}
+				},
+				{
+					"id": "Minimum_dimming_value",
+					"type": "number",
+					"label": {
+						"en": "Minimum_dimming_value"
+					},
+					"value": 1,
+					"attr": {
+						"min": 1,
+						"max": 98
+					},
+					"hint": {
+						"en": "The parameter defines the minimum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
+					}
+				},
+				{
+					"id": "Dimming_time_soft_on_off",
+					"type": "number",
+					"label": {
+						"en": "Dimming time (soft on/off)"
+					},
+					"value": 100,
+					"attr": {
+						"min": 1,
+						"max": 255
+					},
+					"hint": {
+						"en": "Set value means time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (Dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds"
+					}
+				},
+				{
+					"id": "Dimming_time_when_key_pressed",
+					"type": "number",
+					"label": {
+						"en": "Dimming time when key pressed"
+					},
+					"value": 3,
+					"attr": {
+						"min": 1,
+						"max": 255
+					},
+					"hint": {
+						"en": "Time of moving the Dimmer between min. and max dimming values by continues hold of push button I1. 1- 255 = 1 second – 255 seconds"
+					}
+				}
+			]
+		},
+		{
+			"id": "ZMNHDD1",
+			"name": {
+				"en": "ZMNHDD1 Flush Dimmer"
+			},
+			"zwave": {
+				"manufacturerId": 345,
+				"productTypeId": 1,
+				"productId": 81,
+				"learnmode": {
+					"image": "/drivers/ZMNHDD1/assets/learnmode.svg",
+					"instruction": {
+						"en": "For INCLUSION: press service button S your Dimmer for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
+						"nl": "Voor TOEVOEGEN: houd de service knop S van je Dimmer langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+					}
+				},
+				"associationGroups": [
+					1,
+					4
+				]
+			},
+			"class": "socket",
+			"capabilities": [
+				"onoff",
+				"dim",
+				"measure_power",
+				"meter_power",
+				"measure_temperature"
+			],
+			"mobile": {
+				"components": [
+					{
+						"id": "icon",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
+						"id": "slider",
+						"capabilities": [
+							"dim"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_power"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"meter_power"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_temperature"
+						]
+					}
+				]
+			},
+			"images": {
+				"large": "/drivers/ZMNHDD1/assets/images/large.png",
+				"small": "/drivers/ZMNHDD1/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "Input_1_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "mono-stable switch type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Bi-stable switch type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 1 switch type"
+					},
+					"hint": {
+						"en": "By this parameter the user can set input based on device type"
+					}
+				},
+				{
+					"id": "Input_2_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "mono-stable switch type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Bi-stable switch type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 2 switch type"
+					},
+					"hint": {
+						"en": "By this parameter the user can set input based on device type"
+					}
+				},
+				{
+					"id": "Input_2_contact_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "NO (normally open) input type"
+							}
+						},
+						{
+							"id": "",
+							"label": {
+								"en": "NC (normally close) input type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 2 contact type"
+					},
+					"hint": {
+						"en": "The parameter defines the contact type"
+					}
+				},
+				{
+					"id": "Input_3_contact_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "NO (normally open) input type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "NC (normally close) input type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 3 contact type"
+					},
+					"hint": {
+						"en": "The parameter defines the contact type"
+					}
+				},
+				{
+					"id": "Automatic_turning_off_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning off output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 325369
+					},
+					"hint": {
+						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "Automatic_turning_on_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning on output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 32536
+					},
+					"hint": {
+						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "State_of_device_after_power_failure",
+					"type": "checkbox",
+					"label": {
+						"en": "State of device after power failure"
+					},
+					"value": false,
+					"hint": {
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+					}
+				},
+				{
+					"id": "Power_report_on_power_change",
+					"type": "number",
+					"label": {
+						"en": "Power report on power change"
+					},
+					"value": 5,
+					"attr": {
+						"min": 0,
+						"max": 100
+					},
+					"hint": {
+						"en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
+					}
+				},
+				{
+					"id": "Power_report_by_time_interval",
+					"type": "number",
+					"label": {
+						"en": "Power report by time Interval"
+					},
+					"value": 300,
+					"attr": {
+						"min": 0,
+						"max": 65535
+					},
+					"hint": {
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
+					}
+				},
+				{
+					"id": "Maximum_dimming_value",
+					"type": "number",
+					"label": {
+						"en": "Maximum_dimming_value"
+					},
+					"value": 99,
+					"attr": {
+						"min": 2,
+						"max": 99
+					},
+					"hint": {
+						"en": "The parameter defines the maximum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
+					}
+				},
+				{
+					"id": "Minimum_dimming_value",
+					"type": "number",
+					"label": {
+						"en": "Minimum_dimming_value"
+					},
+					"value": 1,
+					"attr": {
+						"min": 1,
+						"max": 98
+					},
+					"hint": {
+						"en": "The parameter defines the minimum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
+					}
+				},
+				{
+					"id": "Dimming_time_soft_on_off",
+					"type": "number",
+					"label": {
+						"en": "Dimming time (soft on/off)"
+					},
+					"value": 100,
+					"attr": {
+						"min": 1,
+						"max": 255
+					},
+					"hint": {
+						"en": "Set value means time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (Dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds"
+					}
+				},
+				{
+					"id": "Dimming_time_when_key_pressed",
+					"type": "number",
+					"label": {
+						"en": "Dimming time when key pressed"
+					},
+					"value": 3,
+					"attr": {
+						"min": 1,
+						"max": 255
+					},
+					"hint": {
+						"en": "Time of moving the Dimmer between min. and max dimming values by continues hold of push button I1. 1- 255 = 1 second – 255 seconds"
+					}
+				}
+			]
+		},
+		{
+			"id": "ZMNHSD1",
+			"name": {
+				"en": "ZMNHSD1 DIN Rail Dimmer"
+			},
+			"zwave": {
+				"manufacturerId": 345,
+				"productTypeId": 1,
+				"productId": 82,
+				"learnmode": {
+					"image": "/drivers/ZMNHSD1/assets/learnmode.svg",
+					"instruction": {
+						"en": "For INCLUSION: press service button S your Dimmer for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
+						"nl": "Voor TOEVOEGEN: houd de service knop S van je Dimmer langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+					}
+				},
+				"associationGroups": [
+					1,
+					4
+				]
+			},
+			"class": "socket",
+			"capabilities": [
+				"onoff",
+				"dim",
+				"measure_power",
+				"meter_power"
+			],
+			"mobile": {
+				"components": [
+					{
+						"id": "icon",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
+						"id": "slider",
+						"capabilities": [
+							"dim"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_power"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"meter_power"
+						]
+					}
+				]
+			},
+			"images": {
+				"large": "/drivers/ZMNHSD1/assets/images/large.png",
+				"small": "/drivers/ZMNHSD1/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "Input_1_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "mono-stable switch type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Bi-stable switch type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 1 switch type"
+					},
+					"hint": {
+						"en": "By this parameter the user can set input based on device type"
+					}
+				},
+				{
+					"id": "Automatic_turning_off_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning off output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 325369
+					},
+					"hint": {
+						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "Automatic_turning_on_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning on output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 32536
+					},
+					"hint": {
+						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "State_of_device_after_power_failure",
+					"type": "checkbox",
+					"label": {
+						"en": "State of device after power failure"
+					},
+					"value": false,
+					"hint": {
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+					}
+				},
+				{
+					"id": "Power_report_on_power_change",
+					"type": "number",
+					"label": {
+						"en": "Power report on power change"
+					},
+					"value": 5,
+					"attr": {
+						"min": 0,
+						"max": 100
+					},
+					"hint": {
+						"en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
+					}
+				},
+				{
+					"id": "Power_report_by_time_interval",
+					"type": "number",
+					"label": {
+						"en": "Power report by time Interval"
+					},
+					"value": 300,
+					"attr": {
+						"min": 0,
+						"max": 65535
+					},
+					"hint": {
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
+					}
+				},
+				{
+					"id": "Maximum_dimming_value",
+					"type": "number",
+					"label": {
+						"en": "Maximum_dimming_value"
+					},
+					"value": 99,
+					"attr": {
+						"min": 2,
+						"max": 99
+					},
+					"hint": {
+						"en": "The parameter defines the maximum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
+					}
+				},
+				{
+					"id": "Minimum_dimming_value",
+					"type": "number",
+					"label": {
+						"en": "Minimum_dimming_value"
+					},
+					"value": 1,
+					"attr": {
+						"min": 1,
+						"max": 98
+					},
+					"hint": {
+						"en": "The parameter defines the minimum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
+					}
+				},
+				{
+					"id": "Dimming_time_soft_on_off",
+					"type": "number",
+					"label": {
+						"en": "Dimming time (soft on/off)"
+					},
+					"value": 100,
+					"attr": {
+						"min": 1,
+						"max": 255
+					},
+					"hint": {
+						"en": "Set value means time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (Dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds"
+					}
+				},
+				{
+					"id": "Dimming_time_when_key_pressed",
+					"type": "number",
+					"label": {
+						"en": "Dimming time when key pressed"
+					},
+					"value": 3,
+					"attr": {
+						"min": 1,
+						"max": 255
+					},
+					"hint": {
+						"en": "Time of moving the Dimmer between min. and max dimming values by continues hold of push button I1. 1- 255 = 1 second – 255 seconds"
+					}
+				}
+			]
+		}
+	],
+	"flow": {
+		"triggers": [
+			{
+				"id": "ZMNHDA2_temp_changed",
+				"title": {
+					"en": "Temperature has changed",
+					"nl": "Temperatuur is veranderd"
+				},
+				"tokens": [
+					{
+						"name": "ZMNHDA2_temp",
+						"title": {
+							"en": "temp"
+						}
+					}
+				],
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHDA2"
+					}
+				]
+			},
+			{
+				"id": "ZMNHDD1_temp_changed",
+				"title": {
+					"en": "Temperature has changed",
+					"nl": "Temperatuur is veranderd"
+				},
+				"tokens": [
+					{
+						"name": "ZMNHDD1_temp",
+						"title": {
+							"en": "temp"
+						}
+					}
+				],
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHDD1"
+					}
+				]
+			}
 		]
 	}
+}
