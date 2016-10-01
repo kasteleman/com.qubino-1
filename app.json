@@ -22,7 +22,7 @@
 		"name": "Martin Brasse",
 		"email": "kasteleman@gmail.com"
 	},
-	"drivers": [
+		"drivers": [
 		{
 			"id": "ZMNHVD1",
 			"name": {
@@ -1076,6 +1076,198 @@
 					},
 					"hint": {
 						"en": "Time of moving the Dimmer between min. and max dimming values by continues hold of push button I1. 1- 255 = 1 second – 255 seconds"
+					}
+				}
+			]
+		},
+		{
+			"id": "ZMNHTD1",
+			"name": {
+				"en": "ZMNHTD1 Smart Meter"
+			},
+			"images": {
+				"large": "/drivers/ZMNHTD1/assets/images/large.png",
+				"small": "/drivers/ZMNHTD1/assets/images/small.png"
+			},
+			"class": "socket",
+			"capabilities": [	"onoff",
+				"measure_power",
+				"meter_power"
+			],
+			"zwave": {
+				"manufacturerId": 345,
+				"productTypeId": 7,
+				"productId": 82,
+				"learnmode": {
+					"image": "/drivers/ZMNHTD1/assets/learnmode.svg",
+					"instruction": {
+						"en": "For INCLUSION: press service button S your Dimmer for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
+						"nl": "Voor TOEVOEGEN: houd de service knop S van je Dimmer langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+					}
+				},
+				"associationGroups": [ 1 ],
+				"multiChannelNodes": {
+					"1": {
+						"class": "socket",
+						"capabilities": [ "onoff" ],
+						"name": {
+							"en": "IR BICOM432"
+						},
+					"settings": {}
+					},
+					"2": {
+						"class": "socket",
+						"capabilities": [ "onoff" ],
+						"name": {
+							"en": "IKA232"
+						},
+					"settings": {}
+					}
+				}
+			},
+			"settings": [
+				{
+					"id": "Input_1_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "disabled"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "IR external relay control – mono-stable switch type"
+							}
+						},
+						{
+							"id": "3",
+							"label": {
+								"en": "IR external relay control - Bi-stable switch type"
+							}
+						},
+						{
+							"id": "4",
+							"label": {
+								"en": "External relay control – mono-stable switch type"
+							}
+						},
+						{
+							"id": "5",
+							"label": {
+								"en": "External relay control – Bi-stable switch type"
+							}
+						}
+					],
+					"value": "4",
+					"label": {
+						"en": "Input 1 switch type"
+					},
+					"hint": {
+						"en": "By this parameter the user can set input based on device type"
+					}
+				},
+				{
+					"id": "Automatic_turning_off_ir_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning off IR output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 325369
+					},
+					"hint": {
+						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "Automatic_turning_on_ir_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning on IR output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 32536
+					},
+					"hint": {
+						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "Automatic_turning_off_relay_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning off relay output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 325369
+					},
+					"hint": {
+						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "Automatic_turning_on_relay_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning on relay output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 32536
+					},
+					"hint": {
+						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "State_of_device_after_power_failure",
+					"type": "checkbox",
+					"label": {
+						"en": "State of device after power failure"
+					},
+					"value": false,
+					"hint": {
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+					}
+				},
+				{
+					"id": "Power_report_on_power_change",
+					"type": "number",
+					"label": {
+						"en": "Power report on power change"
+					},
+					"value": 5,
+					"attr": {
+						"min": 0,
+						"max": 100
+					},
+					"hint": {
+						"en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
+					}
+				},
+				{
+					"id": "Power_report_by_time_interval",
+					"type": "number",
+					"label": {
+						"en": "Power report by time Interval"
+					},
+					"value": 300,
+					"attr": {
+						"min": 0,
+						"max": 65535
+					},
+					"hint": {
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
 					}
 				}
 			]
