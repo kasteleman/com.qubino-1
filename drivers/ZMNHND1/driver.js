@@ -124,20 +124,46 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	},
 });
 
-module.exports.on('initNode', (token) => {
-
+module.exports.on('initNode', token => {
 	const node = module.exports.nodes[token];
+
 	if (node) {
-		node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
-			if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
-				Homey.manager('flow').triggerDevice(
-					'ZMNHDD1_temp_changed',
-					{ ZMNHDD1_temp: report['Sensor Value (Parsed)'] },
-					report['Sensor Value (Parsed)'], node.device_data
-				);
-			}
-		});
+		if (node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL) {
+			node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
+				if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
+					Homey.manager('flow').triggerDevice(
+						'ZMNHND1_temp_changed',
+						{ ZMNHND1_temp: report['Sensor Value (Parsed)'] },
+						report['Sensor Value (Parsed)'], node.device_data
+					);
+				}
+			});
+		}
+		if (node.instance.MultiChannelNodes['1']) {
+			node.instance.MultiChannelNodes['1'].CommandClass['COMMAND_CLASS_SENSOR_BINARY']
+				.on('report', (command, report) => {
+					if (report) {
+						if (report['Sensor Value'] === 'detected an event') {
+							Homey.manager('flow').triggerDevice('ZMNHND1_I2_on', {}, {}, node.device_data);
+						} else if (report['Sensor Value'] === 'idle') {
+							Homey.manager('flow').triggerDevice('ZMNHND1_I2_off', {}, {}, node.device_data);
+						}
+					}
+				});
+		}
+		if (node.instance.MultiChannelNodes['2']) {
+			node.instance.MultiChannelNodes['2'].CommandClass['COMMAND_CLASS_SENSOR_BINARY']
+				.on('report', (command, report) => {
+					if (report) {
+						if (report['Sensor Value'] === 'detected an event') {
+							Homey.manager('flow').triggerDevice('ZMNHND1_I3_on', {}, {}, node.device_data);
+						} else if (report['Sensor Value'] === 'idle') {
+							Homey.manager('flow').triggerDevice('ZMNHND1_I3_off', {}, {}, node.device_data);
+						}
+					}
+				});
+		}
 	}
 });
 
-Homey.manager('flow').on('trigger.ZMNHDD1_temp_changed', callback => callback(null, true));
+Homey.manager('flow').on('trigger.ZMNHND1_temp_changed', callback => callback(null, true));
