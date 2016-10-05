@@ -139,30 +139,6 @@ module.exports.on('initNode', token => {
 				}
 			});
 		}
-		if (node.instance.MultiChannelNodes['1']) {
-			node.instance.MultiChannelNodes['1'].CommandClass['COMMAND_CLASS_SENSOR_BINARY']
-				.on('report', (command, report) => {
-					if (report) {
-						if (report['Sensor Value'] === 'detected an event') {
-							Homey.manager('flow').triggerDevice('ZMNHND1_I2_on', {}, {}, node.device_data);
-						} else if (report['Sensor Value'] === 'idle') {
-							Homey.manager('flow').triggerDevice('ZMNHND1_I2_off', {}, {}, node.device_data);
-						}
-					}
-				});
-		}
-		if (node.instance.MultiChannelNodes['2']) {
-			node.instance.MultiChannelNodes['2'].CommandClass['COMMAND_CLASS_SENSOR_BINARY']
-				.on('report', (command, report) => {
-					if (report) {
-						if (report['Sensor Value'] === 'detected an event') {
-							Homey.manager('flow').triggerDevice('ZMNHND1_I3_on', {}, {}, node.device_data);
-						} else if (report['Sensor Value'] === 'idle') {
-							Homey.manager('flow').triggerDevice('ZMNHND1_I3_off', {}, {}, node.device_data);
-						}
-					}
-				});
-		}
 	}
 });
 
