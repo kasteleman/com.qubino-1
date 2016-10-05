@@ -1303,8 +1303,6 @@
 			"class": "socket",
 			"capabilities": [
 				"onoff",
-				"measure_power",
-				"meter_power",
 				"measure_temperature"
 			],
 			"mobile": {
@@ -1313,18 +1311,6 @@
 						"id": "icon",
 						"capabilities": [
 							"onoff"
-						]
-					},
-					{
-						"id": "sensor",
-						"capabilities": [
-							"measure_power"
-						]
-					},
-					{
-						"id": "sensor",
-						"capabilities": [
-							"meter_power"
 						]
 					},
 					{
@@ -1391,56 +1377,6 @@
 					}
 				},
 				{
-					"id": "Input_2_contact_type",
-					"type": "dropdown",
-					"values": [
-						{
-							"id": "0",
-							"label": {
-								"en": "NO (normally open) input type"
-							}
-						},
-						{
-							"id": "",
-							"label": {
-								"en": "NC (normally close) input type"
-							}
-						}
-					],
-					"value": "0",
-					"label": {
-						"en": "Input 2 contact type"
-					},
-					"hint": {
-						"en": "The parameter defines the contact type"
-					}
-				},
-				{
-					"id": "Input_3_contact_type",
-					"type": "dropdown",
-					"values": [
-						{
-							"id": "0",
-							"label": {
-								"en": "NO (normally open) input type"
-							}
-						},
-						{
-							"id": "1",
-							"label": {
-								"en": "NC (normally close) input type"
-							}
-						}
-					],
-					"value": "0",
-					"label": {
-						"en": "Input 3 contact type"
-					},
-					"hint": {
-						"en": "The parameter defines the contact type"
-					}
-				},
-				{
 					"id": "Automatic_turning_off_output_after_set_time",
 					"type": "number",
 					"label": {
@@ -1479,36 +1415,6 @@
 					"value": false,
 					"hint": {
 						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
-					}
-				},
-				{
-					"id": "Power_report_on_power_change",
-					"type": "number",
-					"label": {
-						"en": "Power report on power change"
-					},
-					"value": 5,
-					"attr": {
-						"min": 0,
-						"max": 100
-					},
-					"hint": {
-						"en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
-					}
-				},
-				{
-					"id": "Power_report_by_time_interval",
-					"type": "number",
-					"label": {
-						"en": "Power report by time Interval"
-					},
-					"value": 300,
-					"attr": {
-						"min": 0,
-						"max": 65535
-					},
-					"hint": {
-						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
 					}
 				}
 			]
