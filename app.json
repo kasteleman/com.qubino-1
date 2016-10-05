@@ -1083,17 +1083,8 @@
 		{
 			"id": "ZMNHTD1",
 			"name": {
-				"en": "ZMNHTD1 Smart Meter"
+				"en": "ZMNHTD1 Rail Smart Meter"
 			},
-			"images": {
-				"large": "/drivers/ZMNHTD1/assets/images/large.png",
-				"small": "/drivers/ZMNHTD1/assets/images/small.png"
-			},
-			"class": "socket",
-			"capabilities": [	"onoff",
-				"measure_power",
-				"meter_power"
-			],
 			"zwave": {
 				"manufacturerId": 345,
 				"productTypeId": 7,
@@ -1101,30 +1092,47 @@
 				"learnmode": {
 					"image": "/drivers/ZMNHTD1/assets/learnmode.svg",
 					"instruction": {
-						"en": "For INCLUSION: press service button S your Dimmer for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-						"nl": "Voor TOEVOEGEN: houd de service knop S van je Dimmer langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+						"en": "For INCLUSION: press service button S on your Smart Meter for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
+						"nl": "Voor TOEVOEGEN: houd de service knop S van je Smart Meter langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
 					}
 				},
-				"associationGroups": [ 1 ],
-				"multiChannelNodes": {
-					"1": {
-						"class": "socket",
-						"capabilities": [ "onoff" ],
-						"name": {
-							"en": "IR BICOM432"
-						},
-					"settings": {}
-					},
-					"2": {
-						"class": "socket",
-						"capabilities": [ "onoff" ],
-						"name": {
-							"en": "IKA232"
-						},
-					"settings": {}
-					}
-				}
+				"associationGroups": [
+					1
+				]
 			},
+			"class": "socket",
+			"capabilities": [
+				"onoff",
+				"measure_power",
+				"meter_power"
+			],
+			"mobile": {
+				"components": [
+					{
+						"id": "icon",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_power"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"meter_power"
+						]
+					}
+				]
+			},
+			"images": {
+				"large": "/drivers/ZMNHTD1/assets/images/large.png",
+				"small": "/drivers/ZMNHTD1/assets/images/small.png"
+			},
+
 			"settings": [
 				{
 					"id": "Input_1_type",
@@ -1271,6 +1279,239 @@
 					}
 				}
 			]
+		},
+		{
+			"id": "ZMNHND1",
+			"name": {
+				"en": "ZMNHND1 Flush 1D Relay"
+			},
+			"zwave": {
+				"manufacturerId": 345,
+				"productTypeId": 2,
+				"productId": 83,
+				"learnmode": {
+					"image": "/drivers/ZMNHND1/assets/learnmode.svg",
+					"instruction": {
+						"en": "For INCLUSION: press service button S your Relay for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
+						"nl": "Voor TOEVOEGEN: houd de service knop S van je Relais langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+					}
+				},
+				"associationGroups": [
+					1
+				]
+			},
+			"class": "socket",
+			"capabilities": [
+				"onoff",
+				"measure_power",
+				"meter_power",
+				"measure_temperature"
+			],
+			"mobile": {
+				"components": [
+					{
+						"id": "icon",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_power"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"meter_power"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_temperature"
+						]
+					}
+				]
+			},
+			"images": {
+				"large": "/drivers/ZMNHND1/assets/images/large.png",
+				"small": "/drivers/ZMNHND1/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "Input_1_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "mono-stable switch type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Bi-stable switch type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 1 switch type"
+					},
+					"hint": {
+						"en": "By this parameter the user can set input based on device type"
+					}
+				},
+				{
+					"id": "Input_2_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "mono-stable switch type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Bi-stable switch type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 2 switch type"
+					},
+					"hint": {
+						"en": "By this parameter the user can set input based on device type"
+					}
+				},
+				{
+					"id": "Input_2_contact_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "NO (normally open) input type"
+							}
+						},
+						{
+							"id": "",
+							"label": {
+								"en": "NC (normally close) input type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 2 contact type"
+					},
+					"hint": {
+						"en": "The parameter defines the contact type"
+					}
+				},
+				{
+					"id": "Input_3_contact_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "NO (normally open) input type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "NC (normally close) input type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 3 contact type"
+					},
+					"hint": {
+						"en": "The parameter defines the contact type"
+					}
+				},
+				{
+					"id": "Automatic_turning_off_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning off output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 325369
+					},
+					"hint": {
+						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "Automatic_turning_on_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning on output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 32536
+					},
+					"hint": {
+						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "State_of_device_after_power_failure",
+					"type": "checkbox",
+					"label": {
+						"en": "State of device after power failure"
+					},
+					"value": false,
+					"hint": {
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+					}
+				},
+				{
+					"id": "Power_report_on_power_change",
+					"type": "number",
+					"label": {
+						"en": "Power report on power change"
+					},
+					"value": 5,
+					"attr": {
+						"min": 0,
+						"max": 100
+					},
+					"hint": {
+						"en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
+					}
+				},
+				{
+					"id": "Power_report_by_time_interval",
+					"type": "number",
+					"label": {
+						"en": "Power report by time Interval"
+					},
+					"value": 300,
+					"attr": {
+						"min": 0,
+						"max": 65535
+					},
+					"hint": {
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
+					}
+				}
+			]
 		}
 	],
 	"flow": {
@@ -1342,6 +1583,28 @@
 				]
 			},
 			{
+				"id": "ZMNHND1_temp_changed",
+				"title": {
+					"en": "Temperature has changed",
+					"nl": "Temperatuur is veranderd"
+				},
+				"tokens": [
+					{
+						"name": "ZMNHND1_temp",
+						"title": {
+							"en": "temp"
+						}
+					}
+				],
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHND1"
+					}
+				]
+			},
+			{
 				"id": "ZMNHDA2_I2_on",
 				"title": {
 					"en": "Input 2 turned on",
@@ -1394,6 +1657,62 @@
 						"name": "device",
 						"type": "device",
 						"filter": "driver_id=ZMNHDA2"
+					}
+				]
+			},
+			{
+				"id": "ZMNHDND1_I2_on",
+				"title": {
+					"en": "Input 2 turned on",
+					"nl": "Input 2 is ingeschakeld"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHDND1"
+					}
+				]
+			},
+			{
+				"id": "ZMNHDND1_I2_off",
+				"title": {
+					"en": "Input 2 turned off",
+					"nl": "Input 2 is uitgeschakeld"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHDND1"
+					}
+				]
+			},
+			{
+				"id": "ZMNHDND1_I3_on",
+				"title": {
+					"en": "Input 3 turned on",
+					"nl": "Input 3 is ingeschakeld"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHDND1"
+					}
+				]
+			},
+			{
+				"id": "ZMNHDND1_I3_off",
+				"title": {
+					"en": "Input 3 turned off",
+					"nl": "Input 3 is uitgeschakeld"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHDND1"
 					}
 				]
 			}
