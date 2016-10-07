@@ -19,5 +19,4 @@ Version 1.04
 * ZMNHVD1, ZMNHDD1 & ZMNHDA2: flow trigger added for temperature changed.
 * Added option in capability in case there is no temperature sensor connected to prevent crash
 * ZMNHTD1 DIN Smart Meter (untested)
-* ZMNHND1 Flush 1D Relay (untested)
-* ZMNHDA2 and ZMNHND1 I2 and I3 (untested)
+* ZMNHND1 Flush 1D Relay

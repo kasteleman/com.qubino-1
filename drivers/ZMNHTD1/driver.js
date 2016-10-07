@@ -103,5 +103,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 42,
 			size: 2,
 		},
+		Enable_disable_endpoints: {
+			index: 100,
+			size: 1,
+		},
 	},
 });
