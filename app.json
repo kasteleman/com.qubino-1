@@ -1277,6 +1277,43 @@
 					"hint": {
 						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
 					}
+				},
+				{
+					"id": "Enable / disable endpoints",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Endpoints IR external relay and External relay disabled"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Endpoints IR external relay disabled, External relay enabled"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Endpoints IR external relay enabled, External relay disabled"
+							}
+						},
+						{
+							"id": "3",
+							"label": {
+								"en": "Endpoints IR external relay and External relay enabled"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Enable / Disable endpoints IR external relay and External relay"
+					},
+					"hint": {
+						"en": "test"
+					}
 				}
 			]
 		},
@@ -1415,43 +1452,6 @@
 					"value": false,
 					"hint": {
 						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
-					}
-				},
-				{
-					"id": "Enable / disable endpoints",
-					"type": "dropdown",
-					"values": [
-						{
-							"id": "0",
-							"label": {
-								"en": "Endpoints IR external relay and External relay disabled"
-							}
-						},
-						{
-							"id": "1",
-							"label": {
-								"en": "Endpoints IR external relay disabled, External relay enabled"
-							}
-						},
-						{
-							"id": "2",
-							"label": {
-								"en": "Endpoints IR external relay enabled, External relay disabled"
-							}
-						},
-						{
-							"id": "3",
-							"label": {
-								"en": "Endpoints IR external relay and External relay enabled"
-							}
-						}
-					],
-					"value": "0",
-					"label": {
-						"en": "Enable / Disable endpoints IR external relay and External relay"
-					},
-					"hint": {
-						"en": "Enabling IR external relay and External relay or both of them,vmeans that endpoint (IR externalrelay) and endpoint (External relay) or both will be present on UI. Disabling them will result in hiding endpoints according to parameter set value. Note that hiding endpoint has no impact on its functionality"
 					}
 				}
 			]
