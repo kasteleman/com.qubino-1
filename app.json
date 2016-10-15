@@ -1279,7 +1279,7 @@
 					}
 				},
 				{
-					"id": "Enable / disable endpoints",
+					"id": "Enable_disable_endpoints",
 					"type": "dropdown",
 					"values": [
 						{
