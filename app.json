@@ -335,18 +335,8 @@
 					{
 						"id": "sensor",
 						"capabilities": [
-							"measure_power"
-						]
-					},
-					{
-						"id": "sensor",
-						"capabilities": [
-							"meter_power"
-						]
-					},
-					{
-						"id": "sensor",
-						"capabilities": [
+							"measure_power",
+							"meter_power",
 							"measure_temperature"
 						]
 					}
@@ -606,18 +596,8 @@
 					{
 						"id": "sensor",
 						"capabilities": [
-							"measure_power"
-						]
-					},
-					{
-						"id": "sensor",
-						"capabilities": [
-							"meter_power"
-						]
-					},
-					{
-						"id": "sensor",
-						"capabilities": [
+							"measure_power",
+							"meter_power",
 							"measure_temperature"
 						]
 					}
@@ -906,12 +886,7 @@
 					{
 						"id": "sensor",
 						"capabilities": [
-							"measure_power"
-						]
-					},
-					{
-						"id": "sensor",
-						"capabilities": [
+							"measure_power",
 							"meter_power"
 						]
 					}
@@ -1117,12 +1092,7 @@
 					{
 						"id": "sensor",
 						"capabilities": [
-							"measure_power"
-						]
-					},
-					{
-						"id": "sensor",
-						"capabilities": [
+							"measure_power",
 							"meter_power"
 						]
 					}
@@ -1452,6 +1422,40 @@
 					"value": false,
 					"hint": {
 						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+					}
+				},
+				{
+					"id": "power_report_on_power_change",
+					"type": "number",
+					"label": {
+						"en": "Power report on power change",
+						"nl": "Stroomverbruik update bij verandering van"
+					},
+					"value": 5,
+					"attr": {
+						"min": 0,
+						"max": 100
+					},
+					"hint": {
+						"en": "The parameter determines if a power report should be sent depending on the predefined power change in percentage",
+						"nl": "Deze parameter zorgt ervoor dat bij de gedefinieerde verandering in stroomverbruik (%) een update wordt verzonden naar Homey"
+					}
+				},
+				{
+					"id": "power_report_by_time_interval",
+					"type": "number",
+					"label": {
+						"en": "Power report by time Interval",
+						"nl": "Stroomverbruik update per tijdsinterval"
+					},
+					"value": 300,
+					"attr": {
+						"min": 0,
+						"max": 65535
+					},
+					"hint": {
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Value range: 1 – 65535.",
+						"nl": "Stel het interval (seconden, 1 - 65535) in waarop een stroomverbruik update moet worden verstuurt naar Homey. 0 -> geen updates."
 					}
 				}
 			]
