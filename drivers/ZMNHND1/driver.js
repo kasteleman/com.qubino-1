@@ -63,14 +63,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
-		Power_report_on_power_change: {
-			index: 40,
-			size: 1,
-		},
-		Power_report_by_time_interval: {
-			index: 42,
-			size: 2,
-		},
 	},
 });
 
