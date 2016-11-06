@@ -55,6 +55,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 1,
 			size: 1,
 		},
+		deactivate_ALL_ON_ALL_OFF: {
+			index: 10,
+			size: 2,
+		},
 		automatic_turning_off_output_after_set_time: {
 			index: 11,
 			size: 2,

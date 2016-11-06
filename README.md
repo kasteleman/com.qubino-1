@@ -18,5 +18,10 @@ Version 1.04
 * ZMNHDA2 Flush Dimmer: if no temperature sensor connected, -999,90 °C is shown as value.
 * ZMNHVD1, ZMNHDD1 & ZMNHDA2: flow trigger added for temperature changed.
 * Added option in capability in case there is no temperature sensor connected to prevent crash
+
+Version 1.05
+
 * ZMNHTD1 DIN Smart Meter (untested and limited)
 * ZMNHND1 Flush 1D Relay
+* ZMNHAD1 Flush 1 Relay
+* Added scrollbar for sensorsfield

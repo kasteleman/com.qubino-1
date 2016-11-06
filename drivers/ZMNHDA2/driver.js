@@ -107,9 +107,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 3,
 			size: 1,
 		},
-		deactivate_Activate_ALL_ON__ALL_OFF: {
+		deactivate_ALL_ON_ALL_OFF: {
 			index: 10,
-			size: 1,
+			size: 2,
 		},
 		state_of_device_after_power_failure: {
 			index: 30,

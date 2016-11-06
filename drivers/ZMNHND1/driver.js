@@ -38,30 +38,38 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	},
 
 	settings: {
-		Input_1_type: {
+		input_1_type: {
 			index: 1,
 			size: 1,
 		},
-		Input_2_type: {
+		input_2_type: {
 			index: 1,
 			size: 1,
 		},
-		DeActivate_ALL_ON__ALL_OFF: {
+		deactivate_ALL_ON_ALL_OFF: {
 			index: 10,
-			size: 1,
+			size: 2,
 		},
-		Automatic_turning_off_output_after_set_time: {
+		automatic_turning_off_output_after_set_time: {
 			index: 11,
 			size: 2,
 		},
-		Automatic_turning_on_output_after_set_time: {
+		automatic_turning_on_output_after_set_time: {
 			index: 12,
 			size: 2,
 		},
-		State_of_device_after_power_failure: {
+		state_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
 			parser: input => new Buffer([(input === true) ? 1 : 0]),
+		},
+		temperature_sensor_offset: {
+			index: 110,
+			size: 2,
+		},
+		digital_temperature_sensor_reporting: {
+			index: 120,
+			size: 2,
 		},
 	},
 });

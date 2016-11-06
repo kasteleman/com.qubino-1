@@ -3,8 +3,8 @@
 	"name": {
 		"en": "Qubino"
 	},
-	"version": "1.0.4",
-	"compatibility": ">=0.9.0",
+	"version": "1.0.5",
+	"compatibility": ">=0.10.9",
 	"description": {
 		"en": "Qubino devices for Homey",
 		"nl": "Qubino apparaten voor Homey"
@@ -135,6 +135,43 @@
 					"hint": {
 						"en": "This parameter sets the input type. When this parameter is set to one of the 0-10V options first exclude module then wait at least 30 seconds and then re-include the module.",
 						"nl": "Deze parameter bepaalt het type van input 1. Wanneer deze parameter is ingesteld op een van de 0-10V opties, exclude de module en wacht 30 seconden voor het opnieuw includen."
+					}
+				},
+				{
+					"id": "deactivate_ALL_ON_ALL_OFF",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF active"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "ALL ON active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "255",
+							"label": {
+								"en": "ALL ON active, ALL OFF active"
+							}
+						}
+					],
+					"value": "255",
+					"label": {
+						"en": "ALL ON / ALL OFF"
+					},
+					"hint": {
+						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
 					}
 				},
 				{
@@ -434,6 +471,43 @@
 					}
 				},
 				{
+					"id": "deactivate_ALL_ON_ALL_OFF",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF active"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "ALL ON active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "255",
+							"label": {
+								"en": "ALL ON active, ALL OFF active"
+							}
+						}
+					],
+					"value": "255",
+					"label": {
+						"en": "ALL ON / ALL OFF"
+					},
+					"hint": {
+						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+					}
+				},
+				{
 					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
@@ -609,7 +683,7 @@
 			},
 			"settings": [
 				{
-					"id": "Input_1_type",
+					"id": "input_1_type",
 					"type": "dropdown",
 					"values": [
 						{
@@ -634,7 +708,7 @@
 					}
 				},
 				{
-					"id": "Input_2_type",
+					"id": "input_2_type",
 					"type": "dropdown",
 					"values": [
 						{
@@ -659,7 +733,7 @@
 					}
 				},
 				{
-					"id": "Input_2_contact_type",
+					"id": "input_2_contact_type",
 					"type": "dropdown",
 					"values": [
 						{
@@ -684,7 +758,7 @@
 					}
 				},
 				{
-					"id": "Input_3_contact_type",
+					"id": "input_3_contact_type",
 					"type": "dropdown",
 					"values": [
 						{
@@ -709,7 +783,44 @@
 					}
 				},
 				{
-					"id": "Automatic_turning_off_output_after_set_time",
+					"id": "deactivate_ALL_ON_ALL_OFF",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF active"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "ALL ON active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "255",
+							"label": {
+								"en": "ALL ON active, ALL OFF active"
+							}
+						}
+					],
+					"value": "255",
+					"label": {
+						"en": "ALL ON / ALL OFF"
+					},
+					"hint": {
+						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+					}
+				},
+				{
+					"id": "automatic_turning_off_output_after_set_time",
 					"type": "number",
 					"label": {
 						"en": "Automatic turning off output after set time"
@@ -724,7 +835,7 @@
 					}
 				},
 				{
-					"id": "Automatic_turning_on_output_after_set_time",
+					"id": "automatic_turning_on_output_after_set_time",
 					"type": "number",
 					"label": {
 						"en": "Automatic turning on output after set time"
@@ -739,7 +850,7 @@
 					}
 				},
 				{
-					"id": "State_of_device_after_power_failure",
+					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
 						"en": "State of device after power failure"
@@ -750,7 +861,7 @@
 					}
 				},
 				{
-					"id": "Power_report_on_power_change",
+					"id": "power_report_on_power_change",
 					"type": "number",
 					"label": {
 						"en": "Power report on power change"
@@ -765,7 +876,7 @@
 					}
 				},
 				{
-					"id": "Power_report_by_time_interval",
+					"id": "power_report_by_time_interval",
 					"type": "number",
 					"label": {
 						"en": "Power report by time Interval"
@@ -780,7 +891,7 @@
 					}
 				},
 				{
-					"id": "Maximum_dimming_value",
+					"id": "maximum_dimming_value",
 					"type": "number",
 					"label": {
 						"en": "Maximum_dimming_value"
@@ -795,7 +906,7 @@
 					}
 				},
 				{
-					"id": "Minimum_dimming_value",
+					"id": "minimum_dimming_value",
 					"type": "number",
 					"label": {
 						"en": "Minimum_dimming_value"
@@ -810,7 +921,7 @@
 					}
 				},
 				{
-					"id": "Dimming_time_soft_on_off",
+					"id": "dimming_time_soft_on_off",
 					"type": "number",
 					"label": {
 						"en": "Dimming time (soft on/off)"
@@ -825,7 +936,7 @@
 					}
 				},
 				{
-					"id": "Dimming_time_when_key_pressed",
+					"id": "dimming_time_when_key_pressed",
 					"type": "number",
 					"label": {
 						"en": "Dimming time when key pressed"
@@ -898,7 +1009,7 @@
 			},
 			"settings": [
 				{
-					"id": "Input_1_type",
+					"id": "input_1_type",
 					"type": "dropdown",
 					"values": [
 						{
@@ -923,7 +1034,44 @@
 					}
 				},
 				{
-					"id": "Automatic_turning_off_output_after_set_time",
+					"id": "deactivate_ALL_ON_ALL_OFF",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF active"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "ALL ON active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "255",
+							"label": {
+								"en": "ALL ON active, ALL OFF active"
+							}
+						}
+					],
+					"value": "255",
+					"label": {
+						"en": "ALL ON / ALL OFF"
+					},
+					"hint": {
+						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+					}
+				},
+				{
+					"id": "automatic_turning_off_output_after_set_time",
 					"type": "number",
 					"label": {
 						"en": "Automatic turning off output after set time"
@@ -938,7 +1086,7 @@
 					}
 				},
 				{
-					"id": "Automatic_turning_on_output_after_set_time",
+					"id": "automatic_turning_on_output_after_set_time",
 					"type": "number",
 					"label": {
 						"en": "Automatic turning on output after set time"
@@ -953,7 +1101,7 @@
 					}
 				},
 				{
-					"id": "State_of_device_after_power_failure",
+					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
 						"en": "State of device after power failure"
@@ -964,7 +1112,7 @@
 					}
 				},
 				{
-					"id": "Power_report_on_power_change",
+					"id": "power_report_on_power_change",
 					"type": "number",
 					"label": {
 						"en": "Power report on power change"
@@ -979,7 +1127,7 @@
 					}
 				},
 				{
-					"id": "Power_report_by_time_interval",
+					"id": "power_report_by_time_interval",
 					"type": "number",
 					"label": {
 						"en": "Power report by time Interval"
@@ -994,7 +1142,7 @@
 					}
 				},
 				{
-					"id": "Maximum_dimming_value",
+					"id": "maximum_dimming_value",
 					"type": "number",
 					"label": {
 						"en": "Maximum_dimming_value"
@@ -1009,7 +1157,7 @@
 					}
 				},
 				{
-					"id": "Minimum_dimming_value",
+					"id": "minimum_dimming_value",
 					"type": "number",
 					"label": {
 						"en": "Minimum_dimming_value"
@@ -1024,7 +1172,7 @@
 					}
 				},
 				{
-					"id": "Dimming_time_soft_on_off",
+					"id": "dimming_time_soft_on_off",
 					"type": "number",
 					"label": {
 						"en": "Dimming time (soft on/off)"
@@ -1039,7 +1187,7 @@
 					}
 				},
 				{
-					"id": "Dimming_time_when_key_pressed",
+					"id": "dimming_time_when_key_pressed",
 					"type": "number",
 					"label": {
 						"en": "Dimming time when key pressed"
@@ -1105,7 +1253,7 @@
 
 			"settings": [
 				{
-					"id": "Input_1_type",
+					"id": "input_1_type",
 					"type": "dropdown",
 					"values": [
 						{
@@ -1148,7 +1296,44 @@
 					}
 				},
 				{
-					"id": "Automatic_turning_off_ir_output_after_set_time",
+					"id": "deactivate_ALL_ON_ALL_OFF",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF active"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "ALL ON active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "255",
+							"label": {
+								"en": "ALL ON active, ALL OFF active"
+							}
+						}
+					],
+					"value": "255",
+					"label": {
+						"en": "ALL ON / ALL OFF"
+					},
+					"hint": {
+						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+					}
+				},
+				{
+					"id": "automatic_turning_off_ir_output_after_set_time",
 					"type": "number",
 					"label": {
 						"en": "Automatic turning off IR output after set time"
@@ -1163,7 +1348,7 @@
 					}
 				},
 				{
-					"id": "Automatic_turning_on_ir_output_after_set_time",
+					"id": "automatic_turning_on_ir_output_after_set_time",
 					"type": "number",
 					"label": {
 						"en": "Automatic turning on IR output after set time"
@@ -1178,7 +1363,7 @@
 					}
 				},
 				{
-					"id": "Automatic_turning_off_relay_output_after_set_time",
+					"id": "automatic_turning_off_relay_output_after_set_time",
 					"type": "number",
 					"label": {
 						"en": "Automatic turning off relay output after set time"
@@ -1193,7 +1378,7 @@
 					}
 				},
 				{
-					"id": "Automatic_turning_on_relay_output_after_set_time",
+					"id": "automatic_turning_on_relay_output_after_set_time",
 					"type": "number",
 					"label": {
 						"en": "Automatic turning on relay output after set time"
@@ -1208,7 +1393,7 @@
 					}
 				},
 				{
-					"id": "State_of_device_after_power_failure",
+					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
 						"en": "State of device after power failure"
@@ -1219,7 +1404,7 @@
 					}
 				},
 				{
-					"id": "Power_report_on_power_change",
+					"id": "power_report_on_power_change",
 					"type": "number",
 					"label": {
 						"en": "Power report on power change"
@@ -1234,7 +1419,7 @@
 					}
 				},
 				{
-					"id": "Power_report_by_time_interval",
+					"id": "power_report_by_time_interval",
 					"type": "number",
 					"label": {
 						"en": "Power report by time Interval"
@@ -1249,7 +1434,7 @@
 					}
 				},
 				{
-					"id": "Enable_disable_endpoints",
+					"id": "enable_disable_endpoints",
 					"type": "dropdown",
 					"values": [
 						{
@@ -1334,7 +1519,7 @@
 			},
 			"settings": [
 				{
-					"id": "Input_1_type",
+					"id": "input_1_type",
 					"type": "dropdown",
 					"values": [
 						{
@@ -1359,7 +1544,7 @@
 					}
 				},
 				{
-					"id": "Input_2_type",
+					"id": "input_2_type",
 					"type": "dropdown",
 					"values": [
 						{
@@ -1384,7 +1569,44 @@
 					}
 				},
 				{
-					"id": "Automatic_turning_off_output_after_set_time",
+					"id": "deactivate_ALL_ON_ALL_OFF",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF active"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "ALL ON active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "255",
+							"label": {
+								"en": "ALL ON active, ALL OFF active"
+							}
+						}
+					],
+					"value": "255",
+					"label": {
+						"en": "ALL ON / ALL OFF"
+					},
+					"hint": {
+						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+					}
+				},
+				{
+					"id": "automatic_turning_off_output_after_set_time",
 					"type": "number",
 					"label": {
 						"en": "Automatic turning off output after set time"
@@ -1399,7 +1621,7 @@
 					}
 				},
 				{
-					"id": "Automatic_turning_on_output_after_set_time",
+					"id": "automatic_turning_on_output_after_set_time",
 					"type": "number",
 					"label": {
 						"en": "Automatic turning on output after set time"
@@ -1414,7 +1636,7 @@
 					}
 				},
 				{
-					"id": "State_of_device_after_power_failure",
+					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
 						"en": "State of device after power failure"
@@ -1422,6 +1644,342 @@
 					"value": false,
 					"hint": {
 						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+					}
+				},
+				{
+					"id": "temperature_sensor_offset",
+					"type": "number",
+					"label": {
+						"en": "Temperature sensor offset"
+					},
+					"value": 32536,
+					"attr": {
+						"min": 1,
+						"max": 32536
+					},
+					"hint": {
+						"en": "32536 = offset is 0.0 °C. From 1 to 100 - value from 0.1 °C to 10.0 °C is added to actual measured temperature. From 1001 to 1100 - value from -0.1 °C to -10.0 °C is subtracted to actual measured temperature.",
+						"nl": "32536 = verschil is 0,0 °C. Van 1 tot 100 - waarde van 0,1 °C tot 10,0 °C wordt opgeteld bij de gemeten temperatuur. Van 1001 tot 1100 - waarde van -0,1 °C tot -10,0 °C wordt afgetrokken van de gemeten temperatuur"
+					}
+				},
+				{
+					"id": "digital_temperature_sensor_reporting",
+					"type": "number",
+					"label": {
+						"en": "Digital temperature change for report",
+						"nl": "Digitale temperatuur waarde verandering voor report"
+					},
+					"value": 5,
+					"attr": {
+						"min": 0,
+						"max": 127
+					},
+					"hint": {
+						"en": "Default value 5 = 0.5 °C change. 0 - Reporting disabled. 1 - 127 = 0.1°C - 12.7°C, step is 0.1°C.",
+						"nl": "Standaard waarde 5 = 0,5 °C verandering. 0 - Reporting uitgeschakeld. 1 - 127 = 0,1 °C - 12,7 °C, stap grootte is 0,1 °C."
+					}
+				}
+			]
+		},
+		{
+			"id": "ZMNHAD1",
+			"name": {
+				"en": "ZMNHAD1 Flush 1 Relay"
+			},
+			"zwave": {
+				"manufacturerId": 345,
+				"productTypeId": 2,
+				"productId": 82,
+				"learnmode": {
+					"image": "/drivers/ZMNHAD1/assets/learnmode.svg",
+					"instruction": {
+						"en": "For INCLUSION: press service button S your Relay for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
+						"nl": "Voor TOEVOEGEN: houd de service knop S van je Relais langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+					}
+				},
+				"associationGroups": [
+					1
+				]
+			},
+			"class": "socket",
+			"capabilities": [
+				"onoff",
+				"measure_temperature"
+			],
+			"mobile": {
+				"components": [
+					{
+						"id": "icon",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_power",
+							"meter_power",
+							"measure_temperature"
+						]
+					}
+				]
+			},
+			"images": {
+				"large": "/drivers/ZMNHND1/assets/images/large.png",
+				"small": "/drivers/ZMNHND1/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "input_1_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "mono-stable switch type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Bi-stable switch type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 1 switch type"
+					},
+					"hint": {
+						"en": "By this parameter the user can set input based on device type"
+					}
+				},
+				{
+					"id": "input_2_contact_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "NO (normally open) input type",
+								"nl": "NO (normaal open) input type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "NC (normally close) input type",
+								"nl": "NG (normaal gesloten) input type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 2 contact type",
+						"nl": "Input 2 contact type"
+					},
+					"hint": {
+						"en": "This parameter sets the contact type of input 2.",
+						"nl": "Deze parameter bepaalt het contact type van input 2."
+					}
+				},
+				{
+					"id": "input_3_contact_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "NO (normally open) input type",
+								"nl": "NO (normaal open) input type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "NC (normally close) input type",
+								"nl": "NG (normaal gesloten) input type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 3 contact type",
+						"nl": "Input 3 contact type"
+					},
+					"hint": {
+						"en": "This parameter sets the contact type of input 3.",
+						"nl": "Deze parameter bepaalt het contact type van input 3."
+					}
+				},
+				{
+					"id": "deactivate_ALL_ON_ALL_OFF",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF active"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "ALL ON active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "255",
+							"label": {
+								"en": "ALL ON active, ALL OFF active"
+							}
+						}
+					],
+					"value": "255",
+					"label": {
+						"en": "ALL ON / ALL OFF"
+					},
+					"hint": {
+						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+					}
+				},
+				{
+					"id": "automatic_turning_off_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning off output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 325369
+					},
+					"hint": {
+						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "automatic_turning_on_output_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning on output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 32536
+					},
+					"hint": {
+						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "state_of_device_after_power_failure",
+					"type": "checkbox",
+					"label": {
+						"en": "State of device after power failure"
+					},
+					"value": false,
+					"hint": {
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+					}
+				},
+				{
+					"id": "power_report_on_power_change",
+					"type": "number",
+					"label": {
+						"en": "Power report on power change",
+						"nl": "Stroomverbruik update bij verandering van"
+					},
+					"value": 5,
+					"attr": {
+						"min": 0,
+						"max": 100
+					},
+					"hint": {
+						"en": "The parameter determines if a power report should be sent depending on the predefined power change in percentage",
+						"nl": "Deze parameter zorgt ervoor dat bij de gedefinieerde verandering in stroomverbruik (%) een update wordt verzonden naar Homey"
+					}
+				},
+				{
+					"id": "power_report_by_time_interval",
+					"type": "number",
+					"label": {
+						"en": "Power report by time Interval",
+						"nl": "Stroomverbruik update per tijdsinterval"
+					},
+					"value": 300,
+					"attr": {
+						"min": 0,
+						"max": 65535
+					},
+					"hint": {
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Value range: 1 – 65535.",
+						"nl": "Stel het interval (seconden, 1 - 65535) in waarop een stroomverbruik update moet worden verstuurt naar Homey. 0 -> geen updates."
+					}
+				},
+				{
+					"id": "output_switch_selection ",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "0 - When system is turned off the output is 0V (NC)"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "1 - When system is turned off the output is 230V or 24V (NO)"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Output Switch selection"
+					},
+					"hint": {
+						"en": "Set value means the type of the device that is connected to the output"
+					}
+				},
+				{
+					"id": "temperature_sensor_offset",
+					"type": "number",
+					"label": {
+						"en": "Temperature sensor offset"
+					},
+					"value": 32536,
+					"attr": {
+						"min": 1,
+						"max": 32536
+					},
+					"hint": {
+						"en": "32536 = offset is 0.0 °C. From 1 to 100 - value from 0.1 °C to 10.0 °C is added to actual measured temperature. From 1001 to 1100 - value from -0.1 °C to -10.0 °C is subtracted to actual measured temperature.",
+						"nl": "32536 = verschil is 0,0 °C. Van 1 tot 100 - waarde van 0,1 °C tot 10,0 °C wordt opgeteld bij de gemeten temperatuur. Van 1001 tot 1100 - waarde van -0,1 °C tot -10,0 °C wordt afgetrokken van de gemeten temperatuur"
+					}
+				},
+				{
+					"id": "digital_temperature_sensor_reporting",
+					"type": "number",
+					"label": {
+						"en": "Digital temperature change for report",
+						"nl": "Digitale temperatuur waarde verandering voor report"
+					},
+					"value": 5,
+					"attr": {
+						"min": 0,
+						"max": 127
+					},
+					"hint": {
+						"en": "Default value 5 = 0.5 °C change. 0 - Reporting disabled. 1 - 127 = 0.1°C - 12.7°C, step is 0.1°C.",
+						"nl": "Standaard waarde 5 = 0,5 °C verandering. 0 - Reporting uitgeschakeld. 1 - 127 = 0,1 °C - 12,7 °C, stap grootte is 0,1 °C."
 					}
 				}
 			]
@@ -1514,6 +2072,28 @@
 						"name": "device",
 						"type": "device",
 						"filter": "driver_id=ZMNHND1"
+					}
+				]
+			},
+			{
+				"id": "ZMNHAD1_temp_changed",
+				"title": {
+					"en": "Temperature has changed",
+					"nl": "Temperatuur is veranderd"
+				},
+				"tokens": [
+					{
+						"name": "ZMNHAD1_temp",
+						"title": {
+							"en": "temp"
+						}
+					}
+				],
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHAD1"
 					}
 				]
 			},

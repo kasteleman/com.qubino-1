@@ -12,20 +12,34 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'SWITCH_BINARY_GET',
 			command_set: 'SWITCH_BINARY_SET',
 			command_set_parser: function (value) {
-
 				return {
-					'Switch Value': value,
+					'Switch Value': (value > 0) ? 255 : 0,
 				};
 			},
 			command_report: 'SWITCH_BINARY_REPORT',
-			command_report_parser: report => report['Value'] === 'on/enable',
+			command_report_parser: report => report['Value'] === 'on/enable'
+		},
+
+		measure_temperature: {
+			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
+			command_get: 'SENSOR_MULTILEVEL_GET',
+			command_get_parser: function () {
+				return {
+					'Sensor Type': 'Temperature (version 1)',
+					Properties1: {
+						Scale: 0,
+					},
+				};
+			},
+			command_report: 'SENSOR_MULTILEVEL_REPORT',
+			command_report_parser: report => report['Sensor Value (Parsed)'],
 			optional: true,
 		},
 
 		measure_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
-			command_get_parser: function () {
+			command_get_parser: () => {
 				return {
 					Properties1: {
 						Scale: 7,
@@ -46,7 +60,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		meter_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
-			command_get_parser: function () {
+			command_get_parser: () => {
 				return {
 					Properties1: {
 						Scale: 0,
@@ -70,24 +84,28 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 1,
 			size: 1,
 		},
+		input_2_contact_type: {
+			index: 3,
+			size: 1,
+		},
+		input_3_contact_type: {
+			index: 4,
+			size: 1,
+		},
+		input_2_type: {
+			index: 1,
+			size: 1,
+		},
 		deactivate_ALL_ON_ALL_OFF: {
 			index: 10,
 			size: 2,
 		},
-		automatic_turning_off_ir_output_after_set_time: {
+		automatic_turning_off_output_after_set_time: {
 			index: 11,
 			size: 2,
 		},
-		automatic_turning_on_ir_output_after_set_time: {
+		automatic_turning_on_output_after_set_time: {
 			index: 12,
-			size: 2,
-		},
-		automatic_turning_off_relay_output_after_set_time: {
-			index: 13,
-			size: 2,
-		},
-		automatic_turning_on_relay_output_after_set_time: {
-			index: 14,
 			size: 2,
 		},
 		state_of_device_after_power_failure: {
@@ -103,9 +121,37 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 42,
 			size: 2,
 		},
-		enable_disable_endpoints: {
-			index: 100,
+		output_switch_selection: {
+			index: 62,
 			size: 1,
+		},
+		temperature_sensor_offset: {
+			index: 110,
+			size: 2,
+		},
+		digital_temperature_sensor_reporting: {
+			index: 120,
+			size: 2,
 		},
 	},
 });
+
+module.exports.on('initNode', token => {
+	const node = module.exports.nodes[token];
+
+	if (node) {
+		if (node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL) {
+			node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
+				if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
+					Homey.manager('flow').triggerDevice(
+						'ZMNHAD1_temp_changed',
+						{ ZMNHAD1_temp: report['Sensor Value (Parsed)'] },
+						report['Sensor Value (Parsed)'], node.device_data
+					);
+				}
+			});
+		}
+	}
+});
+
+Homey.manager('flow').on('trigger.ZMNHAD1_temp_changed', callback => callback(null, true));
