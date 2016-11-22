@@ -70,6 +70,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		state_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
+			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
 		maximum_dimming_value: {
 			index: 61,

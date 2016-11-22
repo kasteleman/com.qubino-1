@@ -11,13 +11,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: function (value) {
-
-				return {
-					Value: (value > 0) ? 'on/enable' : 'off/disable',
-					'Dimming Duration': 1,
-				};
-			},
+			command_set_parser: value => ({
+				Value: (value > 0) ? 'on/enable' : 'off/disable',
+				'Dimming Duration': 1,
+			}),
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
 			command_report_parser: report => report['Value (Raw)'][0] > 0,
 		},
@@ -26,12 +23,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: function (value) {
-				return {
-					Value: value * 100,
-					'Dimming Duration': 1,
-				};
-			},
+			command_set_parser: value => ({
+				Value: value * 100,
+				'Dimming Duration': 1,
+			}),
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
 			command_report_parser: report => report['Value (Raw)'][0] / 100,
 		},
@@ -39,13 +34,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		measure_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
-			command_get_parser: function () {
-				return {
-					Properties1: {
-						Scale: 7,
-					},
-				};
-			},
+			command_get_parser: () => ({
+				Properties1: {
+					Scale: 7,
+				},
+			}),
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {
 				if (report.hasOwnProperty('Properties2')
@@ -59,13 +52,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		meter_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
-			command_get_parser: function () {
-				return {
-					Properties1: {
-						Scale: 0,
-					},
-				};
-			},
+			command_get_parser: () => ({
+				Properties1: {
+					Scale: 0,
+				},
+			}),
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {
 				if (report.hasOwnProperty('Properties2')
