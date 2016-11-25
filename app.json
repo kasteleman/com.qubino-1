@@ -276,10 +276,10 @@
 					"id": "dimming_time_when_key_pressed",
 					"type": "number",
 					"label": {
-						"en": "Dimming duration",
-						"nl": "Dim periode"
+						"en": "Dimming duration I1",
+						"nl": "Dim periode I1"
 					},
-					"value": 3,
+					"value": 50,
 					"attr": {
 						"min": 50,
 						"max": 255
@@ -609,10 +609,10 @@
 					"id": "dimming_time_when_key_pressed",
 					"type": "number",
 					"label": {
-						"en": "Dimming duration",
-						"nl": "Dim periode"
+						"en": "Dimming duration I1",
+						"nl": "Dim periode I1"
 					},
-					"value": 3,
+					"value": 50,
 					"attr": {
 						"min": 50,
 						"max": 255
