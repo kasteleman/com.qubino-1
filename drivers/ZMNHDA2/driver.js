@@ -149,7 +149,7 @@ module.exports.on('initNode', token => {
 				}
 			});
 		}
-		if (node.instance.CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
+		if (node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
 			console.log('I2 triggered');
 			node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
 				if (command.name === 'SENSOR_BINARY_REPORT') {
@@ -161,7 +161,7 @@ module.exports.on('initNode', token => {
 				}
 			});
 		}
-		if (node.instance.CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
+		if (node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
 			console.log('I3 triggered');
 			node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
 				if (report) {

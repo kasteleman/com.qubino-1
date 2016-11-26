@@ -25,3 +25,5 @@ Version 1.05
 * ZMNHND1 Flush 1D Relay
 * ZMNHAD1 Flush 1 Relay
 * Added scrollbar for sensorsfield
+* Added ZMNHBD1 Flush 2 Relays Plus (untested)
+* Added ZMNHBA2 Flush 2 Relays (untested)

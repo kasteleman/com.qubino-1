@@ -19,6 +19,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 
 		measure_temperature: {
+			multiChannelNodeId: 3,
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_get: 'SENSOR_MULTILEVEL_GET',
 			command_get_parser: () => ({
@@ -76,24 +77,28 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 1,
 			size: 1,
 		},
-		input_2_contact_type: {
-			index: 3,
-			size: 1,
-		},
-		input_3_contact_type: {
-			index: 4,
+		input_2_type: {
+			index: 2,
 			size: 1,
 		},
 		deactivate_ALL_ON_ALL_OFF: {
 			index: 10,
 			size: 2,
 		},
-		automatic_turning_off_output_after_set_time: {
+		automatic_turning_off_output_q1_after_set_time: {
 			index: 11,
 			size: 2,
 		},
-		automatic_turning_on_output_after_set_time: {
+		automatic_turning_on_output_q1_after_set_time: {
 			index: 12,
+			size: 2,
+		},
+		automatic_turning_off_output_q2_after_set_time: {
+			index: 13,
+			size: 2,
+		},
+		automatic_turning_on_output_q2_after_set_time: {
+			index: 14,
 			size: 2,
 		},
 		state_of_device_after_power_failure: {
@@ -101,16 +106,28 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
-		power_report_on_power_change: {
+		power_report_on_power_change_q1: {
 			index: 40,
 			size: 1,
 		},
-		power_report_by_time_interval: {
+		power_report_on_power_change_q2: {
+			index: 41,
+			size: 1,
+		},
+		power_report_by_time_interval_q1: {
 			index: 42,
 			size: 2,
 		},
-		output_switch_selection: {
+		power_report_by_time_interval_q2: {
+			index: 43,
+			size: 2,
+		},
+		output_switch_selection_q1: {
 			index: 62,
+			size: 1,
+		},
+		output_switch_selection_q2: {
+			index: 63,
 			size: 1,
 		},
 		temperature_sensor_offset: {
@@ -132,8 +149,8 @@ module.exports.on('initNode', token => {
 			node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
 				if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
 					Homey.manager('flow').triggerDevice(
-						'ZMNHAD1_temp_changed',
-						{ ZMNHAD1_temp: report['Sensor Value (Parsed)'] },
+						'ZMNHBD1_temp_changed',
+						{ ZMNHBD1_temp: report['Sensor Value (Parsed)'] },
 						report['Sensor Value (Parsed)'], node.device_data
 					);
 				}
