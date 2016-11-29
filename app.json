@@ -3,7 +3,7 @@
 	"name": {
 		"en": "Qubino"
 	},
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"compatibility": ">=0.10.9",
 	"description": {
 		"en": "Qubino devices for Homey",
@@ -2041,6 +2041,23 @@
 						"measure_power",
 						"meter_power"
 					],
+					"mobile": {
+						"components": [
+							{
+								"id": "icon",
+								"capabilities": [
+									"onoff"
+								]
+							},
+							{
+								"id": "sensor",
+								"capabilities": [
+									"measure_power",
+									"meter_power"
+								]
+							}
+						]
+					},
 					"icon": "/drivers/ZMNHBD1/assets/icon-2.svg",
 					"name": {
 						"en": "ZMNHBD1 Relay 2",
@@ -2417,6 +2434,23 @@
 						"measure_power",
 						"meter_power"
 					],
+					"mobile": {
+						"components": [
+							{
+								"id": "icon",
+								"capabilities": [
+									"onoff"
+								]
+							},
+							{
+								"id": "sensor",
+								"capabilities": [
+									"measure_power",
+									"meter_power"
+								]
+							}
+						]
+					},
 					"icon": "/drivers/ZMNHBA2/assets/icon-2.svg",
 					"name": {
 						"en": "ZMNHBA2 Relay 2",
