@@ -1989,6 +1989,16 @@
 			"name": {
 				"en": "ZMNHBD1 Flush 2 Relays"
 			},
+			"class": "socket",
+			"capabilities": [
+				"onoff",
+				"measure_power",
+				"meter_power"
+			],
+			"images": {
+				"large": "/drivers/ZMNHBD1/assets/images/large.png",
+				"small": "/drivers/ZMNHBD1/assets/images/small.png"
+			},
 			"zwave": {
 				"manufacturerId": 345,
 				"productTypeId": 2,
@@ -2004,36 +2014,20 @@
 					3
 				]
 			},
-			"class": "socket",
-			"capabilities": [
-				"onoff",
-				"measure_power",
-				"meter_power",
-				"measure_temperature"
-			],
-			"mobile": {
-				"components": [
-					{
-						"id": "icon",
-						"capabilities": [
-							"onoff"
-						]
-					},
-					{
-						"id": "sensor",
-						"capabilities": [
-							"measure_power",
-							"meter_power",
-							"measure_temperature"
-						]
-					}
-				]
-			},
-			"images": {
-				"large": "/drivers/ZMNHBD1/assets/images/large.png",
-				"small": "/drivers/ZMNHBD1/assets/images/small.png"
-			},
 			"multiChannelNodes": {
+				"1": {
+					"class": "socket",
+					"capabilities": [
+						"onoff",
+						"measure_power",
+						"meter_power"
+					],
+					"icon": "/drivers/ZMNHBD1/assets/icon.svg",
+					"name": {
+						"en": "ZMNHBD1 Relay 2",
+						"nl": "ZMNHBD1 Relais 2"
+					}
+				},
 				"2": {
 					"class": "socket",
 					"capabilities": [
@@ -2041,23 +2035,6 @@
 						"measure_power",
 						"meter_power"
 					],
-					"mobile": {
-						"components": [
-							{
-								"id": "icon",
-								"capabilities": [
-									"onoff"
-								]
-							},
-							{
-								"id": "sensor",
-								"capabilities": [
-									"measure_power",
-									"meter_power"
-								]
-							}
-						]
-					},
 					"icon": "/drivers/ZMNHBD1/assets/icon-2.svg",
 					"name": {
 						"en": "ZMNHBD1 Relay 2",
@@ -2382,6 +2359,16 @@
 			"name": {
 				"en": "ZMNHBA2 Flush 2 Relays"
 			},
+			"class": "socket",
+			"capabilities": [
+				"onoff",
+				"measure_power",
+				"meter_power"
+			],
+			"images": {
+				"large": "/drivers/ZMNHBA2/assets/images/large.png",
+				"small": "/drivers/ZMNHBA2/assets/images/small.png"
+			},
 			"zwave": {
 				"manufacturerId": 345,
 				"productTypeId": 2,
@@ -2394,39 +2381,25 @@
 					}
 				},
 				"associationGroups": [
+					1,
+					2,
 					3
 				]
 			},
-			"class": "socket",
-			"capabilities": [
-				"onoff",
-				"measure_power",
-				"meter_power",
-				"measure_temperature"
-			],
-			"mobile": {
-				"components": [
-					{
-						"id": "icon",
-						"capabilities": [
-							"onoff"
-						]
-					},
-					{
-						"id": "sensor",
-						"capabilities": [
-							"measure_power",
-							"meter_power",
-							"measure_temperature"
-						]
-					}
-				]
-			},
-			"images": {
-				"large": "/drivers/ZMNHBA2/assets/images/large.png",
-				"small": "/drivers/ZMNHBA2/assets/images/small.png"
-			},
 			"multiChannelNodes": {
+				"1": {
+					"class": "socket",
+					"capabilities": [
+						"onoff",
+						"measure_power",
+						"meter_power"
+					],
+					"icon": "/drivers/ZMNHBA2/assets/icon.svg",
+					"name": {
+						"en": "ZMNHBA2 Relay 1",
+						"nl": "ZMNHBA2 Relais 1"
+					}
+				},
 				"2": {
 					"class": "socket",
 					"capabilities": [
@@ -2434,23 +2407,6 @@
 						"measure_power",
 						"meter_power"
 					],
-					"mobile": {
-						"components": [
-							{
-								"id": "icon",
-								"capabilities": [
-									"onoff"
-								]
-							},
-							{
-								"id": "sensor",
-								"capabilities": [
-									"measure_power",
-									"meter_power"
-								]
-							}
-						]
-					},
 					"icon": "/drivers/ZMNHBA2/assets/icon-2.svg",
 					"name": {
 						"en": "ZMNHBA2 Relay 2",
