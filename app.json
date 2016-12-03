@@ -1989,16 +1989,16 @@
 			"name": {
 				"en": "ZMNHBD1 Flush 2 Relays"
 			},
+			"images": {
+				"large": "/drivers/ZMNHBD1/assets/images/large.png",
+				"small": "/drivers/ZMNHBD1/assets/images/small.png"
+			},
 			"class": "socket",
 			"capabilities": [
 				"onoff",
 				"measure_power",
 				"meter_power"
 			],
-			"images": {
-				"large": "/drivers/ZMNHBD1/assets/images/large.png",
-				"small": "/drivers/ZMNHBD1/assets/images/small.png"
-			},
 			"zwave": {
 				"manufacturerId": 345,
 				"productTypeId": 2,
@@ -2012,33 +2012,33 @@
 				},
 				"associationGroups": [
 					3
-				]
-			},
+				],
 			"multiChannelNodes": {
 				"1": {
-					"class": "socket",
-					"capabilities": [
-						"onoff",
-						"measure_power",
-						"meter_power"
-					],
-					"icon": "/drivers/ZMNHBD1/assets/icon.svg",
-					"name": {
-						"en": "ZMNHBD1 Relay 2",
-						"nl": "ZMNHBD1 Relais 2"
-					}
-				},
+							"class": "socket",
+							"capabilities": [
+								"onoff",
+								"measure_power",
+								"meter_power"
+							],
+							"icon": "/drivers/ZMNHBD1/assets/icon.svg",
+							"name": {
+								"en": "ZMNHBD1 Relay 2",
+								"nl": "ZMNHBD1 Relais 2"
+							}
+						},
 				"2": {
-					"class": "socket",
-					"capabilities": [
-						"onoff",
-						"measure_power",
-						"meter_power"
-					],
-					"icon": "/drivers/ZMNHBD1/assets/icon-2.svg",
-					"name": {
-						"en": "ZMNHBD1 Relay 2",
-						"nl": "ZMNHBD1 Relais 2"
+							"class": "socket",
+							"capabilities": [
+								"onoff",
+								"measure_power",
+								"meter_power"
+							],
+							"icon": "/drivers/ZMNHBD1/assets/icon-2.svg",
+							"name": {
+								"en": "ZMNHBD1 Relay 2",
+								"nl": "ZMNHBD1 Relais 2"
+							}
 					}
 				}
 			},
@@ -2359,16 +2359,16 @@
 			"name": {
 				"en": "ZMNHBA2 Flush 2 Relays"
 			},
+			"images": {
+				"large": "/drivers/ZMNHBA2/assets/images/large.png",
+				"small": "/drivers/ZMNHBA2/assets/images/small.png"
+			},
 			"class": "socket",
 			"capabilities": [
 				"onoff",
 				"measure_power",
 				"meter_power"
 			],
-			"images": {
-				"large": "/drivers/ZMNHBA2/assets/images/large.png",
-				"small": "/drivers/ZMNHBA2/assets/images/small.png"
-			},
 			"zwave": {
 				"manufacturerId": 345,
 				"productTypeId": 2,
@@ -2384,35 +2384,35 @@
 					1,
 					2,
 					3
-				]
-			},
+				],
 			"multiChannelNodes": {
 				"1": {
-					"class": "socket",
-					"capabilities": [
-						"onoff",
-						"measure_power",
-						"meter_power"
-					],
-					"icon": "/drivers/ZMNHBA2/assets/icon.svg",
-					"name": {
-						"en": "ZMNHBA2 Relay 1",
-						"nl": "ZMNHBA2 Relais 1"
-					}
-				},
+							"class": "socket",
+							"capabilities": [
+								"onoff",
+								"measure_power",
+								"meter_power"
+							],
+							"icon": "/drivers/ZMNHBA2/assets/icon.svg",
+							"name": {
+								"en": "ZMNHBA2 Relay 1",
+								"nl": "ZMNHBA2 Relais 1"
+							}
+						},
 				"2": {
-					"class": "socket",
-					"capabilities": [
-						"onoff",
-						"measure_power",
-						"meter_power"
-					],
-					"icon": "/drivers/ZMNHBA2/assets/icon-2.svg",
-					"name": {
-						"en": "ZMNHBA2 Relay 2",
-						"nl": "ZMNHBA2 Relais 2"
+							"class": "socket",
+							"capabilities": [
+								"onoff",
+								"measure_power",
+								"meter_power"
+							],
+							"icon": "/drivers/ZMNHBA2/assets/icon-2.svg",
+							"name": {
+								"en": "ZMNHBA2 Relay 2",
+								"nl": "ZMNHBA2 Relais 2"
+							}
+						}
 					}
-				}
 			},
 			"settings": [
 				{
@@ -2612,6 +2612,238 @@
 					}
 				}
 			]
+		},
+		{
+			"id": "ZMNHAA2",
+			"name": {
+				"en": "ZMNHAA2 Flush 1 Relay"
+			},
+			"zwave": {
+				"manufacturerId": 345,
+				"productTypeId": 2,
+				"productId": 2,
+				"learnmode": {
+					"image": "/drivers/ZMNHAA2/assets/learnmode.svg",
+					"instruction": {
+						"en": "For INCLUSION: press service button S your Relay for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
+						"nl": "Voor TOEVOEGEN: houd de service knop S van je Relais langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+					}
+				},
+				"associationGroups": [
+					1
+				]
+			},
+			"class": "socket",
+			"capabilities": [
+				"onoff",
+				"measure_power",
+				"meter_power",
+				"measure_temperature"
+			],
+			"mobile": {
+				"components": [
+					{
+						"id": "icon",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_power",
+							"meter_power",
+							"measure_temperature"
+						]
+					}
+				]
+			},
+			"images": {
+				"large": "/drivers/ZMNHAA2/assets/images/large.png",
+				"small": "/drivers/ZMNHAA2/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "input_1_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "mono-stable switch type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Bi-stable switch type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 1 switch type"
+					},
+					"hint": {
+						"en": "By this parameter the user can set input based on device type"
+					}
+				},
+				{
+					"id": "input_2_contact_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "NO (normally open) input type",
+								"nl": "NO (normaal open) input type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "NC (normally close) input type",
+								"nl": "NG (normaal gesloten) input type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 2 contact type",
+						"nl": "Input 2 contact type"
+					},
+					"hint": {
+						"en": "This parameter sets the contact type of input 2.",
+						"nl": "Deze parameter bepaalt het contact type van input 2."
+					}
+				},
+				{
+					"id": "input_3_contact_type",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "NO (normally open) input type",
+								"nl": "NO (normaal open) input type"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "NC (normally close) input type",
+								"nl": "NG (normaal gesloten) input type"
+							}
+						}
+					],
+					"value": "0",
+					"label": {
+						"en": "Input 3 contact type",
+						"nl": "Input 3 contact type"
+					},
+					"hint": {
+						"en": "This parameter sets the contact type of input 3.",
+						"nl": "Deze parameter bepaalt het contact type van input 3."
+					}
+				},
+				{
+					"id": "deactivate_ALL_ON_ALL_OFF",
+					"type": "dropdown",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "ALL ON is not active, ALL OFF active"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "ALL ON active, ALL OFF is not active"
+							}
+						},
+						{
+							"id": "255",
+							"label": {
+								"en": "ALL ON active, ALL OFF active"
+							}
+						}
+					],
+					"value": "255",
+					"label": {
+						"en": "ALL ON / ALL OFF"
+					},
+					"hint": {
+						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+					}
+				},
+				{
+					"id": "automatic_turning_off_output_q1_after_set_time",
+					"type": "number",
+					"label": {
+						"en": "Automatic turning off output after set time"
+					},
+					"value": 0,
+					"attr": {
+						"min": 0,
+						"max": 325369
+					},
+					"hint": {
+						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+					}
+				},
+				{
+					"id": "state_of_device_after_power_failure",
+					"type": "checkbox",
+					"label": {
+						"en": "State of device after power failure"
+					},
+					"value": false,
+					"hint": {
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+					}
+				},
+				{
+					"id": "power_report_on_power_change_q1",
+					"type": "number",
+					"label": {
+						"en": "Power report on power change",
+						"nl": "Stroomverbruik update bij verandering van"
+					},
+					"value": 5,
+					"attr": {
+						"min": 0,
+						"max": 100
+					},
+					"hint": {
+						"en": "The parameter determines if a power report should be sent depending on the predefined power change in percentage",
+						"nl": "Deze parameter zorgt ervoor dat bij de gedefinieerde verandering in stroomverbruik (%) een update wordt verzonden naar Homey"
+					}
+				},
+				{
+					"id": "power_report_by_time_interval_q1",
+					"type": "number",
+					"label": {
+						"en": "Power report by time Interval",
+						"nl": "Stroomverbruik update per tijdsinterval"
+					},
+					"value": 300,
+					"attr": {
+						"min": 0,
+						"max": 65535
+					},
+					"hint": {
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Value range: 1 – 65535.",
+						"nl": "Stel het interval (seconden, 1 - 65535) in waarop een stroomverbruik update moet worden verstuurt naar Homey. 0 -> geen updates."
+					}
+				}
+			]
 		}
 	],
 	"flow": {
@@ -2767,6 +2999,84 @@
 						"name": "device",
 						"type": "device",
 						"filter": "driver_id=ZMNHBA2"
+					}
+				]
+			},
+			{
+				"id": "ZMNHAA2_temp_changed",
+				"title": {
+					"en": "Temperature has changed",
+					"nl": "Temperatuur is veranderd"
+				},
+				"tokens": [
+					{
+						"name": "ZMNHAA2_temp",
+						"title": {
+							"en": "temp"
+						}
+					}
+				],
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHAA2"
+					}
+				]
+			},
+			{
+				"id": "ZMNHAA2_I2_on",
+				"title": {
+					"en": "Input 2 turned on",
+					"nl": "Input 2 is ingeschakeld"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHAA2"
+					}
+				]
+			},
+			{
+				"id": "ZMNHAA2_I2_off",
+				"title": {
+					"en": "Input 2 turned off",
+					"nl": "Input 2 is uitgeschakeld"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHAA2"
+					}
+				]
+			},
+			{
+				"id": "ZMNHAA2_I3_on",
+				"title": {
+					"en": "Input 3 turned on",
+					"nl": "Input 3 is ingeschakeld"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHAA2"
+					}
+				]
+			},
+			{
+				"id": "ZMNHAA2_I3_off",
+				"title": {
+					"en": "Input 3 turned off",
+					"nl": "Input 3 is uitgeschakeld"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHAA2"
 					}
 				]
 			},

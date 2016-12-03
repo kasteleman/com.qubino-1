@@ -134,4 +134,4 @@ module.exports.on('initNode', token => {
 	}
 });
 
-Homey.manager('flow').on('trigger.ZMNHAD1_temp_changed', callback => callback(null, true));
+Homey.manager('flow').on('trigger.ZMNHBAD2_temp_changed', callback => callback(null, true));
