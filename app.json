@@ -179,7 +179,7 @@
 					"type": "number",
 					"label": {
 						"en": "Automatic turning off output after set time",
-						"nl": "Automatisch uitschakelen van output na"
+						"nl": "Automatisch uitschakelen van output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -823,7 +823,8 @@
 					"id": "automatic_turning_off_output_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off output after set time"
+						"en": "Automatic turning off output after set time",
+						"nl": "Automatisch uitschakelen van output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -831,7 +832,8 @@
 						"max": 325369
 					},
 					"hint": {
-						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
 					}
 				},
 				{
@@ -853,18 +855,21 @@
 					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
-						"en": "State of device after power failure"
+						"en": "Restore previous state of device after power failure",
+						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
 					},
 					"value": false,
 					"hint": {
-						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
+						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 					}
 				},
 				{
 					"id": "power_report_on_power_change",
 					"type": "number",
 					"label": {
-						"en": "Power report on power change"
+						"en": "Power report on power change",
+						"nl": "Stroomverbruik update bij verandering van"
 					},
 					"value": 5,
 					"attr": {
@@ -872,7 +877,8 @@
 						"max": 100
 					},
 					"hint": {
-						"en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
+						"en": "The parameter determines if a power report should be sent depending on the predefined power change in percentage",
+						"nl": "Deze parameter zorgt ervoor dat bij de gedefinieerde verandering in stroomverbruik (%) een update wordt verzonden naar Homey"
 					}
 				},
 				{
@@ -1074,7 +1080,8 @@
 					"id": "automatic_turning_off_output_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off output after set time"
+						"en": "Automatic turning off output after set time",
+						"nl": "Automatisch uitschakelen van output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -1082,7 +1089,8 @@
 						"max": 325369
 					},
 					"hint": {
-						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
 					}
 				},
 				{
@@ -1104,18 +1112,21 @@
 					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
-						"en": "State of device after power failure"
+						"en": "Restore previous state of device after power failure",
+						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
 					},
 					"value": false,
 					"hint": {
-						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
+						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 					}
 				},
 				{
 					"id": "power_report_on_power_change",
 					"type": "number",
 					"label": {
-						"en": "Power report on power change"
+						"en": "Power report on power change",
+						"nl": "Stroomverbruik update bij verandering van"
 					},
 					"value": 5,
 					"attr": {
@@ -1123,7 +1134,8 @@
 						"max": 100
 					},
 					"hint": {
-						"en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
+						"en": "The parameter determines if a power report should be sent depending on the predefined power change in percentage",
+						"nl": "Deze parameter zorgt ervoor dat bij de gedefinieerde verandering in stroomverbruik (%) een update wordt verzonden naar Homey"
 					}
 				},
 				{
@@ -1396,18 +1408,21 @@
 					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
-						"en": "State of device after power failure"
+						"en": "Restore previous state of device after power failure",
+						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
 					},
 					"value": false,
 					"hint": {
-						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
+						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 					}
 				},
 				{
 					"id": "power_report_on_power_change",
 					"type": "number",
 					"label": {
-						"en": "Power report on power change"
+						"en": "Power report on power change",
+						"nl": "Stroomverbruik update bij verandering van"
 					},
 					"value": 5,
 					"attr": {
@@ -1415,7 +1430,8 @@
 						"max": 100
 					},
 					"hint": {
-						"en": "The parameter defines if a power report should be sent depending on the predefined power change in percent"
+						"en": "The parameter determines if a power report should be sent depending on the predefined power change in percentage",
+						"nl": "Deze parameter zorgt ervoor dat bij de gedefinieerde verandering in stroomverbruik (%) een update wordt verzonden naar Homey"
 					}
 				},
 				{
@@ -1609,7 +1625,8 @@
 					"id": "automatic_turning_off_output_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off output after set time"
+						"en": "Automatic turning off output after set time",
+						"nl": "Automatisch uitschakelen van output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -1617,7 +1634,8 @@
 						"max": 325369
 					},
 					"hint": {
-						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
 					}
 				},
 				{
@@ -1639,11 +1657,13 @@
 					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
-						"en": "State of device after power failure"
+						"en": "Restore previous state of device after power failure",
+						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
 					},
 					"value": false,
 					"hint": {
-						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
+						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 					}
 				},
 				{
@@ -1853,7 +1873,8 @@
 					"id": "automatic_turning_off_output_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off output after set time"
+						"en": "Automatic turning off output after set time",
+						"nl": "Automatisch uitschakelen van output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -1861,7 +1882,8 @@
 						"max": 325369
 					},
 					"hint": {
-						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
 					}
 				},
 				{
@@ -1883,11 +1905,13 @@
 					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
-						"en": "State of device after power failure"
+						"en": "Restore previous state of device after power failure",
+						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
 					},
 					"value": false,
 					"hint": {
-						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
+						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 					}
 				},
 				{
@@ -2134,7 +2158,8 @@
 					"id": "automatic_turning_off_output_q1_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off output Q1 after set time"
+						"en": "Automatic turning off output q1 after set time",
+						"nl": "Automatisch uitschakelen van output q1 na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -2142,7 +2167,8 @@
 						"max": 325369
 					},
 					"hint": {
-						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
 					}
 				},
 				{
@@ -2164,7 +2190,8 @@
 					"id": "automatic_turning_off_output_q2_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off output Q2 after set time"
+						"en": "Automatic turning off output q2 after set time",
+						"nl": "Automatisch uitschakelen van output na q2 na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -2172,7 +2199,8 @@
 						"max": 325369
 					},
 					"hint": {
-						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
 					}
 				},
 				{
@@ -2194,11 +2222,13 @@
 					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
-						"en": "State of device after power failure"
+						"en": "Restore previous state of device after power failure",
+						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
 					},
 					"value": false,
 					"hint": {
-						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
+						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 					}
 				},
 				{
@@ -2367,8 +2397,27 @@
 			"capabilities": [
 				"onoff",
 				"measure_power",
-				"meter_power"
+				"meter_power",
+				"measure_temperature"
 			],
+			"mobile": {
+				"components": [
+					{
+						"id": "icon",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_power",
+							"meter_power",
+							"measure_temperature"
+						]
+					}
+				]
+			},
 			"zwave": {
 				"manufacturerId": 345,
 				"productTypeId": 2,
@@ -2506,7 +2555,8 @@
 					"id": "automatic_turning_off_output_q1_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off output Q1 after set time"
+						"en": "Automatic turning off output q1 after set time",
+						"nl": "Automatisch uitschakelen van output q1 na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -2514,14 +2564,16 @@
 						"max": 325369
 					},
 					"hint": {
-						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
 					}
 				},
 				{
 					"id": "automatic_turning_off_output_q2_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off output Q2 after set time"
+						"en": "Automatic turning off output q2 after set time",
+						"nl": "Automatisch uitschakelen van output q2 na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -2536,11 +2588,13 @@
 					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
-						"en": "State of device after power failure"
+						"en": "Restore previous state of device after power failure",
+						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
 					},
 					"value": false,
 					"hint": {
-						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
+						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 					}
 				},
 				{
@@ -2630,7 +2684,10 @@
 					}
 				},
 				"associationGroups": [
-					1
+					1,
+					2,
+					3,
+					4
 				]
 			},
 			"class": "socket",
@@ -2787,7 +2844,8 @@
 					"id": "automatic_turning_off_output_q1_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off output after set time"
+						"en": "Automatic turning off output q1 after set time",
+						"nl": "Automatisch uitschakelen van output q1 na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -2802,11 +2860,13 @@
 					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
-						"en": "State of device after power failure"
+						"en": "Restore previous state of device after power failure",
+						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
 					},
 					"value": false,
 					"hint": {
-						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure"
+						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
+						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 					}
 				},
 				{

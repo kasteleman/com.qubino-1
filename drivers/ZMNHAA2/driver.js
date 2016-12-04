@@ -11,9 +11,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
 			command_get: 'SWITCH_BINARY_GET',
 			command_set: 'SWITCH_BINARY_SET',
-			command_set_parser: value => ({
-				'Switch Value': (value > 0) ? 'on/enable' : 'off/disable',
-			}),
+			command_set_parser: value => {
+				return {
+					'Switch Value': (value > 0) ? 'on/enable' : 'off/disable',
+				};
+			},
 			command_report: 'SWITCH_BINARY_REPORT',
 			command_report_parser: report => report['Value'] === 'on/enable',
 		},
@@ -169,3 +171,5 @@ module.exports.on('initNode', token => {
 });
 
 Homey.manager('flow').on('trigger.ZMNHAA2_temp_changed', callback => callback(null, true));
+Homey.manager('flow').on('trigger.ZMNHAA2_I2_on', callback => callback(null, true));
+Homey.manager('flow').on('trigger.ZMNHAA2_I2_off', callback => callback(null, true));

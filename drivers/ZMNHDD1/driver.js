@@ -11,10 +11,12 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: value => ({
-				Value: (value > 0) ? 'on/enable' : 'off/disable',
-				'Dimming Duration': 1,
-			}),
+			command_set_parser: value => {
+				return {
+					Value: (value > 0) ? 'on/enable' : 'off/disable',
+					'Dimming Duration': 1,
+				};
+			},
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
 			command_report_parser: report => {
 				console.log(JSON.stringify(report));
