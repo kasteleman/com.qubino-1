@@ -25,10 +25,12 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: value => ({
-				Value: value * 100,
-				'Dimming Duration': 1,
-			}),
+			command_set_parser: value => {
+				return {
+					Value: value * 100,
+					'Dimming Duration': 1,
+				};
+			},
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
 			command_report_parser: report => report['Value (Raw)'][0] / 100,
 		},
@@ -85,6 +87,23 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				return null;
 			},
 		},
+
+		alarm_contact: [
+			{
+				multiChannelNodeId: 1,
+				command_class: 'COMMAND_CLASS_SENSOR_BINARY',
+				command_get: 'SENSOR_BINARY_GET',
+				command_report: 'SENSOR_BINARY_REPORT',
+				command_report_parser: report => report['Sensor Value'] === 'detected an event',
+			},
+			{
+				multiChannelNodeId: 1,
+				command_class: 'COMMAND_CLASS_BASIC',
+				command_report: 'BASIC_SET',
+				command_report_parser: report => report['Value'] === 255,
+			},
+		],
+
 	},
 
 	settings: {
@@ -151,10 +170,11 @@ module.exports.on('initNode', token => {
 				}
 			});
 		}
-		if (node.instance.MultiChannelNodes['1']) {
-			console.log('ZMNHDA2 I2 triggered');
+		if (node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
+			console.log('ZMNHDA2 I2 BINARY triggered');
 			node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
-				if (report) {
+				console.log(report['Sensor Value']);
+				if (command.name === 'SENSOR_BINARY_REPORT') {
 					console.log('I2 Sensor Binary Report');
 					if (report['Sensor Value'] === 'detected an event') {
 						Homey.manager('flow').triggerDevice('ZMNHDA2_I2_on', {}, {}, node.device_data);
@@ -164,15 +184,16 @@ module.exports.on('initNode', token => {
 				}
 			});
 		}
-		if (node.instance.MultiChannelNodes['2']) {
-			console.log('ZMNHDA2 I3 triggered');
-			node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
-				if (report) {
-					console.log('I3 Sensor Binary Report');
-					if (report['Sensor Value'] === 'detected an event') {
-						Homey.manager('flow').triggerDevice('ZMNHDA2_I3_on', {}, {}, node.device_data);
-					} else if (report['Sensor Value'] === 'idle') {
-						Homey.manager('flow').triggerDevice('ZMNHDA2_I3_off', {}, {}, node.device_data);
+		if (node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_BASIC) {
+			console.log('ZMNHDA2 I2 Basic triggered');
+			node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_BASIC.on('report', (command, report) => {
+				console.log(report['Value']);
+				if (command.name === 'BASIC_REPORT') {
+					console.log('I2 Basic Report');
+					if (report['Value'] === 255) {
+						Homey.manager('flow').triggerDevice('ZMNHDA2_I2_on', {}, {}, node.device_data);
+					} else if (report['Value'] === 0) {
+						Homey.manager('flow').triggerDevice('ZMNHDA2_I2_off', {}, {}, node.device_data);
 					}
 				}
 			});

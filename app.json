@@ -353,7 +353,8 @@
 				"dim",
 				"measure_power",
 				"meter_power",
-				"measure_temperature"
+				"measure_temperature",
+				"alarm_contact"
 			],
 			"mobile": {
 				"components": [
@@ -374,7 +375,8 @@
 						"capabilities": [
 							"measure_power",
 							"meter_power",
-							"measure_temperature"
+							"measure_temperature",
+							"alarm_contact"
 						]
 					}
 				]
@@ -2021,8 +2023,33 @@
 			"capabilities": [
 				"onoff",
 				"measure_power",
-				"meter_power"
+				"meter_power",
+				"measure_temperature"
 			],
+			"mobile": {
+				"components": [
+					{
+						"id": "icon",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_power",
+							"meter_power",
+							"measure_temperature"
+						]
+					},
+					{
+						"id": "toggle",
+						"capabilities": [
+							"onoff"
+						]
+					}
+				]
+			},
 			"zwave": {
 				"manufacturerId": 345,
 				"productTypeId": 2,
@@ -2415,6 +2442,12 @@
 							"meter_power",
 							"measure_temperature"
 						]
+					},
+					{
+						"id": "toggle",
+						"capabilities": [
+							"onoff"
+						]
 					}
 				]
 			},
@@ -2711,6 +2744,12 @@
 							"measure_power",
 							"meter_power",
 							"measure_temperature"
+						]
+					},
+					{
+						"id": "toggle",
+						"capabilities": [
+							"onoff"
 						]
 					}
 				]
