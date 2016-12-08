@@ -4,16 +4,19 @@ const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
+	debug: false,
 	capabilities: {
 
 		onoff: {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: value => ({
-				Value: (value > 0) ? 'on/enable' : 'off/disable',
-				'Dimming Duration': 10,
-			}),
+			command_set_parser: value => {
+				return {
+					Value: (value > 0) ? 'on/enable' : 'off/disable',
+					'Dimming Duration': 10,
+				};
+			},
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
 			command_report_parser: report => report['Value (Raw)'][0] > 0,
 		},
@@ -54,6 +57,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 1,
 			size: 1,
 		},
+		deactivate_ALL_ON_ALL_OFF: {
+			index: 10,
+			size: 2,
+		},
 		automatic_turning_off_output_after_set_time: {
 			index: 11,
 			size: 2,
@@ -65,6 +72,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		state_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
+			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
 		maximum_dimming_value: {
 			index: 61,

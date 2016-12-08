@@ -8,36 +8,22 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
 
 		onoff: {
-			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
-			command_get: 'SWITCH_MULTILEVEL_GET',
-			command_set: 'SWITCH_MULTILEVEL_SET',
+			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
+			command_get: 'SWITCH_BINARY_GET',
+			command_set: 'SWITCH_BINARY_SET',
 			command_set_parser: value => {
 				return {
-					Value: (value > 0) ? 'on/enable' : 'off/disable',
-					'Dimming Duration': 1,
+					'Switch Value': (value > 0) ? 'on/enable' : 'off/disable',
 				};
 			},
-			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Value (Raw)'][0] > 0,
-		},
-
-		dim: {
-			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
-			command_get: 'SWITCH_MULTILEVEL_GET',
-			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: value => ({
-				Value: value * 100,
-				'Dimming Duration': 1,
-			}),
-			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Value (Raw)'][0] / 100,
+			command_report: 'SWITCH_BINARY_REPORT',
+			command_report_parser: report => report['Value'] === 'on/enable',
 		},
 
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_get: 'SENSOR_MULTILEVEL_GET',
 			command_get_parser: () => ({
-
 				'Sensor Type': 'Temperature (version 1)',
 				Properties1: {
 					Scale: 0,
@@ -92,16 +78,16 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 1,
 			size: 1,
 		},
-		input_2_contact_type: {
+		input_2_type: {
 			index: 2,
-			size: 1,
-		},
-		input_3_contact_type: {
-			index: 3,
 			size: 1,
 		},
 		deactivate_ALL_ON_ALL_OFF: {
 			index: 10,
+			size: 2,
+		},
+		automatic_turning_off_output_q1_after_set_time: {
+			index: 11,
 			size: 2,
 		},
 		state_of_device_after_power_failure: {
@@ -109,29 +95,13 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
-		power_report_on_power_change: {
+		power_report_on_power_change_q1: {
 			index: 40,
 			size: 1,
 		},
-		power_report_by_time_interval: {
+		power_report_by_time_interval_q1: {
 			index: 42,
 			size: 2,
-		},
-		maximum_dimming_value: {
-			index: 61,
-			size: 1,
-		},
-		minimum_dimming_value: {
-			index: 60,
-			size: 1,
-		},
-		dimming_time_soft_on_off: {
-			index: 65,
-			size: 1,
-		},
-		dimming_time_when_key_pressed: {
-			index: 66,
-			size: 1,
 		},
 	},
 });
@@ -144,35 +114,55 @@ module.exports.on('initNode', token => {
 			node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
 				if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
 					Homey.manager('flow').triggerDevice(
-						'ZMNHDA2_temp_changed',
-						{ ZMNHDA2_temp: report['Sensor Value (Parsed)'] },
+						'ZMNHAA2_temp_changed',
+						{ ZMNHAA2_temp: report['Sensor Value (Parsed)'] },
 						report['Sensor Value (Parsed)'], node.device_data
 					);
 				}
 			});
 		}
 		if (node.instance.MultiChannelNodes['1']) {
-			console.log('ZMNHDA2 I2 triggered');
+			console.log('ZMNHAA2 I2 triggered');
 			node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
 				if (report) {
 					console.log('I2 Sensor Binary Report');
 					if (report['Sensor Value'] === 'detected an event') {
-						Homey.manager('flow').triggerDevice('ZMNHDA2_I2_on', {}, {}, node.device_data);
+						Homey.manager('flow').triggerDevice('ZMNHAA2_I2_on', {}, {}, node.device_data);
 					} else if (report['Sensor Value'] === 'idle') {
-						Homey.manager('flow').triggerDevice('ZMNHDA2_I2_off', {}, {}, node.device_data);
+						Homey.manager('flow').triggerDevice('ZMNHAA2_I2_off', {}, {}, node.device_data);
+					}
+				}
+			});
+			node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_BASIC.on('report', (command, report) => {
+				if (report) {
+					console.log('ZMNHAA2 I2 Basic Report');
+					if (report['Value'] === 255) {
+						Homey.manager('flow').triggerDevice('ZMNHAA2_I2_on', {}, {}, node.device_data);
+					} else {
+						Homey.manager('flow').triggerDevice('ZMNHAA2_I2_off', {}, {}, node.device_data);
 					}
 				}
 			});
 		}
 		if (node.instance.MultiChannelNodes['2']) {
-			console.log('ZMNHDA2 I3 triggered');
+			console.log('ZMNHAA2 I3 triggered');
 			node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
 				if (report) {
 					console.log('I3 Sensor Binary Report');
 					if (report['Sensor Value'] === 'detected an event') {
-						Homey.manager('flow').triggerDevice('ZMNHDA2_I3_on', {}, {}, node.device_data);
+						Homey.manager('flow').triggerDevice('ZMNHAA2_I3_on', {}, {}, node.device_data);
 					} else if (report['Sensor Value'] === 'idle') {
-						Homey.manager('flow').triggerDevice('ZMNHDA2_I3_off', {}, {}, node.device_data);
+						Homey.manager('flow').triggerDevice('ZMNHAA2_I3_off', {}, {}, node.device_data);
+					}
+				}
+			});
+			node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_BASIC.on('report', (command, report) => {
+				if (report) {
+					console.log('I2 Basic Report');
+					if (report['Value'] === 255) {
+						Homey.manager('flow').triggerDevice('ZMNHAA2_I3_on', {}, {}, node.device_data);
+					} else {
+						Homey.manager('flow').triggerDevice('ZMNHAA2_I3_off', {}, {}, node.device_data);
 					}
 				}
 			});
@@ -180,6 +170,6 @@ module.exports.on('initNode', token => {
 	}
 });
 
-Homey.manager('flow').on('trigger.ZMNHDA2_temp_changed', callback => callback(null, true));
-Homey.manager('flow').on('trigger.ZMNHDA2_I2_on', callback => callback(null, true));
-Homey.manager('flow').on('trigger.ZMNHDA2_I2_off', callback => callback(null, true));
+Homey.manager('flow').on('trigger.ZMNHAA2_temp_changed', callback => callback(null, true));
+Homey.manager('flow').on('trigger.ZMNHAA2_I2_on', callback => callback(null, true));
+Homey.manager('flow').on('trigger.ZMNHAA2_I2_off', callback => callback(null, true));

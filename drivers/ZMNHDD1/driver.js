@@ -11,8 +11,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: function (value) {
-
+			command_set_parser: value => {
 				return {
 					Value: (value > 0) ? 'on/enable' : 'off/disable',
 					'Dimming Duration': 1,
@@ -29,12 +28,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: function (value) {
-				return {
-					Value: value * 100,
-					'Dimming Duration': 1,
-				};
-			},
+			command_set_parser: value => ({
+				Value: value * 100,
+				'Dimming Duration': 1,
+			}),
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
 			command_report_parser: report => {
 				console.log(JSON.stringify(report));
@@ -45,13 +42,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		measure_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
-			command_get_parser: function () {
-				return {
-					Properties1: {
-						Scale: 7,
-					},
-				};
-			},
+			command_get_parser: () => ({
+				Properties1: {
+					Scale: 7,
+				},
+			}),
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {
 				if (report.hasOwnProperty('Properties2')
@@ -66,13 +61,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		meter_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
-			command_get_parser: function () {
-				return {
-					Properties1: {
-						Scale: 0,
-					},
-				};
-			},
+			command_get_parser: () => ({
+				Properties1: {
+					Scale: 0,
+				},
+			}),
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {
 				if (report.hasOwnProperty('Properties2')
@@ -87,14 +80,12 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_get: 'SENSOR_MULTILEVEL_GET',
-			command_get_parser: function () {
-				return {
-					'Sensor Type': 'Temperature (version 1)',
-					Properties1: {
-						Scale: 0,
-					},
-				};
-			},
+			command_get_parser: () => ({
+				'Sensor Type': 'Temperature (version 1)',
+				Properties1: {
+					Scale: 0,
+				},
+			}),
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
 			command_report_parser: report => report['Sensor Value (Parsed)'],
 			optional: true,
@@ -102,60 +93,60 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	},
 
 	settings: {
-		Input_1_type: {
+		input_1_type: {
 			index: 1,
 			size: 1,
 		},
-		Input_2_type: {
+		input_2_type: {
 			index: 1,
 			size: 1,
 		},
-		Input_2_contact_type: {
+		input_2_contact_type: {
 			index: 3,
 			size: 1,
 		},
-		Input_3_contact_type: {
+		input_3_contact_type: {
 			index: 4,
 			size: 1,
 		},
-		DeActivate_ALL_ON__ALL_OFF: {
+		deactivate_ALL_ON_ALL_OFF: {
 			index: 10,
-			size: 1,
+			size: 2,
 		},
-		Automatic_turning_off_output_after_set_time: {
+		automatic_turning_off_output_after_set_time: {
 			index: 11,
 			size: 2,
 		},
-		Automatic_turning_on_output_after_set_time: {
+		automatic_turning_on_output_after_set_time: {
 			index: 12,
 			size: 2,
 		},
-		State_of_device_after_power_failure: {
+		state_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
 			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
-		Power_report_on_power_change: {
+		power_report_on_power_change: {
 			index: 40,
 			size: 1,
 		},
-		Power_report_by_time_interval: {
+		power_report_by_time_interval: {
 			index: 42,
 			size: 2,
 		},
-		Maximum_dimming_value: {
+		maximum_dimming_value: {
 			index: 61,
 			size: 1,
 		},
-		Minimum_dimming_value: {
+		minimum_dimming_value: {
 			index: 60,
 			size: 1,
 		},
-		Dimming_time_soft_on_off: {
+		dimming_time_soft_on_off: {
 			index: 65,
 			size: 1,
 		},
-		Dimming_time_when_key_pressed: {
+		dimming_time_when_key_pressed: {
 			index: 66,
 			size: 1,
 		},
