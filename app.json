@@ -2948,16 +2948,20 @@
 	"flow": {
 		"triggers": [
 			{
-				"id": "ZMNHDA2_temp_changed",
+				"id": "measure_temperature_changed",
 				"title": {
-					"en": "Temperature has changed",
-					"nl": "Temperatuur is veranderd"
+					"en": "The temperature changed",
+					"nl": "De temperatuur is veranderd"
 				},
 				"tokens": [
 					{
-						"name": "ZMNHDA2_temp",
+						"name": "measure_temperature",
 						"title": {
-							"en": "temp"
+							"en": "Temperature",
+							"nl": "Temperatuur"
+						},
+						"example": {
+							"en": "23.5"
 						}
 					}
 				],
