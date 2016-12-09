@@ -6,50 +6,58 @@ const ZwaveDriver = require('node-homey-zwavedriver');
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	debug: true,
 	capabilities: {
-
 		onoff: {
-			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
-			command_get: 'SWITCH_MULTILEVEL_GET',
-			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: value => {
-				return {
-					Value: (value > 0) ? 'on/enable' : 'off/disable',
-					'Dimming Duration': 1,
-				};
-			},
-			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Value (Raw)'][0] > 0,
+			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
+			command_get: 'SWITCH_BINARY_GET',
+			command_set: 'SWITCH_BINARY_SET',
+			command_set_parser: value => ({
+				'Switch Value': (value) ? 'on/enable' : 'off/disable'
+			}),
+			command_report: 'SWITCH_BINARY_REPORT',
+			command_report_parser: report => {
+				if (report['Value'] === 'on/enable') {
+					return true;
+				} else if (report['Value'] === 'off/disable') {
+					return false;
+				}
+				return null;
+			}
 		},
-
 		dim: {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
 			command_set_parser: value => {
+				console.log('PARSED DIM VALUE', Math.round(map(0, 1, 0, 255, value)));
 				return {
-					Value: value * 100,
-					'Dimming Duration': 1,
+					Value: Math.round(map(0, 1, 0, 255, value)),
+					'Dimming Duration': 255,
 				};
 			},
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Value (Raw)'][0] / 100,
-		},
+			command_report_parser: report => {
+				console.log(report['Value (Raw)'][0]);
+				console.log(map(0, 255, 0, 1, report['Value (Raw)'][0]));
 
+				return map(0, 255, 0, 1, report['Value (Raw)'][0]);
+			}
+		},
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_get: 'SENSOR_MULTILEVEL_GET',
 			command_get_parser: () => ({
-
 				'Sensor Type': 'Temperature (version 1)',
 				Properties1: {
 					Scale: 0,
 				},
 			}),
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Sensor Value (Parsed)'],
+			command_report_parser: report => {
+				if (report['Sensor Value (Parsed)'] === -999.9) return null;
+				return report['Sensor Value (Parsed)'];
+			},
 			optional: true,
 		},
-
 		measure_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
@@ -68,7 +76,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				return null;
 			},
 		},
-
 		meter_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
@@ -87,7 +94,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				return null;
 			},
 		},
-
 		alarm_contact: [
 			{
 				multiChannelNodeId: 1,
@@ -103,7 +109,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				command_report_parser: report => report['Value'] === 255,
 			},
 		],
-
 	},
 
 	settings: {
@@ -126,7 +131,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		state_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
-			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
 		power_report_on_power_change: {
 			index: 40,
@@ -159,23 +163,11 @@ module.exports.on('initNode', token => {
 	const node = module.exports.nodes[token];
 
 	if (node) {
-		if (node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL) {
-			node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
-				if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
-					Homey.manager('flow').triggerDevice(
-						'ZMNHDA2_temp_changed',
-						{ ZMNHDA2_temp: report['Sensor Value (Parsed)'] },
-						report['Sensor Value (Parsed)'], node.device_data
-					);
-				}
-			});
-		}
+
+		// I2 switched
 		if (node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
-			console.log('ZMNHDA2 I2 BINARY triggered');
 			node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
-				console.log(report['Sensor Value']);
 				if (command.name === 'SENSOR_BINARY_REPORT') {
-					console.log('I2 Sensor Binary Report');
 					if (report['Sensor Value'] === 'detected an event') {
 						Homey.manager('flow').triggerDevice('ZMNHDA2_I2_on', {}, {}, node.device_data);
 					} else if (report['Sensor Value'] === 'idle') {
@@ -184,16 +176,15 @@ module.exports.on('initNode', token => {
 				}
 			});
 		}
-		if (node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_BASIC) {
-			console.log('ZMNHDA2 I2 Basic triggered');
-			node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_BASIC.on('report', (command, report) => {
-				console.log(report['Value']);
-				if (command.name === 'BASIC_REPORT') {
-					console.log('I2 Basic Report');
-					if (report['Value'] === 255) {
-						Homey.manager('flow').triggerDevice('ZMNHDA2_I2_on', {}, {}, node.device_data);
-					} else if (report['Value'] === 0) {
-						Homey.manager('flow').triggerDevice('ZMNHDA2_I2_off', {}, {}, node.device_data);
+
+		// I3 switched
+		if (node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
+			node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
+				if (command.name === 'SENSOR_BINARY_REPORT') {
+					if (report['Sensor Value'] === 'detected an event') {
+						Homey.manager('flow').triggerDevice('ZMNHDA2_I3_on', {}, {}, node.device_data);
+					} else if (report['Sensor Value'] === 'idle') {
+						Homey.manager('flow').triggerDevice('ZMNHDA2_I3_off', {}, {}, node.device_data);
 					}
 				}
 			});
@@ -201,6 +192,16 @@ module.exports.on('initNode', token => {
 	}
 });
 
-Homey.manager('flow').on('trigger.ZMNHDA2_temp_changed', callback => callback(null, true));
-Homey.manager('flow').on('trigger.ZMNHDA2_I2_on', callback => callback(null, true));
-Homey.manager('flow').on('trigger.ZMNHDA2_I2_off', callback => callback(null, true));
+/**
+ * Util function that maps values from one range
+ * to another
+ * @param input_start
+ * @param input_end
+ * @param output_start
+ * @param output_end
+ * @param input
+ * @returns {*}
+ */
+function map(input_start, input_end, output_start, output_end, input) {
+	return output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start);
+}
