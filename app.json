@@ -2739,17 +2739,17 @@
 						]
 					},
 					{
+						"id": "toggle",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
 						"id": "sensor",
 						"capabilities": [
 							"measure_power",
 							"meter_power",
 							"measure_temperature"
-						]
-					},
-					{
-						"id": "toggle",
-						"capabilities": [
-							"onoff"
 						]
 					}
 				]
@@ -2969,7 +2969,7 @@
 					{
 						"name": "device",
 						"type": "device",
-						"filter": "driver_id=ZMNHDA2"
+						"filter": "driver_id=ZMNHVD1"
 					}
 				]
 			},
@@ -2992,28 +2992,6 @@
 						"name": "device",
 						"type": "device",
 						"filter": "driver_id=ZMNHDD1"
-					}
-				]
-			},
-			{
-				"id": "ZMNHVD1_temp_changed",
-				"title": {
-					"en": "Temperature has changed",
-					"nl": "Temperatuur is veranderd"
-				},
-				"tokens": [
-					{
-						"name": "ZMNHVD1_temp",
-						"title": {
-							"en": "temp"
-						}
-					}
-				],
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=ZMNHVD1"
 					}
 				]
 			},

@@ -4,7 +4,7 @@ const path = require('path');
 const ZwaveDriver = require('node-homey-zwavedriver');
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: true,
+	debug: false,
 	capabilities: {
 
 		onoff: {

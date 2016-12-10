@@ -11,13 +11,18 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
 			command_get: 'SWITCH_BINARY_GET',
 			command_set: 'SWITCH_BINARY_SET',
-			command_set_parser: value => {
-				return {
-					'Switch Value': (value > 0) ? 'on/enable' : 'off/disable',
-				};
-			},
+			command_set_parser: value => ({
+				'Switch Value': (value) ? 'on/enable' : 'off/disable',
+			}),
 			command_report: 'SWITCH_BINARY_REPORT',
-			command_report_parser: report => report['Value'] === 'on/enable',
+			command_report_parser: report => {
+				if (report['Value'] === 'on/enable') {
+					return true;
+				} else if (report['Value'] === 'off/disable') {
+					return false;
+				}
+				return null;
+			},
 		},
 
 		measure_temperature: {
@@ -30,7 +35,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				},
 			}),
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Sensor Value (Parsed)'],
+			command_report_parser: report => {
+				if (report['Sensor Value (Parsed)'] === -999.9) return null;
+				return report['Sensor Value (Parsed)'];
+			},
 			optional: true,
 		},
 
@@ -110,58 +118,27 @@ module.exports.on('initNode', token => {
 	const node = module.exports.nodes[token];
 
 	if (node) {
-		if (node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL) {
-			node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
-				if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
-					Homey.manager('flow').triggerDevice(
-						'ZMNHAA2_temp_changed',
-						{ ZMNHAA2_temp: report['Sensor Value (Parsed)'] },
-						report['Sensor Value (Parsed)'], node.device_data
-					);
-				}
-			});
-		}
-		if (node.instance.MultiChannelNodes['1']) {
-			console.log('ZMNHAA2 I2 triggered');
+
+		// I2 switched
+		if (node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
 			node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
-				if (report) {
-					console.log('I2 Sensor Binary Report');
+				if (command.name === 'SENSOR_BINARY_REPORT') {
 					if (report['Sensor Value'] === 'detected an event') {
 						Homey.manager('flow').triggerDevice('ZMNHAA2_I2_on', {}, {}, node.device_data);
 					} else if (report['Sensor Value'] === 'idle') {
-						Homey.manager('flow').triggerDevice('ZMNHAA2_I2_off', {}, {}, node.device_data);
-					}
-				}
-			});
-			node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_BASIC.on('report', (command, report) => {
-				if (report) {
-					console.log('ZMNHAA2 I2 Basic Report');
-					if (report['Value'] === 255) {
-						Homey.manager('flow').triggerDevice('ZMNHAA2_I2_on', {}, {}, node.device_data);
-					} else {
 						Homey.manager('flow').triggerDevice('ZMNHAA2_I2_off', {}, {}, node.device_data);
 					}
 				}
 			});
 		}
-		if (node.instance.MultiChannelNodes['2']) {
-			console.log('ZMNHAA2 I3 triggered');
+
+		// I3 switched
+		if (node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
 			node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
-				if (report) {
-					console.log('I3 Sensor Binary Report');
+				if (command.name === 'SENSOR_BINARY_REPORT') {
 					if (report['Sensor Value'] === 'detected an event') {
 						Homey.manager('flow').triggerDevice('ZMNHAA2_I3_on', {}, {}, node.device_data);
 					} else if (report['Sensor Value'] === 'idle') {
-						Homey.manager('flow').triggerDevice('ZMNHAA2_I3_off', {}, {}, node.device_data);
-					}
-				}
-			});
-			node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_BASIC.on('report', (command, report) => {
-				if (report) {
-					console.log('I2 Basic Report');
-					if (report['Value'] === 255) {
-						Homey.manager('flow').triggerDevice('ZMNHAA2_I3_on', {}, {}, node.device_data);
-					} else {
 						Homey.manager('flow').triggerDevice('ZMNHAA2_I3_off', {}, {}, node.device_data);
 					}
 				}
@@ -169,7 +146,3 @@ module.exports.on('initNode', token => {
 		}
 	}
 });
-
-Homey.manager('flow').on('trigger.ZMNHAA2_temp_changed', callback => callback(null, true));
-Homey.manager('flow').on('trigger.ZMNHAA2_I2_on', callback => callback(null, true));
-Homey.manager('flow').on('trigger.ZMNHAA2_I2_off', callback => callback(null, true));
