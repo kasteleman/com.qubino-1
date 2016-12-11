@@ -8,40 +8,33 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
 
 		onoff: {
-			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
-			command_get: 'SWITCH_BINARY_GET',
-			command_set: 'SWITCH_BINARY_SET',
-			command_set_parser: value => ({
-				'Switch Value': (value) ? 'on/enable' : 'off/disable',
-			}),
-			command_report: 'SWITCH_BINARY_REPORT',
-			command_report_parser: report => {
-				if (report['Value'] === 'on/enable') {
-					return true;
-				} else if (report['Value'] === 'off/disable') {
-					return false;
-				}
-				return null;
+			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
+			command_get: 'SWITCH_MULTILEVEL_GET',
+			command_set: 'SWITCH_MULTILEVEL_SET',
+			command_set_parser: value => {
+				return {
+					Value: (value > 0) ? 'on/enable' : 'off/disable',
+					'Dimming Duration': 10,
+				};
 			},
+			command_report: 'SWITCH_MULTILEVEL_REPORT',
+			command_report_parser: report => report['Value (Raw)'][0] > 0,
 		},
+
 		dim: {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
 			command_set_parser: value => {
-				console.log('PARSED DIM VALUE', Math.round(map(0, 1, 0, 255, value)));
+				if (value >= 1) value = 0.99;
+
 				return {
-					Value: Math.round(map(0, 1, 0, 255, value)),
-					'Dimming Duration': 255,
+					Value: value * 100,
+					'Dimming Duration': 10,
 				};
 			},
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => {
-				console.log(report['Value (Raw)'][0]);
-				console.log(map(0, 255, 0, 1, report['Value (Raw)'][0]));
-
-				return map(0, 255, 0, 1, report['Value (Raw)'][0]);
-			},
+			command_report_parser: report => report['Value (Raw)'][0] / 100,
 		},
 
 		measure_temperature: {
@@ -110,17 +103,3 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 	},
 });
-
-/**
- * Util function that maps values from one range
- * to another
- * @param input_start
- * @param input_end
- * @param output_start
- * @param output_end
- * @param input
- * @returns {*}
- */
-function map(input_start, input_end, output_start, output_end, input) {
-	return output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start);
-}
