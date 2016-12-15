@@ -6,37 +6,34 @@ const ZwaveDriver = require('node-homey-zwavedriver');
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	debug: true,
 	capabilities: {
-
 		onoff: {
-			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
-			command_get: 'SWITCH_MULTILEVEL_GET',
-			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: value => {
-				return {
-					Value: (value > 0) ? 'on/enable' : 'off/disable',
-					'Dimming Duration': 10,
-				};
+			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
+			command_get: 'SWITCH_BINARY_GET',
+			command_set: 'SWITCH_BINARY_SET',
+			command_set_parser: value => ({
+				'Switch Value': (value) ? 'on/enable' : 'off/disable',
+			}),
+			command_report: 'SWITCH_BINARY_REPORT',
+			command_report_parser: report => {
+				if (report['Value'] === 'on/enable') {
+					return true;
+				} else if (report['Value'] === 'off/disable') {
+					return false;
+				}
+				return null;
 			},
-			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Value (Raw)'][0] > 0,
 		},
-
 		dim: {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: value => {
-				if (value >= 1) value = 0.99;
-
-				return {
-					Value: value * 100,
-					'Dimming Duration': 10,
-				};
-			},
+			command_set_parser: value => ({
+				Value: Math.round(map(1, 0, 99, 0, value)),
+				'Dimming Duration': 255
+			}),
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Value (Raw)'][0] / 100,
+			command_report_parser: report => map(0, 99, 0, 1, report['Value (Raw)'][0]),
 		},
-
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_get: 'SENSOR_MULTILEVEL_GET',
@@ -75,7 +72,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		state_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
-			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
 		maximum_dimming_value: {
 			index: 61,
@@ -103,3 +99,17 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 	},
 });
+
+/**
+ * Util function that maps values from one range
+ * to another
+ * @param inputStart
+ * @param inputEnd
+ * @param outputStart
+ * @param outputEnd
+ * @param input
+ * @returns {*}
+ */
+function map(inputStart, inputEnd, outputStart, outputEnd, input) {
+	return outputStart + ((outputEnd - outputStart) / (inputEnd - inputStart)) * (input - inputStart);
+}
