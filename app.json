@@ -196,7 +196,7 @@
 					"type": "number",
 					"label": {
 						"en": "Automatic turning on output after set time",
-						"nl": "Automatisch inschakelen van output na"
+						"nl": "Automatisch inschakelen van output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -842,7 +842,8 @@
 					"id": "automatic_turning_on_output_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning on output after set time"
+						"en": "Automatic turning on output after set time",
+						"nl": "Automatisch inschakelen van output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -850,7 +851,8 @@
 						"max": 32536
 					},
 					"hint": {
-						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch intschakelen uit."
 					}
 				},
 				{
@@ -1099,7 +1101,8 @@
 					"id": "automatic_turning_on_output_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning on output after set time"
+						"en": "Automatic turning on output after set time",
+						"nl": "Automatisch inschakelen van output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -1107,7 +1110,8 @@
 						"max": 32536
 					},
 					"hint": {
-						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch intschakelen uit."
 					}
 				},
 				{
@@ -1644,7 +1648,8 @@
 					"id": "automatic_turning_on_output_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning on output after set time"
+						"en": "Automatic turning on output after set time",
+						"nl": "Automatisch inschakelen van output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -1652,7 +1657,8 @@
 						"max": 32536
 					},
 					"hint": {
-						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch intschakelen uit."
 					}
 				},
 				{
@@ -1892,7 +1898,8 @@
 					"id": "automatic_turning_on_output_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning on output after set time"
+						"en": "Automatic turning on output after set time",
+						"nl": "Automatisch inschakelen van output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -1900,7 +1907,8 @@
 						"max": 32536
 					},
 					"hint": {
-						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch intschakelen uit."
 					}
 				},
 				{
@@ -2436,17 +2444,17 @@
 						]
 					},
 					{
+						"id": "toggle",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
 						"id": "sensor",
 						"capabilities": [
 							"measure_power",
 							"meter_power",
 							"measure_temperature"
-						]
-					},
-					{
-						"id": "toggle",
-						"capabilities": [
-							"onoff"
 						]
 					}
 				]
@@ -2739,17 +2747,17 @@
 						]
 					},
 					{
+						"id": "toggle",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
 						"id": "sensor",
 						"capabilities": [
 							"measure_power",
 							"meter_power",
 							"measure_temperature"
-						]
-					},
-					{
-						"id": "toggle",
-						"capabilities": [
-							"onoff"
 						]
 					}
 				]
@@ -2968,162 +2976,7 @@
 				"args": [
 					{
 						"name": "device",
-						"type": "device",
-						"filter": "driver_id=ZMNHDA2"
-					}
-				]
-			},
-			{
-				"id": "ZMNHDD1_temp_changed",
-				"title": {
-					"en": "Temperature has changed",
-					"nl": "Temperatuur is veranderd"
-				},
-				"tokens": [
-					{
-						"name": "ZMNHDD1_temp",
-						"title": {
-							"en": "temp"
-						}
-					}
-				],
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=ZMNHDD1"
-					}
-				]
-			},
-			{
-				"id": "ZMNHVD1_temp_changed",
-				"title": {
-					"en": "Temperature has changed",
-					"nl": "Temperatuur is veranderd"
-				},
-				"tokens": [
-					{
-						"name": "ZMNHVD1_temp",
-						"title": {
-							"en": "temp"
-						}
-					}
-				],
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=ZMNHVD1"
-					}
-				]
-			},
-			{
-				"id": "ZMNHND1_temp_changed",
-				"title": {
-					"en": "Temperature has changed",
-					"nl": "Temperatuur is veranderd"
-				},
-				"tokens": [
-					{
-						"name": "ZMNHND1_temp",
-						"title": {
-							"en": "temp"
-						}
-					}
-				],
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=ZMNHND1"
-					}
-				]
-			},
-			{
-				"id": "ZMNHAD1_temp_changed",
-				"title": {
-					"en": "Temperature has changed",
-					"nl": "Temperatuur is veranderd"
-				},
-				"tokens": [
-					{
-						"name": "ZMNHAD1_temp",
-						"title": {
-							"en": "temp"
-						}
-					}
-				],
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=ZMNHAD1"
-					}
-				]
-			},
-			{
-				"id": "ZMNHBD1_temp_changed",
-				"title": {
-					"en": "Temperature has changed",
-					"nl": "Temperatuur is veranderd"
-				},
-				"tokens": [
-					{
-						"name": "ZMNHBD1_temp",
-						"title": {
-							"en": "temp"
-						}
-					}
-				],
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=ZMNHBD1"
-					}
-				]
-			},
-			{
-				"id": "ZMNHBA2_temp_changed",
-				"title": {
-					"en": "Temperature has changed",
-					"nl": "Temperatuur is veranderd"
-				},
-				"tokens": [
-					{
-						"name": "ZMNHBA2_temp",
-						"title": {
-							"en": "temp"
-						}
-					}
-				],
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=ZMNHBA2"
-					}
-				]
-			},
-			{
-				"id": "ZMNHAA2_temp_changed",
-				"title": {
-					"en": "Temperature has changed",
-					"nl": "Temperatuur is veranderd"
-				},
-				"tokens": [
-					{
-						"name": "ZMNHAA2_temp",
-						"title": {
-							"en": "temp"
-						}
-					}
-				],
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=ZMNHAA2"
+						"type": "device"
 					}
 				]
 			},

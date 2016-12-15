@@ -11,7 +11,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'SWITCH_BINARY_GET',
 			command_set: 'SWITCH_BINARY_SET',
 			command_set_parser: value => ({
-				'Switch Value': (value) ? 'on/enable' : 'off/disable'
+				'Switch Value': (value) ? 'on/enable' : 'off/disable',
 			}),
 			command_report: 'SWITCH_BINARY_REPORT',
 			command_report_parser: report => {
@@ -21,7 +21,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 					return false;
 				}
 				return null;
-			}
+			},
 		},
 		dim: {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
@@ -40,7 +40,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				console.log(map(0, 255, 0, 1, report['Value (Raw)'][0]));
 
 				return map(0, 255, 0, 1, report['Value (Raw)'][0]);
-			}
+			},
 		},
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',

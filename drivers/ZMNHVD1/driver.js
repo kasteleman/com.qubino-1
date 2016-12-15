@@ -4,7 +4,7 @@ const path = require('path');
 const ZwaveDriver = require('node-homey-zwavedriver');
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: false,
+	debug: true,
 	capabilities: {
 
 		onoff: {
@@ -47,7 +47,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				},
 			}),
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Sensor Value (Parsed)'],
+			command_report_parser: report => {
+				if (report['Sensor Value (Parsed)'] === -999.9) return null;
+				return report['Sensor Value (Parsed)'];
+			},
 			optional: true,
 		},
 	},
@@ -100,20 +103,3 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 	},
 });
-
-module.exports.on('initNode', (token) => {
-
-	const node = module.exports.nodes[token];
-	if (node) {
-		node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
-			if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
-				Homey.manager('flow').triggerDevice(
-					'ZMNHVD1_temp_changed',
-					{ ZMNHVD1_temp: report['Sensor Value (Parsed)'] },
-					report['Sensor Value (Parsed)'], node.device_data);
-			}
-		});
-	}
-});
-
-Homey.manager('flow').on('trigger.ZMNHVD1_temp_changed', callback => callback(null, true));

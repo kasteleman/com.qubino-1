@@ -11,13 +11,18 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
 			command_get: 'SWITCH_BINARY_GET',
 			command_set: 'SWITCH_BINARY_SET',
-			command_set_parser: value => {
-				return {
-					'Switch Value': (value > 0) ? 'on/enable' : 'off/disable',
-				};
-			},
+			command_set_parser: value => ({
+				'Switch Value': (value) ? 'on/enable' : 'off/disable',
+			}),
 			command_report: 'SWITCH_BINARY_REPORT',
-			command_report_parser: report => report['Value'] === 'on/enable',
+			command_report_parser: report => {
+				if (report['Value'] === 'on/enable') {
+					return true;
+				} else if (report['Value'] === 'off/disable') {
+					return false;
+				}
+				return null;
+			},
 		},
 
 		measure_temperature: {
@@ -30,7 +35,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				},
 			}),
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Sensor Value (Parsed)'],
+			command_report_parser: report => {
+				if (report['Sensor Value (Parsed)'] === -999.9) return null;
+				return report['Sensor Value (Parsed)'];
+			},
 			optional: true,
 		},
 
