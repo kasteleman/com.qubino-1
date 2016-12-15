@@ -144,34 +144,34 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF is not active"
+								"en": "All on is not active, all off is not active"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF active"
+								"en": "All on is not active, all off active"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "ALL ON active, ALL OFF is not active"
+								"en": "All on active, all off is not active"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "ALL ON active, ALL OFF active"
+								"en": "All on active, all off active"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "ALL ON / ALL OFF"
+						"en": "All on / all off"
 					},
 					"hint": {
-						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
 					}
 				},
 				{
@@ -205,7 +205,7 @@
 					},
 					"hint": {
 						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
-						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch intschakelen uit."
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch inschakelen uit."
 					}
 				},
 				{
@@ -479,34 +479,34 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF is not active"
+								"en": "All on is not active, all off is not active"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF active"
+								"en": "All on is not active, all off active"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "ALL ON active, ALL OFF is not active"
+								"en": "All on active, all off is not active"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "ALL ON active, ALL OFF active"
+								"en": "All on active, all off active"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "ALL ON / ALL OFF"
+						"en": "All on / all off"
 					},
 					"hint": {
-						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
 					}
 				},
 				{
@@ -791,34 +791,34 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF is not active"
+								"en": "All on is not active, all off is not active"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF active"
+								"en": "All on is not active, all off active"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "ALL ON active, ALL OFF is not active"
+								"en": "All on active, all off is not active"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "ALL ON active, ALL OFF active"
+								"en": "All on active, all off active"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "ALL ON / ALL OFF"
+						"en": "All on / all off"
 					},
 					"hint": {
-						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
 					}
 				},
 				{
@@ -852,7 +852,7 @@
 					},
 					"hint": {
 						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
-						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch intschakelen uit."
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch inschakelen uit."
 					}
 				},
 				{
@@ -1050,34 +1050,34 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF is not active"
+								"en": "All on is not active, all off is not active"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF active"
+								"en": "All on is not active, all off active"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "ALL ON active, ALL OFF is not active"
+								"en": "All on active, all off is not active"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "ALL ON active, ALL OFF active"
+								"en": "All on active, all off active"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "ALL ON / ALL OFF"
+						"en": "All on / all off"
 					},
 					"hint": {
-						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
 					}
 				},
 				{
@@ -1111,7 +1111,7 @@
 					},
 					"hint": {
 						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
-						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch intschakelen uit."
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch inschakelen uit."
 					}
 				},
 				{
@@ -1320,34 +1320,34 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF is not active"
+								"en": "All on is not active, all off is not active"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF active"
+								"en": "All on is not active, all off active"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "ALL ON active, ALL OFF is not active"
+								"en": "All on active, all off is not active"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "ALL ON active, ALL OFF active"
+								"en": "All on active, all off active"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "ALL ON / ALL OFF"
+						"en": "All on / all off"
 					},
 					"hint": {
-						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
 					}
 				},
 				{
@@ -1597,34 +1597,34 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF is not active"
+								"en": "All on is not active, all off is not active"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF active"
+								"en": "All on is not active, all off active"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "ALL ON active, ALL OFF is not active"
+								"en": "All on active, all off is not active"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "ALL ON active, ALL OFF active"
+								"en": "All on active, all off active"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "ALL ON / ALL OFF"
+						"en": "All on / all off"
 					},
 					"hint": {
-						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
 					}
 				},
 				{
@@ -1658,7 +1658,7 @@
 					},
 					"hint": {
 						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
-						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch intschakelen uit."
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch inschakelen uit."
 					}
 				},
 				{
@@ -1847,34 +1847,34 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF is not active"
+								"en": "All on is not active, all off is not active"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF active"
+								"en": "All on is not active, all off active"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "ALL ON active, ALL OFF is not active"
+								"en": "All on active, all off is not active"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "ALL ON active, ALL OFF active"
+								"en": "All on active, all off active"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "ALL ON / ALL OFF"
+						"en": "All on / all off"
 					},
 					"hint": {
-						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
 					}
 				},
 				{
@@ -1908,7 +1908,7 @@
 					},
 					"hint": {
 						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
-						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch intschakelen uit."
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch inschakelen uit."
 					}
 				},
 				{
@@ -2159,34 +2159,34 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF is not active"
+								"en": "All on is not active, all off is not active"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF active"
+								"en": "All on is not active, all off active"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "ALL ON active, ALL OFF is not active"
+								"en": "All on active, all off is not active"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "ALL ON active, ALL OFF active"
+								"en": "All on active, all off active"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "ALL ON / ALL OFF"
+						"en": "All on / all off"
 					},
 					"hint": {
-						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
 					}
 				},
 				{
@@ -2562,34 +2562,34 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF is not active"
+								"en": "All on is not active, all off is not active"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF active"
+								"en": "All on is not active, all off active"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "ALL ON active, ALL OFF is not active"
+								"en": "All on active, all off is not active"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "ALL ON active, ALL OFF active"
+								"en": "All on active, all off active"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "ALL ON / ALL OFF"
+						"en": "All on / all off"
 					},
 					"hint": {
-						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
 					}
 				},
 				{
@@ -2857,34 +2857,34 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF is not active"
+								"en": "All on is not active, all off is not active"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "ALL ON is not active, ALL OFF active"
+								"en": "All on is not active, all off active"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "ALL ON active, ALL OFF is not active"
+								"en": "All on active, all off is not active"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "ALL ON active, ALL OFF active"
+								"en": "All on active, all off active"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "ALL ON / ALL OFF"
+						"en": "All on / all off"
 					},
 					"hint": {
-						"en": "Module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
 					}
 				},
 				{
