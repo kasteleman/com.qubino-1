@@ -1759,23 +1759,51 @@
 				"learnmode": {
 					"image": "/drivers/ZMNHAD1/assets/learnmode.svg",
 					"instruction": {
-						"en": "For INCLUSION: press service button S your Relay for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-						"nl": "Voor TOEVOEGEN: houd de service knop S van je Relais langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+						"en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
+						"nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. \n\nVerwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
 					}
 				},
 				"associationGroups": [
-					1
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9
+				],
+				"defaultConfiguration": [
+					{
+						"id": 100,
+						"size": 1,
+						"value": 9
+					},
+					{
+						"id": 101,
+						"size": 1,
+						"value": 9
+					}
 				]
 			},
 			"class": "socket",
 			"capabilities": [
 				"onoff",
+				"measure_power",
+				"meter_power",
 				"measure_temperature"
 			],
 			"mobile": {
 				"components": [
 					{
 						"id": "icon",
+						"capabilities": [
+							"onoff"
+						]
+					},
+					{
+						"id": "toggle",
 						"capabilities": [
 							"onoff"
 						]
@@ -1791,8 +1819,8 @@
 				]
 			},
 			"images": {
-				"large": "/drivers/ZMNHND1/assets/images/large.png",
-				"small": "/drivers/ZMNHND1/assets/images/small.png"
+				"large": "/drivers/ZMNHAD1/assets/images/large.png",
+				"small": "/drivers/ZMNHAD1/assets/images/small.png"
 			},
 			"settings": [
 				{
@@ -1802,22 +1830,26 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "mono-stable switch type"
+								"en": "Monostable switch",
+								"nl": "Pulsschakelaar"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "Bi-stable switch type"
+								"en": "Bistable switch type",
+								"nl": "Tuimelschakelaar"
 							}
 						}
 					],
 					"value": "0",
 					"label": {
-						"en": "Input 1 switch type"
+						"en": "Input 1 switch type",
+						"nl": "Input 1 schakel type"
 					},
 					"hint": {
-						"en": "By this parameter the user can set input based on device type"
+						"en": "This parameter sets the input type",
+						"nl": "Deze parameter bepaalt het input type"
 					}
 				},
 				{
@@ -1845,8 +1877,8 @@
 						"nl": "Input 2 contact type"
 					},
 					"hint": {
-						"en": "This parameter sets the contact type of input 2.",
-						"nl": "Deze parameter bepaalt het contact type van input 2."
+						"en": "This parameter sets the contact type of input 2",
+						"nl": "Deze parameter bepaalt het contact type van input 2"
 					}
 				},
 				{
@@ -1874,8 +1906,8 @@
 						"nl": "Input 3 contact type"
 					},
 					"hint": {
-						"en": "This parameter sets the contact type of input 3.",
-						"nl": "Deze parameter bepaalt het contact type van input 3."
+						"en": "This parameter sets the contact type of input 3",
+						"nl": "Deze parameter bepaalt het contact type van input 3"
 					}
 				},
 				{
@@ -1912,7 +1944,8 @@
 						"en": "All on / all off"
 					},
 					"hint": {
-						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system",
+						"nl": "Module reageert op commando's alles aan / alles uit die mogelijk worden verstuurd door de controller."
 					}
 				},
 				{
@@ -1928,8 +1961,8 @@
 						"max": 325369
 					},
 					"hint": {
-						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
-						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit"
 					}
 				},
 				{
@@ -1945,8 +1978,8 @@
 						"max": 32536
 					},
 					"hint": {
-						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
-						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch inschakelen uit."
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch inschakelen uit"
 					}
 				},
 				{
@@ -1958,8 +1991,8 @@
 					},
 					"value": false,
 					"hint": {
-						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
-						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
+						"en": "The parameter defines if the state of the device should be restored in case of a power failure",
+						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden hersteld na een stroom onderbreking"
 					}
 				},
 				{
@@ -2003,29 +2036,30 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "0 - When system is turned off the output is 0V (NC)"
+								"en": "When system is turned off the output is 0V (NC)",
+								"nl": "Wanneer systeem is uitgeschakeld zet output op 0V (NG)"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "1 - When system is turned off the output is 230V or 24V (NO)"
+								"en": "When system is turned off the output is 230V or 24V (NO)",
+								"nl": "Wanneer systeem is uitgeschakeld zet output op 230V of 24V (NO)"
 							}
 						}
 					],
 					"value": "0",
 					"label": {
-						"en": "Output Switch selection"
-					},
-					"hint": {
-						"en": "Set value means the type of the device that is connected to the output"
+						"en": "Output switch selection",
+						"nl": "Output schakel selectie"
 					}
 				},
 				{
 					"id": "temperature_sensor_offset",
 					"type": "number",
 					"label": {
-						"en": "Temperature sensor offset"
+						"en": "Temperature sensor offset",
+						"nl": "Temperatuur sensor kalibratie"
 					},
 					"value": 32536,
 					"attr": {
@@ -2050,7 +2084,7 @@
 						"max": 127
 					},
 					"hint": {
-						"en": "Default value 5 = 0.5 °C change. 0 - Reporting disabled. 1 - 127 = 0.1°C - 12.7°C, step is 0.1°C.",
+						"en": "Default value 5 = 0.5 °C change. 0 - Reporting disabled. 1 - 127 = 0.1 °C - 12.7 °C, step is 0.1 °C.",
 						"nl": "Standaard waarde 5 = 0,5 °C verandering. 0 - Reporting uitgeschakeld. 1 - 127 = 0,1 °C - 12,7 °C, stap grootte is 0,1 °C."
 					}
 				}
@@ -3068,6 +3102,32 @@
 						"name": "device",
 						"type": "device",
 						"filter": "driver_id=ZMNHDD1"
+					}
+				]
+			},
+			{
+				"id": "measure_temperature_changed",
+				"title": {
+					"en": "The temperature changed",
+					"nl": "De temperatuur is veranderd"
+				},
+				"tokens": [
+					{
+						"name": "measure_temperature",
+						"title": {
+							"en": "Temperature",
+							"nl": "Temperatuur"
+						},
+						"example": {
+							"en": "23.5"
+						}
+					}
+				],
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHAD1"
 					}
 				]
 			},
