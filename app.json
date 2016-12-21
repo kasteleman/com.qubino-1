@@ -1013,13 +1013,15 @@
 				"learnmode": {
 					"image": "/drivers/ZMNHSD1/assets/learnmode.svg",
 					"instruction": {
-						"en": "For INCLUSION: press service button S your Dimmer for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-						"nl": "Voor TOEVOEGEN: houd de service knop S van je Dimmer langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+						"en": "Inclusion: press the service button (S) on the Rail Dimmer for more than 2 seconds or start auto-inclusion when powering the device. Exclusion: press the service button (S) for more than 2.",
+						"nl": "Toevoegen: houd de service knop (S) van de Rail Dimmer langer dan 2 seconden ingedrukt of gebruik auto-inclusie zodra het apparaat op stroom is aangesloten. Verwijderen: houd service button (S) meer dan 2 seconden ingedrukt."
 					}
 				},
 				"associationGroups": [
 					1,
-					4
+					2,
+					4,
+					5
 				]
 			},
 			"class": "socket",
@@ -1027,7 +1029,8 @@
 				"onoff",
 				"dim",
 				"measure_power",
-				"meter_power"
+				"meter_power",
+				"measure_temperature"
 			],
 			"mobile": {
 				"components": [
@@ -1047,7 +1050,8 @@
 						"id": "sensor",
 						"capabilities": [
 							"measure_power",
-							"meter_power"
+							"meter_power",
+							"measure_temperature"
 						]
 					}
 				]
@@ -1064,13 +1068,15 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "mono-stable switch type"
+								"en": "Mono-stable switch type",
+								"nl": "Mono-stable switch type"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "Bi-stable switch type"
+								"en": "Bi-stable switch type",
+								"nl": "Bi-stable switch type"
 							}
 						}
 					],
@@ -1079,7 +1085,8 @@
 						"en": "Input 1 switch type"
 					},
 					"hint": {
-						"en": "By this parameter the user can set input based on device type"
+						"en": "This parameter sets the type of input switch used.",
+						"nl": "Deze parameter bepaalt het type input switch."
 					}
 				},
 				{
@@ -1089,34 +1096,40 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "All on is not active, all off is not active"
+								"en": "All on is not active, all off is not active",
+								"nl": "Alles aan is niet actief, alles uit is niet actief"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "All on is not active, all off active"
+								"en": "All on is not active, all off active",
+								"nl": "Alles aan is niet actief, alles uit is actief"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "All on active, all off is not active"
+								"en": "All on active, all off is not active",
+								"nl": "Alles aan is actief, alles uit is niet actief"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "All on active, all off active"
+								"en": "All on active, all off active",
+								"nl": "Alles aan is actief, alles uit is actief"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "All on / all off"
+						"en": "All on / all off",
+						"nl": "Alles aan / alles uit"
 					},
 					"hint": {
-						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system",
+						"nl": "Module reageert op commando's alles aan / alles uit die mogelijk worden verstuurd door de controller."
 					}
 				},
 				{
@@ -1157,13 +1170,13 @@
 					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
-						"en": "Restore previous state of device after power failure",
-						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
+						"en": "Restore state",
+						"nl": "Herstel status"
 					},
 					"value": false,
 					"hint": {
 						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
-						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
+						"nl": "Deze parameter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 					}
 				},
 				{
@@ -1187,7 +1200,8 @@
 					"id": "power_report_by_time_interval",
 					"type": "number",
 					"label": {
-						"en": "Power report by time Interval"
+						"en": "Power report by time Interval",
+						"nl": "Stroomverbruik update per tijdsinterval"
 					},
 					"value": 300,
 					"attr": {
@@ -1195,14 +1209,16 @@
 						"max": 65535
 					},
 					"hint": {
-						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Value range: 1 – 65535.",
+						"nl": "Stel het interval (seconden, 1 - 65535) in waarop een stroomverbruik update moet worden verstuurt naar Homey. 0 -> geen updates."
 					}
 				},
 				{
 					"id": "maximum_dimming_value",
 					"type": "number",
 					"label": {
-						"en": "Maximum_dimming_value"
+						"en": "Maximum dimming value",
+						"nl": "Maximale dim waarde"
 					},
 					"value": 99,
 					"attr": {
@@ -1210,14 +1226,16 @@
 						"max": 99
 					},
 					"hint": {
-						"en": "The parameter defines the maximum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
+						"en": "The parameter defines the maximum dimming value. The maximum level may not be lower than the minimum level.",
+						"nl": "Deze parameter bepaalt de maximale dim waarde. De maximale dim waarde mag niet lager zijn dan de minimale dim waarde."
 					}
 				},
 				{
 					"id": "minimum_dimming_value",
 					"type": "number",
 					"label": {
-						"en": "Minimum_dimming_value"
+						"en": "Minimum dimming value",
+						"nl": "Minimale dim waarde"
 					},
 					"value": 1,
 					"attr": {
@@ -1225,14 +1243,16 @@
 						"max": 98
 					},
 					"hint": {
-						"en": "The parameter defines the minimum dimming value. NOTE: The maximum level may not be lower than the minimum level!"
+						"en": "The parameter defines the minimum dimming value. The minimum level may not be higher than the maximum level.",
+						"nl": "Deze parameter bepaalt de minimale dim waarde. De minimale dim waarde mag niet hoger zijn dan de maximale dim waarde."
 					}
 				},
 				{
 					"id": "dimming_time_soft_on_off",
 					"type": "number",
 					"label": {
-						"en": "Dimming time (soft on/off)"
+						"en": "Dimming time (soft on/off)",
+						"nl": "Dim periode (soft on/off)"
 					},
 					"value": 100,
 					"attr": {
@@ -1240,22 +1260,25 @@
 						"max": 255
 					},
 					"hint": {
-						"en": "Set value means time of moving the Dimmer between min. and max. dimming values by short press of push button I1 or controlled through UI. Default value is 100 (Dimming time between min. and max. dimming values is 1s). 1 - 255 = 10 mseconds – 2550 mseconds (2,55s), step is 10 mseconds"
+						"en": "Parameter that determines the time of dimming between minimum and maximum dimming values by short press of push button Input 1 or controlled through user interface. Default value is 100 (dimming time between minimum and maximum dimming values is 1s). 1 - 255 = 10 miliseconds – 2550 miliseconds (2,55s), step is 10 miliseconds.",
+						"nl": "Parameter die de dim periode bepaalt bij het schakelen van de dimmer tussen minimale en maximale dim waarde. Standaard waarde is 100 (1000ms). 1 - 255 = 10 miliseconden – 2550 miliseconden (2,55s), stap is 10 miliseconden."
 					}
 				},
 				{
 					"id": "dimming_time_when_key_pressed",
 					"type": "number",
 					"label": {
-						"en": "Dimming time when key pressed"
+						"en": "Dimming duration Input 1",
+						"nl": "Dim periode Input 1"
 					},
 					"value": 3,
 					"attr": {
-						"min": 1,
+						"min": 50,
 						"max": 255
 					},
 					"hint": {
-						"en": "Time of moving the Dimmer between min. and max dimming values by continues hold of push button I1. 1- 255 = 1 second – 255 seconds"
+						"en": "Time of moving the dimmer between minimum and maximum dimming values by push button Input 1 (short press). 50 = 500 miliseconds, 255 = 2550 miliseconds.",
+						"nl": "Tijd die nodig is voor het veranderen van minimaal naar maximaal dim niveau (d.m.v. korte druk op Input 1). 50 = 500 miliseconden, 255 = 2550 miliseconden."
 					}
 				}
 			]

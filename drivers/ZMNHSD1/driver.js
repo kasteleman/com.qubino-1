@@ -1,25 +1,35 @@
 'use strict';
 
-const path			= require('path');
+const path = require('path');
 const ZwaveDriver = require('node-homey-zwavedriver');
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: false,
 	capabilities: {
-
 		onoff: {
-			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
-			command_get: 'SWITCH_MULTILEVEL_GET',
-			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: value => {
-				return {
-					Value: (value > 0) ? 'on/enable' : 'off/disable',
-					'Dimming Duration': 1,
-				};
-			},			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Value (Raw)'][0] > 0,
+			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
+			command_get: 'SWITCH_BINARY_GET',
+			command_set: 'SWITCH_BINARY_SET',
+			command_set_parser: value => ({
+				'Switch Value': (value) ? 'on/enable' : 'off/disable',
+			}),
+			command_report: 'SWITCH_BINARY_REPORT',
+			command_report_parser: report => {
+				if (typeof report['Value'] === 'string') {
+					if (report['Value'] === 'on/enable') {
+						return true;
+					} else if (report['Value'] === 'off/disable') {
+						return false;
+					}
+				} else if (report.hasOwnProperty('Value (Raw)')) {
+					if (report['Value (Raw)'][0] > 0) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+				return null;
+			},
 		},
-
 		dim: {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
@@ -29,46 +39,65 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				'Dimming Duration': 1,
 			}),
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Value (Raw)'][0] / 100,
+			command_report_parser: report => {
+				if (report && report['Value (Raw)']) return report['Value (Raw)'][0] / 100;
+				return null;
+			},
 		},
-
 		measure_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
 			command_get_parser: () => ({
 				Properties1: {
 					Scale: 7,
+					'Rate Type': 'Import'
 				},
+				'Scale 2': 1
 			}),
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {
 				if (report.hasOwnProperty('Properties2')
-				&& report.Properties2.hasOwnProperty('Scale bits 10')
-				&& report.Properties2['Scale bits 10'] === 2) {
+					&& report.Properties2.hasOwnProperty('Scale bits 10')
+					&& report.Properties2['Scale bits 10'] === 2) {
 					return report['Meter Value (Parsed)'];
-				} return null;
+				}
+				return null;
 			},
 		},
-
 		meter_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
 			command_get_parser: () => ({
 				Properties1: {
 					Scale: 0,
+					'Rate Type': 'Import'
 				},
+				'Scale 2': 1
 			}),
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {
 				if (report.hasOwnProperty('Properties2')
-				&& report.Properties2.hasOwnProperty('Scale bits 10')
-				&& report.Properties2['Scale bits 10'] === 0) {
+					&& report.Properties2.hasOwnProperty('Scale bits 10')
+					&& report.Properties2['Scale bits 10'] === 0) {
 					return report['Meter Value (Parsed)'];
-				} return null;
+				}
+				return null;
 			},
 		},
+		measure_temperature: {
+			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
+			command_get: 'SENSOR_MULTILEVEL_GET',
+			command_get_parser: () => ({
+				'Sensor Type': 'Temperature (version 1)',
+				Properties1: {
+					Scale: 0,
+				},
+			}),
+			command_report: 'SENSOR_MULTILEVEL_REPORT',
+			command_report_parser: report => report['Sensor Value (Parsed)'],
+			optional: true,
+		},
 	},
-
 	settings: {
 		input_1_type: {
 			index: 1,
@@ -89,7 +118,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		state_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
-			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
 		power_report_on_power_change: {
 			index: 40,
