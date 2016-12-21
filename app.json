@@ -1272,8 +1272,8 @@
 				"learnmode": {
 					"image": "/drivers/ZMNHTD1/assets/learnmode.svg",
 					"instruction": {
-						"en": "For INCLUSION: press service button S on your Smart Meter for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-						"nl": "Voor TOEVOEGEN: houd de service knop S van je Smart Meter langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+						"en": "Inclusion: press the service button (S) on the Smart Meter for more than 2 seconds or start auto-inclusion when powering the device. Exclusion: press the service button (S) for more than 2.",
+						"nl": "Toevoegen: houd de service knop (S) van de Smart Meter langer dan 2 seconden ingedrukt of gebruik auto-inclusie zodra het apparaat op stroom is aangesloten. Verwijderen: houd service button (S) meer dan 2 seconden ingedrukt."
 					}
 				},
 				"associationGroups": [
@@ -1315,31 +1315,36 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "disabled"
+								"en": "Disabled",
+								"nl": "Uitgeschakeld"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "IR external relay control – mono-stable switch type"
+								"en": "IR external relay – monostable switch type",
+								"nl": "IR extern relais - monostable switch type"
 							}
 						},
 						{
 							"id": "3",
 							"label": {
-								"en": "IR external relay control - Bi-stable switch type"
+								"en": "IR external relay - bistable switch type",
+								"nl": "IR extern relais - bistable switch type"
 							}
 						},
 						{
 							"id": "4",
 							"label": {
-								"en": "External relay control – mono-stable switch type"
+								"en": "External relay – monostable switch type",
+								"nl": "Extern relais - monostable switch type"
 							}
 						},
 						{
 							"id": "5",
 							"label": {
-								"en": "External relay control – Bi-stable switch type"
+								"en": "External relay – bistable switch type",
+								"nl": "Extern relais - bistable switch type"
 							}
 						}
 					],
@@ -1348,7 +1353,8 @@
 						"en": "Input 1 switch type"
 					},
 					"hint": {
-						"en": "By this parameter the user can set input based on device type"
+						"en": "This parameter sets the type of input switch used.",
+						"nl": "Deze parameter bepaalt het type input switch."
 					}
 				},
 				{
@@ -1358,41 +1364,48 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "All on is not active, all off is not active"
+								"en": "All on is not active, all off is not active",
+								"nl": "Alles aan is niet actief, alles uit is niet actief"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "All on is not active, all off active"
+								"en": "All on is not active, all off active",
+								"nl": "Alles aan is niet actief, alles uit is actief"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "All on active, all off is not active"
+								"en": "All on active, all off is not active",
+								"nl": "Alles aan is actief, alles uit is niet actief"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "All on active, all off active"
+								"en": "All on active, all off active",
+								"nl": "Alles aan is actief, alles uit is actief"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "All on / all off"
+						"en": "All on / all off",
+						"nl": "Alles aan / alles uit"
 					},
 					"hint": {
-						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system",
+						"nl": "Module reageert op commando's alles aan / alles uit die mogelijk worden verstuurd door de controller."
 					}
 				},
 				{
 					"id": "automatic_turning_off_ir_output_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off IR output after set time"
+						"en": "Automatic turning off IR output after set time",
+						"nl": "Automatisch uitschakelen van output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -1400,14 +1413,17 @@
 						"max": 325369
 					},
 					"hint": {
-						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
 					}
 				},
 				{
 					"id": "automatic_turning_on_ir_output_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning on IR output after set time"
+						"en": "Automatic turning on IR output after set time",
+						"nl": "Automatisch inschakelen van IR output na bepaalde tijd"
+
 					},
 					"value": 0,
 					"attr": {
@@ -1415,14 +1431,16 @@
 						"max": 32536
 					},
 					"hint": {
-						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch inschakelen uit."
 					}
 				},
 				{
 					"id": "automatic_turning_off_relay_output_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off relay output after set time"
+						"en": "Automatic turning off relay output after set time",
+						"nl": "Automatisch uitschakelen van relais output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -1430,14 +1448,16 @@
 						"max": 325369
 					},
 					"hint": {
-						"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
 					}
 				},
 				{
 					"id": "automatic_turning_on_relay_output_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning on relay output after set time"
+						"en": "Automatic turning on relay output after set time",
+						"nl": "Automatisch inschakelen van relais output na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
@@ -1445,20 +1465,21 @@
 						"max": 32536
 					},
 					"hint": {
-						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch inschakelen uit."
 					}
 				},
 				{
 					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
-						"en": "Restore previous state of device after power failure",
-						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
+						"en": "Restore state",
+						"nl": "Herstel status"
 					},
 					"value": false,
 					"hint": {
 						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
-						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
+						"nl": "Deze parameter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 					}
 				},
 				{
@@ -1482,7 +1503,8 @@
 					"id": "power_report_by_time_interval",
 					"type": "number",
 					"label": {
-						"en": "Power report by time Interval"
+						"en": "Power report by time interval",
+						"nl": "Stroomverbruik update per interval"
 					},
 					"value": 300,
 					"attr": {
@@ -1490,7 +1512,8 @@
 						"max": 65535
 					},
 					"hint": {
-						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Valuerange: 1 – 65535."
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Value range: 1 – 65535.",
+						"nl": "Stel het interval (seconden, 1 - 65535) in waarop een stroomverbruik update moet worden verstuurt naar Homey. 0 -> geen updates."
 					}
 				},
 				{
@@ -1500,34 +1523,36 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "Endpoints IR external relay and External relay disabled"
+								"en": "Endpoints IR external relay and external relay disabled",
+								"nl": "Endpoints IR extern relais en extern relais uitgeschakeld"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "Endpoints IR external relay disabled, External relay enabled"
+								"en": "Endpoint IR external relay disabled, external relay enabled",
+								"nl": "Endpoint IR extern relais uitgeschakeld, extern relais ingeschakeld"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "Endpoints IR external relay enabled, External relay disabled"
+								"en": "Endpoint IR external relay enabled, external relay disabled",
+								"nl": "Endpoint IR extern relais ingeschakeld, extern relais uitgeschakeld"
 							}
 						},
 						{
 							"id": "3",
 							"label": {
-								"en": "Endpoints IR external relay and External relay enabled"
+								"en": "Endpoints IR external relay and xternal relay enabled",
+								"nl": "Endpoints IR extern relais en extern relais ingeschakeld"
 							}
 						}
 					],
 					"value": "0",
 					"label": {
-						"en": "Enable / Disable endpoints IR external relay and External relay"
-					},
-					"hint": {
-						"en": "test"
+						"en": "Enable or disable IR external relay and external relay endpoints",
+						"nl": "Schakel IR extern relais en exter relais endpoints in of out"
 					}
 				}
 			]

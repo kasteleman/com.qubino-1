@@ -6,28 +6,33 @@ const ZwaveDriver = require('node-homey-zwavedriver');
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	debug: true,
 	capabilities: {
-
 		onoff: {
 			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
 			command_get: 'SWITCH_BINARY_GET',
 			command_set: 'SWITCH_BINARY_SET',
-			command_set_parser: value => {
-				return {
-					'Switch Value': (value > 0) ? 'on/enable' : 'off/disable',
-				};
-			},
+			command_set_parser: value => ({
+				'Target Value': (value) ? 'on/enable' : 'off/disable',
+				'Duration': 'Default'
+			}),
 			command_report: 'SWITCH_BINARY_REPORT',
-			command_report_parser: report => report['Value'] === 'on/enable',
-			optional: true,
+			command_report_parser: report => {
+				if (report['Current Value'] === 'on/enable') {
+					return true;
+				} else if (report['Current Value'] === 'off/disable') {
+					return false;
+				}
+				return null;
+			},
 		},
-
 		measure_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
 			command_get_parser: () => ({
 				Properties1: {
 					Scale: 7,
+					'Rate Type': 'Import'
 				},
+				'Scale 2': 1
 			}),
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {
@@ -39,14 +44,15 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				return null;
 			},
 		},
-
 		meter_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
 			command_get_parser: () => ({
 				Properties1: {
 					Scale: 0,
+					'Rate Type': 'Import'
 				},
+				'Scale 2': 1
 			}),
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {
