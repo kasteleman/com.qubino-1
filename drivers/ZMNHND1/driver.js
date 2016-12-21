@@ -4,22 +4,24 @@ const path = require('path');
 const ZwaveDriver = require('node-homey-zwavedriver');
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: true,
 	capabilities: {
-
 		onoff: {
 			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
 			command_get: 'SWITCH_BINARY_GET',
 			command_set: 'SWITCH_BINARY_SET',
-			command_set_parser: value => {
-				return {
-					'Switch Value': (value > 0) ? 255 : 0,
-				};
-			},
+			command_set_parser: value => ({
+				'Switch Value': (value) ? 'on/enable' : 'off/disable',
+			}),
 			command_report: 'SWITCH_BINARY_REPORT',
-			command_report_parser: report => report['Value'] === 'on/enable',
+			command_report_parser: report => {
+				if (report['Value'] === 'on/enable') {
+					return true;
+				} else if (report['Value'] === 'off/disable') {
+					return false;
+				}
+				return null;
+			},
 		},
-
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_get: 'SENSOR_MULTILEVEL_GET',
@@ -34,7 +36,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			optional: true,
 		},
 	},
-
 	settings: {
 		input_1_type: {
 			index: 1,
@@ -59,7 +60,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		state_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
-			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
 		temperature_sensor_offset: {
 			index: 110,
@@ -74,20 +74,20 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 
 module.exports.on('initNode', token => {
 	const node = module.exports.nodes[token];
-
 	if (node) {
-		if (node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL) {
-			node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
-				if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
-					Homey.manager('flow').triggerDevice(
-						'ZMNHND1_temp_changed',
-						{ ZMNHND1_temp: report['Sensor Value (Parsed)'] },
-						report['Sensor Value (Parsed)'], node.device_data
-					);
+		if (node.instance.CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
+			node.instance.CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
+				if (command.name === 'SENSOR_BINARY_REPORT') {
+					if (report.hasOwnProperty('Sensor Value')) {
+						if (report['Sensor Value'] === 'idle') {
+							Homey.manager('flow').triggerDevice('ZMNHND1_I2_on', {}, {}, node.device_data);
+						}
+						if (report['Sensor Value'] === 'detected an event') {
+							Homey.manager('flow').triggerDevice('ZMNHND1_I2_off', {}, {}, node.device_data);
+						}
+					}
 				}
 			});
 		}
 	}
 });
-
-Homey.manager('flow').on('trigger.ZMNHND1_temp_changed', callback => callback(null, true));
