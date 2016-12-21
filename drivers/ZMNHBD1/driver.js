@@ -6,20 +6,63 @@ const ZwaveDriver = require('node-homey-zwavedriver');
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	debug: true,
 	capabilities: {
-
 		onoff: {
 			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
 			command_get: 'SWITCH_BINARY_GET',
 			command_set: 'SWITCH_BINARY_SET',
-			command_set_parser: value => {
-				return {
-					'Switch Value': (value > 0) ? 'on/enable' : 'off/disable',
-				};
-			},
+			command_set_parser: value => ({
+				'Switch Value': (value) ? 'on/enable' : 'off/disable',
+			}),
 			command_report: 'SWITCH_BINARY_REPORT',
-			command_report_parser: report => report['Value'] === 'on/enable',
+			command_report_parser: report => {
+				if (report['Value'] === 'on/enable') {
+					return true;
+				} else if (report['Value'] === 'off/disable') {
+					return false;
+				}
+				return null;
+			},
 		},
-
+		measure_power: {
+			command_class: 'COMMAND_CLASS_METER',
+			command_get: 'METER_GET',
+			command_get_parser: () => ({
+				Properties1: {
+					Scale: 7,
+					'Rate Type': 'Import'
+				},
+				'Scale 2': 1
+			}),
+			command_report: 'METER_REPORT',
+			command_report_parser: report => {
+				if (report.hasOwnProperty('Properties2')
+					&& report.Properties2.hasOwnProperty('Scale bits 10')
+					&& report.Properties2['Scale bits 10'] === 2) {
+					return report['Meter Value (Parsed)'];
+				}
+				return null;
+			},
+		},
+		meter_power: {
+			command_class: 'COMMAND_CLASS_METER',
+			command_get: 'METER_GET',
+			command_get_parser: () => ({
+				Properties1: {
+					Scale: 0,
+					'Rate Type': 'Import'
+				},
+				'Scale 2': 1
+			}),
+			command_report: 'METER_REPORT',
+			command_report_parser: report => {
+				if (report.hasOwnProperty('Properties2')
+					&& report.Properties2.hasOwnProperty('Scale bits 10')
+					&& report.Properties2['Scale bits 10'] === 0) {
+					return report['Meter Value (Parsed)'];
+				}
+				return null;
+			},
+		},
 		measure_temperature: {
 			multiChannelNodeId: 3,
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
@@ -34,46 +77,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report_parser: report => report['Sensor Value (Parsed)'],
 			optional: true,
 		},
-
-		measure_power: {
-			command_class: 'COMMAND_CLASS_METER',
-			command_get: 'METER_GET',
-			command_get_parser: () => ({
-				Properties1: {
-					Scale: 7,
-				},
-			}),
-			command_report: 'METER_REPORT',
-			command_report_parser: report => {
-				if (report.hasOwnProperty('Properties2')
-					&& report.Properties2.hasOwnProperty('Scale bits 10')
-					&& report.Properties2['Scale bits 10'] === 2) {
-					return report['Meter Value (Parsed)'];
-				}
-				return null;
-			},
-		},
-
-		meter_power: {
-			command_class: 'COMMAND_CLASS_METER',
-			command_get: 'METER_GET',
-			command_get_parser: () => ({
-				Properties1: {
-					Scale: 0,
-				},
-			}),
-			command_report: 'METER_REPORT',
-			command_report_parser: report => {
-				if (report.hasOwnProperty('Properties2')
-					&& report.Properties2.hasOwnProperty('Scale bits 10')
-					&& report.Properties2['Scale bits 10'] === 0) {
-					return report['Meter Value (Parsed)'];
-				}
-				return null;
-			},
-		},
 	},
-
 	settings: {
 		input_1_type: {
 			index: 1,
@@ -106,7 +110,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		state_of_device_after_power_failure: {
 			index: 30,
 			size: 1,
-			parser: input => new Buffer([(input === true) ? 1 : 0]),
 		},
 		power_report_on_power_change_q1: {
 			index: 40,
@@ -142,23 +145,3 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 	},
 });
-
-module.exports.on('initNode', token => {
-	const node = module.exports.nodes[token];
-
-	if (node) {
-		if (node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL) {
-			node.instance.CommandClass.COMMAND_CLASS_SENSOR_MULTILEVEL.on('report', (command, report) => {
-				if (command.name === 'SENSOR_MULTILEVEL_REPORT') {
-					Homey.manager('flow').triggerDevice(
-						'ZMNHBD1_temp_changed',
-						{ ZMNHBD1_temp: report['Sensor Value (Parsed)'] },
-						report['Sensor Value (Parsed)'], node.device_data
-					);
-				}
-			});
-		}
-	}
-});
-
-Homey.manager('flow').on('trigger.ZMNHBD1_temp_changed', callback => callback(null, true));

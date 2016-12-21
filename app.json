@@ -646,25 +646,25 @@
 					"image": "/drivers/ZMNHDD1/assets/learnmode.svg",
 					"instruction": {
 						"en": "Inclusion: press the service button (S) on the Flush Dimmer for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
-						"nl": "Toevoegen: houd de service knop (S) van de Flush Dimmer langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. \n\nVerwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+						"nl": "Toevoegen: houd de service knop (S) van de Flush Dimmer langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
 					}
 				},
 				"associationGroups": [
 					1,
 					4,
-					6,
-					9
+					7,
+					10
 				],
 				"defaultConfiguration": [
 					{
 						"id": 100,
 						"size": 1,
-						"value": 1
+						"value": 9
 					},
 					{
 						"id": 101,
 						"size": 1,
-						"value": 6
+						"value": 9
 					}
 				]
 			},
@@ -1760,7 +1760,7 @@
 					"image": "/drivers/ZMNHAD1/assets/learnmode.svg",
 					"instruction": {
 						"en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
-						"nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. \n\nVerwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+						"nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
 					}
 				},
 				"associationGroups": [
@@ -2137,12 +2137,17 @@
 				"learnmode": {
 					"image": "/drivers/ZMNHBD1/assets/learnmode.svg",
 					"instruction": {
-						"en": "For INCLUSION: press service button S your Relay for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-						"nl": "Voor TOEVOEGEN: houd de service knop S van je Relais langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+						"en": "Inclusion: press the service button (S) on the Flush 2 Relays for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
+						"nl": "Toevoegen: houd de service knop (S) van de Flush 2 Relais langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
 					}
 				},
 				"associationGroups": [
-					3
+					1,
+					3,
+					4,
+					6,
+					7,
+					8
 				],
 				"multiChannelNodes": {
 					"1": {
@@ -2181,22 +2186,21 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "mono-stable switch type"
+								"en": "Monostable switch type",
+								"nl": "Pulsdrukschakelaar"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "Bi-stable switch type"
+								"en": "Bistable switch type",
+								"nl": "Tuimelschakelaar"
 							}
 						}
 					],
 					"value": "0",
 					"label": {
 						"en": "Input 1 switch type"
-					},
-					"hint": {
-						"en": "By this parameter the user can set input based on device type"
 					}
 				},
 				{
@@ -2206,22 +2210,21 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "mono-stable switch type"
+								"en": "Monostable switch type",
+								"nl": "Pulsdrukschakelaar"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "Bi-stable switch type"
+								"en": "Bistable switch type",
+								"nl": "Tuimelschakelaar"
 							}
 						}
 					],
 					"value": "0",
 					"label": {
 						"en": "Input 2 switch type"
-					},
-					"hint": {
-						"en": "By this parameter the user can set input based on device type"
 					}
 				},
 				{
@@ -2231,47 +2234,53 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "All on is not active, all off is not active"
+								"en": "All on is not active, all off is not active",
+								"nl": "Alles aan is niet actief, alles uit is niet actief"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "All on is not active, all off active"
+								"en": "All on is not active, all off active",
+								"nl": "Alles aan is niet actief, alles uit is actief"
 							}
 						},
 						{
 							"id": "2",
 							"label": {
-								"en": "All on active, all off is not active"
+								"en": "All on active, all off is not active",
+								"nl": "Alles aan is actief, alles uit is niet actief"
 							}
 						},
 						{
 							"id": "255",
 							"label": {
-								"en": "All on active, all off active"
+								"en": "All on active, all off active",
+								"nl": "Alles aan is actief, alles uit is actief"
 							}
 						}
 					],
 					"value": "255",
 					"label": {
-						"en": "All on / all off"
+						"en": "All on / all off",
+						"nl": "Alles aan / alles uit"
 					},
 					"hint": {
-						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
+						"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system",
+						"nl": "Module reageert op commando's alles aan / alles uit die mogelijk worden verstuurd door de controller."
 					}
 				},
 				{
 					"id": "automatic_turning_off_output_q1_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off output q1 after set time",
-						"nl": "Automatisch uitschakelen van output q1 na bepaalde tijd"
+						"en": "Automatic turning off output Q1 after set time",
+						"nl": "Automatisch uitschakelen van output Q1 na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
 						"min": 0,
-						"max": 325369
+						"max": 32535
 					},
 					"hint": {
 						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
@@ -2282,28 +2291,30 @@
 					"id": "automatic_turning_on_output_q1_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning on output Q1 after set time"
+						"en": "Automatic turning on output Q1 after set time",
+						"nl": "Automatisch inschakelen van output Q1 na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
 						"min": 0,
-						"max": 32536
+						"max": 32535
 					},
 					"hint": {
-						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch inschakelen uit."
 					}
 				},
 				{
 					"id": "automatic_turning_off_output_q2_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning off output q2 after set time",
-						"nl": "Automatisch uitschakelen van output na q2 na bepaalde tijd"
+						"en": "Automatic turning off output Q2 after set time",
+						"nl": "Automatisch uitschakelen van output Q2 na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
 						"min": 0,
-						"max": 325369
+						"max": 32535
 					},
 					"hint": {
 						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
@@ -2314,28 +2325,30 @@
 					"id": "automatic_turning_on_output_q2_after_set_time",
 					"type": "number",
 					"label": {
-						"en": "Automatic turning on output Q2 after set time"
+						"en": "Automatic turning on output Q2 after set time",
+						"nl": "Automatisch inschakelen van output Q2 na bepaalde tijd"
 					},
 					"value": 0,
 					"attr": {
 						"min": 0,
-						"max": 32536
+						"max": 32535
 					},
 					"hint": {
-						"en": "0 - Auto ON disabled. 1 - 32535 = 1 second - 32535 seconds Auto ON enabled with define time, step is 1 second"
+						"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning on.",
+						"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch inschakelen uit."
 					}
 				},
 				{
 					"id": "state_of_device_after_power_failure",
 					"type": "checkbox",
 					"label": {
-						"en": "Restore previous state of device after power failure",
-						"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
+						"en": "Restore state",
+						"nl": "Herstel status"
 					},
 					"value": false,
 					"hint": {
 						"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
-						"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
+						"nl": "Deze parameter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 					}
 				},
 				{
@@ -2343,7 +2356,7 @@
 					"type": "number",
 					"label": {
 						"en": "Power report on power change relay 1",
-						"nl": "Stroomverbruik update bij verandering van Relay 1"
+						"nl": "Stroomverbruik update bij verandering van relais 1"
 					},
 					"value": 5,
 					"attr": {
@@ -2360,7 +2373,7 @@
 					"type": "number",
 					"label": {
 						"en": "Power report on power change relay 2",
-						"nl": "Stroomverbruik update bij verandering van Relay 2"
+						"nl": "Stroomverbruik update bij verandering van relais 2"
 					},
 					"value": 5,
 					"attr": {
@@ -2376,34 +2389,34 @@
 					"id": "power_report_by_time_interval_q1",
 					"type": "number",
 					"label": {
-						"en": "Power report by time Interval Relay 1",
-						"nl": "Stroomverbruik update per tijdsinterval Relay 1"
+						"en": "Power report by time Interval relay 1",
+						"nl": "Stroomverbruik update per tijdsinterval relais 1"
 					},
 					"value": 300,
 					"attr": {
 						"min": 0,
-						"max": 65535
+						"max": 32535
 					},
 					"hint": {
-						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Value range: 1 – 65535.",
-						"nl": "Stel het interval (seconden, 1 - 65535) in waarop een stroomverbruik update moet worden verstuurt naar Homey. 0 -> geen updates."
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Value range: 1 – 32535.",
+						"nl": "Stel het interval (seconden, 1 - 32535) in waarop een stroomverbruik update moet worden verstuurt naar Homey. 0 -> geen updates."
 					}
 				},
 				{
 					"id": "power_report_by_time_interval_q2",
 					"type": "number",
 					"label": {
-						"en": "Power report by time Interval Relay 2",
-						"nl": "Stroomverbruik update per tijdsinterval Relay 2"
+						"en": "Power report by time interval relay 2",
+						"nl": "Stroomverbruik update per tijdsinterval relais 2"
 					},
 					"value": 300,
 					"attr": {
 						"min": 0,
-						"max": 65535
+						"max": 32535
 					},
 					"hint": {
-						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Value range: 1 – 65535.",
-						"nl": "Stel het interval (seconden, 1 - 65535) in waarop een stroomverbruik update moet worden verstuurt naar Homey. 0 -> geen updates."
+						"en": "A power report is sent based on the predefined time interval in seconds. 0 -> Function is disabled. Value range: 1 – 32535.",
+						"nl": "Stel het interval (seconden, 1 - 32535) in waarop een stroomverbruik update moet worden verstuurt naar Homey. 0 -> geen updates."
 					}
 				},
 				{
@@ -2413,22 +2426,22 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "0 - When system is turned off the output is 0V (NC)"
+								"en": "When system is turned off the output is 0V (NC)",
+								"nl": "Wanneer systeem is uitgeschakeld zet output op 0V (NG)"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "1 - When system is turned off the output is 230V or 24V (NO)"
+								"en": "When system is turned off the output is 230V or 24V (NO)",
+								"nl": "Wanneer systeem is uitgeschakeld zet output op 230V of 24V (NO)"
 							}
 						}
 					],
 					"value": "0",
 					"label": {
-						"en": "Output Switch selection Ralay 1"
-					},
-					"hint": {
-						"en": "Set value means the type of the device that is connected to the output"
+						"en": "Output switch selection",
+						"nl": "Output schakel selectie"
 					}
 				},
 				{
@@ -2438,29 +2451,30 @@
 						{
 							"id": "0",
 							"label": {
-								"en": "0 - When system is turned off the output is 0V (NC)"
+								"en": "When system is turned off the output is 0V (NC)",
+								"nl": "Wanneer systeem is uitgeschakeld zet output op 0V (NG)"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "1 - When system is turned off the output is 230V or 24V (NO)"
+								"en": "When system is turned off the output is 230V or 24V (NO)",
+								"nl": "Wanneer systeem is uitgeschakeld zet output op 230V of 24V (NO)"
 							}
 						}
 					],
 					"value": "0",
 					"label": {
-						"en": "Output Switch selection Ralay 2"
-					},
-					"hint": {
-						"en": "Set value means the type of the device that is connected to the output"
+						"en": "Output switch selection",
+						"nl": "Output schakel selectie"
 					}
 				},
 				{
 					"id": "temperature_sensor_offset",
 					"type": "number",
 					"label": {
-						"en": "Temperature sensor offset"
+						"en": "Temperature sensor offset",
+						"nl": "Temperatuur sensor kalibratie"
 					},
 					"value": 32536,
 					"attr": {
@@ -2485,7 +2499,7 @@
 						"max": 127
 					},
 					"hint": {
-						"en": "Default value 5 = 0.5 °C change. 0 - Reporting disabled. 1 - 127 = 0.1°C - 12.7°C, step is 0.1°C.",
+						"en": "Default value 5 = 0.5 °C change. 0 - Reporting disabled. 1 - 127 = 0.1 °C - 12.7 °C, step is 0.1 °C.",
 						"nl": "Standaard waarde 5 = 0,5 °C verandering. 0 - Reporting uitgeschakeld. 1 - 127 = 0,1 °C - 12,7 °C, stap grootte is 0,1 °C."
 					}
 				}
@@ -3128,6 +3142,32 @@
 						"name": "device",
 						"type": "device",
 						"filter": "driver_id=ZMNHAD1"
+					}
+				]
+			},
+			{
+				"id": "measure_temperature_changed",
+				"title": {
+					"en": "The temperature changed",
+					"nl": "De temperatuur is veranderd"
+				},
+				"tokens": [
+					{
+						"name": "measure_temperature",
+						"title": {
+							"en": "Temperature",
+							"nl": "Temperatuur"
+						},
+						"example": {
+							"en": "23.5"
+						}
+					}
+				],
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZMNHBD1"
 					}
 				]
 			},
