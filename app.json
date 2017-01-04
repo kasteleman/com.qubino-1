@@ -3129,7 +3129,8 @@
 			"class": "windowcoverings",
 			"capabilities": [
 				"onoff",
-				"dim"
+				"dim",
+				"measure_power"
 			],
 			"mobile": {
 				"components": [
@@ -3145,6 +3146,12 @@
 							"dim"
 						]
 					},
+					{
+						"id": "sensor",
+						"capabilities": [
+							"measure_power"
+						]
+					}
 				]
 			},
 			"images": {
