@@ -121,4 +121,4 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1
 		}
 	}
-}
+});
