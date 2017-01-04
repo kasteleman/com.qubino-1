@@ -3128,27 +3128,23 @@
 			},
 			"class": "windowcoverings",
 			"capabilities": [
-				"measure_power",
-				"windowcoverings_state"
+				"onoff",
+				"dim"
 			],
 			"mobile": {
 				"components": [
 					{
-						"capabilities": [],
-						"id": "icon"
+						"id": "icon",
+						"capabilities": [
+							"onoff"
+						]
 					},
 					{
+						"id": "slider",
 						"capabilities": [
-							"measure_power"
-						],
-						"id": "sensor"
+							"dim"
+						]
 					},
-					{
-						"capabilities": [
-							"windowcoverings_state"
-						],
-						"id": "ternary"
-					}
 				]
 			},
 			"images": {
