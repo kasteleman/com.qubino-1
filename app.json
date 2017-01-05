@@ -3131,7 +3131,8 @@
 				"windowcoverings_state",
 				"onoff",
 				"dim",
-				"measure_power"
+				"measure_power",
+				"meter_power"
 			],
 			"mobile": {
 				"components": [
@@ -3156,7 +3157,8 @@
 					{
 						"id": "sensor",
 						"capabilities": [
-							"measure_power"
+							"measure_power",
+							"meter_power"
 						]
 					}
 				]
