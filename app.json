@@ -3342,32 +3342,14 @@
 				},
 				{
 					"id": "forced_shutter_calibration",
-					"type": "radio",
+					"type": "checkbox",
 					"label": {
 						"en": "Forced Shutter calibration"
 					},
+					"value": false,
 					"hint": {
 						"en": "By modifying the parameters setting, Shutter enters the calibration mode. (after shutter performs the calibration process, completing full cycle - up, down and up, set the parameter value back to default. )"
-					},
-					"value": "0",
-					"attr": {
-						"min": 0,
-						"max": 1
-					},
-					"values": [
-						{
-							"id": "0",
-							"label": {
-								"en": "Default"
-							}
-						},
-						{
-							"id": "1",
-							"label": {
-								"en": "Start calibration process"
-							}
-						}
-					]
+					}
 				},
 				{
 					"id": "power_reporting_to_controller",
