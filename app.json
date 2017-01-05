@@ -3128,12 +3128,19 @@
 			},
 			"class": "windowcoverings",
 			"capabilities": [
+				"windowcoverings_state",
 				"onoff",
 				"dim",
 				"measure_power"
 			],
 			"mobile": {
 				"components": [
+					{
+						"id": "ternary",
+						"capabilities": [
+							"windowcoverings_state"
+						]
+					},
 					{
 						"id": "icon",
 						"capabilities": [
