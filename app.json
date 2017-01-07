@@ -3437,14 +3437,14 @@
 					"value": 32536,
 					"attr": {
 						"min": 1,
-						"max": 1100
+						"max": 32536
 					}
 				},
 				{
 					"id": "digital_temperature_sensor_reporting",
 					"type": "number",
 					"label": {
-						"en": "Temperature sensor offset settings"
+						"en": "Digital temperature sensor reporting"
 					},
 					"hint": {
 						"en": "If digital temperature sensor is connected, module reports measured temperature on temperature change defined by this parameter. Available settings: 0 - Reporting disabled. 1 - 127 = 0,1C - 12,7C, step is 0,1C."
