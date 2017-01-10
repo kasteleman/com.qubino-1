@@ -70,10 +70,13 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: value => ({
-				Value: value * 100,
-				'Dimming Duration': 1,
-			}),
+			command_set_parser: value => {
+				if (value >= 1) value = 0.99;
+				return {
+					'Value': value * 100,
+					'Dimming Duration': 'Factory default'
+				};
+			},
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
 			command_report_parser: report => {
 				if (report && report['Value (Raw)']) return report['Value (Raw)'][0] / 100;
