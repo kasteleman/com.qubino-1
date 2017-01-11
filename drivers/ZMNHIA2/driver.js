@@ -4,7 +4,6 @@ const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: true,
 	capabilities: {
 		custom_thermostat_mode: {
 			command_class: 'COMMAND_CLASS_THERMOSTAT_MODE',
@@ -153,7 +152,7 @@ module.exports.on('initNode', token => {
 	if (node) {
 
 		// I2 switched
-		if (node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
+		if (node.instance.MultiChannelNodes['1'] && node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
 			node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
 				if (command.name === 'SENSOR_BINARY_REPORT') {
 					if (report['Sensor Value'] === 'detected an event') {
@@ -166,7 +165,7 @@ module.exports.on('initNode', token => {
 		}
 
 		// I3 switched
-		if (node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
+		if (node.instance.MultiChannelNodes['2'] && node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
 			node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
 				if (command.name === 'SENSOR_BINARY_REPORT') {
 					if (report['Sensor Value'] === 'detected an event') {
