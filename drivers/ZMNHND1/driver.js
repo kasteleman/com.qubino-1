@@ -3,6 +3,8 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
+// Documentation: http://qubino.com/download/1014/
+
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
 		onoff: {
@@ -42,7 +44,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 		},
 		input_2_type: {
-			index: 1,
+			index: 2,
 			size: 1,
 		},
 		deactivate_ALL_ON_ALL_OFF: {

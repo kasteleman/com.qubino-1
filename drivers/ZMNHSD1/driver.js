@@ -3,6 +3,8 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
+// Documentation: http://qubino.com/download/984/
+
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
 		onoff: {
@@ -50,9 +52,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get_parser: () => ({
 				Properties1: {
 					Scale: 7,
-					'Rate Type': 'Import'
+					'Rate Type': 'Import',
 				},
-				'Scale 2': 1
+				'Scale 2': 1,
 			}),
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {
@@ -70,9 +72,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get_parser: () => ({
 				Properties1: {
 					Scale: 0,
-					'Rate Type': 'Import'
+					'Rate Type': 'Import',
 				},
-				'Scale 2': 1
+				'Scale 2': 1,
 			}),
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {

@@ -3,6 +3,8 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
+// Documentation: http://www.benext.eu/static/manual/qubino/flush-dimmer-ZMNHDA2.pdf
+
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
 		onoff: {

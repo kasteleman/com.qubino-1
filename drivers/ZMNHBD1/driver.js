@@ -3,8 +3,9 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
+// Documentation: http://qubino.com/download/1029/
+
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: true,
 	capabilities: {
 		onoff: {
 			command_class: 'COMMAND_CLASS_SWITCH_BINARY',

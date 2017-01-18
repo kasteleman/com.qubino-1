@@ -3,8 +3,9 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
+// Documentation: http://www.benext.eu/static/manual/qubino/flush-1-relay-ZMNHAA2.pdf
+
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: true,
 	capabilities: {
 
 		onoff: {
@@ -93,10 +94,12 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		deactivate_ALL_ON_ALL_OFF: {
 			index: 10,
 			size: 2,
+			signed: false,
 		},
 		automatic_turning_off_output_q1_after_set_time: {
 			index: 11,
 			size: 2,
+			signed: false,
 		},
 		state_of_device_after_power_failure: {
 			index: 30,
@@ -110,6 +113,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		power_report_by_time_interval_q1: {
 			index: 42,
 			size: 2,
+			signed: false,
 		},
 	},
 });

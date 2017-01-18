@@ -3,6 +3,8 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
+// Documentation: https://www.domotica-shop.nl/files/images/Manuals/Qubino%20manuals/Qubino_Flush_On-Off_thermostat_user%20manual_V1_0_eng.pdf
+
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
 		custom_thermostat_mode: {
@@ -102,10 +104,12 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		input_2_set_point: {
 			index: 11,
 			size: 2,
+			signed: false,
 		},
 		input_3_set_point: {
 			index: 12,
 			size: 2,
+			signed: false,
 		},
 		state_of_device_after_power_failure: {
 			index: 30,
@@ -118,18 +122,22 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		power_report_by_time_interval: {
 			index: 42,
 			size: 2,
+			signed: false,
 		},
 		temperature_hysteresis_on: {
 			index: 43,
 			size: 1,
+			signed: false,
 		},
 		temperature_hysteresis_off: {
 			index: 44,
 			size: 1,
+			signed: false,
 		},
 		antifreeze: {
 			index: 45,
 			size: 1,
+			signed: false,
 		},
 		too_low_temperature_limit: {
 			index: 60,

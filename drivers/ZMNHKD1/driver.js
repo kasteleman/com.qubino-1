@@ -3,8 +3,9 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
+// Documentation: http://qubino.com/download/1071/
+
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: true,
 	capabilities: {
 		custom_thermostat_mode: {
 			command_class: 'COMMAND_CLASS_THERMOSTAT_MODE',
