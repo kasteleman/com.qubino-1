@@ -19,7 +19,6 @@
 			{
 				"id": "icon",
 				"capabilities": [
-					"onoff"
 				]
 			},
 			{
@@ -28,12 +27,6 @@
 					"measure_power",
 					"meter_power",
 					"measure_temperature"
-				]
-			},
-			{
-				"id": "toggle",
-				"capabilities": [
-					"onoff"
 				]
 			}
 		]
@@ -61,27 +54,55 @@
 			"1": {
 				"class": "socket",
 				"capabilities": [
-					"onoff",
-					"measure_power",
-					"meter_power"
+					"onoff"
 				],
 				"icon": "/drivers/ZMNHBD1/assets/icon.svg",
 				"name": {
 					"en": "ZMNHBD1 Relay 2",
 					"nl": "ZMNHBD1 Relais 2"
+				},
+				"mobile": {
+					"components": [
+						{
+							"id": "icon",
+							"capabilities": [
+								"onoff"
+							]
+						},
+						{
+							"id": "toggle",
+							"capabilities": [
+								"onoff"
+							]
+						}
+					]
 				}
 			},
 			"2": {
 				"class": "socket",
 				"capabilities": [
-					"onoff",
-					"measure_power",
-					"meter_power"
+					"onoff"
 				],
 				"icon": "/drivers/ZMNHBD1/assets/icon-2.svg",
 				"name": {
 					"en": "ZMNHBD1 Relay 2",
 					"nl": "ZMNHBD1 Relais 2"
+				},
+				"mobile": {
+					"components": [
+						{
+							"id": "icon",
+							"capabilities": [
+								"onoff"
+							]
+						},
+						{
+							"id": "toggle",
+							"capabilities": [
+								"onoff"
+							]
+						}
+					]
 				}
 			}
 		}
