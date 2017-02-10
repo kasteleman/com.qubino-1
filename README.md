@@ -1,33 +1,26 @@
 ﻿# Qubino
 
-This app adds support for the following Qubino devices in Homey:
+This app adds support for Qubino Z-Wave modules in Homey.
 
-* ZMNHVD1 Flush Dimmer 0-10V (Z-Wave Plus)
-* ZMNHDD1 Flush Dimmer (Z-Wave Plus)
-* ZMNHDA2 Flush Dimmer
-* ZMNHSD1 DIN RAIL Dimmer (untested)
-
-Not all settings are implemented. Feel free to contribute!
-Temperature sensor only working for ZMNHDA2.
-
-Version 1.04
-
-* Icons for devices changed.
-* Power measurement in kWh and Watt added.
-* Moved to mobile device cards. Be aware, not al values are visible because at this moment there is no scrollbar and items in Chrome are limited to 4 and in IOS to 3.
-* ZMNHDA2 Flush Dimmer: if no temperature sensor connected, -999,90 °C is shown as value.
-* ZMNHVD1, ZMNHDD1 & ZMNHDA2: flow trigger added for temperature changed.
-* Added option in capability in case there is no temperature sensor connected to prevent crash
-
-Version 1.05
-
-* ZMNHTD1 DIN Smart Meter (untested and limited)
-* ZMNHND1 Flush 1D Relay
-* ZMNHAD1 Flush 1 Relay
-* Added scrollbar for sensorsfield
-
-Version 1.06
-
-* ZMNHAA2 Flush 1 Relay
-* Added ZMNHBD1 Flush 2 Relays Plus (untested)
-* Added ZMNHBA2 Flush 2 Relays (untested)
+### Changelog
+Version 1.1.0
+* Add support for ZMNHDD1 (Flush Dimmer)
+* Add support for ZMNHBD1 (Flush 2 Relays)
+* Add support for ZMNHAD1 (Flush 1 Relay)
+* Add support for ZMNHDA2 (Flush Dimmer)
+* Add support for ZMNHND1 (Flush 1D Relay)
+* Add support for ZMNHVD1 (Flush Dimmer 0 - 10V)
+* Add support for ZMNHKD1 (Flush Heat & Cool Thermostat)
+* Add support for ZMNHIA2 (Flush On/Off Thermostat)
+* Add support for ZMNHTD1 (Smart Meter)
+* Add support for ZMNHSD1 (DIN Dimmer)
+* Known limitations:
+    * ZMNHDD1 (Flush Dimmer): input 2 and 3 can not be used in Flows
+    * ZMNHBD1 (Flush 2 Relays): 
+        * input 1 and 2 can not be used in Flows
+        * power consumption for multichannel nodes not reporting
+        * on/off state for multichannel nodes not reporting
+    * ZMNHAD1 (Flush 1 Relay): input 2 and 3 can not be used in Flows
+    * ZMNHKD1 (Flush Heat & Cool Thermostat): input 2 and 3 can not be used in Flows
+    * ZMNHIA2 (Flush On/Off Thermostat): input 2 and 3 can not be used in Flows
+    * ZMNHSD1 (DIN Dimmer): input 1 can not be used in Flows

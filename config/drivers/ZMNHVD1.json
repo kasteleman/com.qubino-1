@@ -29,6 +29,11 @@
 		"dim",
 		"measure_temperature"
 	],
+	"capabilitiesOptions": {
+		"onoff": {
+			"setOnDim": false
+		}
+	},
 	"mobile": {
 		"components": [
 			{

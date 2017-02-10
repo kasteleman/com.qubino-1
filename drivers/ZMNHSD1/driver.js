@@ -37,12 +37,15 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
 			command_set_parser: value => ({
-				Value: value * 100,
+				Value: Math.round(value * 99),
 				'Dimming Duration': 1,
 			}),
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
 			command_report_parser: report => {
-				if (report && report['Value (Raw)']) return report['Value (Raw)'][0] / 100;
+				if (report && report['Value (Raw)']) {
+					if(report['Value (Raw)'][0] === 255) return 1;
+					return report['Value (Raw)'][0] / 99;
+				}
 				return null;
 			},
 		},
@@ -96,7 +99,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				},
 			}),
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Sensor Value (Parsed)'],
+			command_report_parser: report => {
+				if (report['Sensor Value (Parsed)'] === -999.9) return null;
+				return report['Sensor Value (Parsed)'];
+			},
 			optional: true,
 		},
 	},

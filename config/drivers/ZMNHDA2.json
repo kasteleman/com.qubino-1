@@ -30,6 +30,11 @@
 		"measure_temperature",
 		"alarm_contact"
 	],
+	"capabilitiesOptions": {
+		"onoff": {
+			"setOnDim": false
+		}
+	},
 	"mobile": {
 		"components": [
 			{

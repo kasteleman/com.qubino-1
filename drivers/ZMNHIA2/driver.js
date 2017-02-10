@@ -76,7 +76,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				},
 			}),
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
-			command_report_parser: report => report['Sensor Value (Parsed)'],
+			command_report_parser: report => {
+				if (report['Sensor Value (Parsed)'] === -999.9) return null;
+				return report['Sensor Value (Parsed)'];
+			},
 			optional: true,
 		},
 	},
@@ -152,37 +155,4 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 		},
 	},
-});
-
-module.exports.on('initNode', token => {
-	const node = module.exports.nodes[token];
-
-	if (node) {
-
-		// I2 switched
-		if (node.instance.MultiChannelNodes['1'] && node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
-			node.instance.MultiChannelNodes['1'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
-				if (command.name === 'SENSOR_BINARY_REPORT') {
-					if (report['Sensor Value'] === 'detected an event') {
-						Homey.manager('flow').triggerDevice('ZMNHIA2_I2_on', {}, {}, node.device_data);
-					} else if (report['Sensor Value'] === 'idle') {
-						Homey.manager('flow').triggerDevice('ZMNHIA2_I2_off', {}, {}, node.device_data);
-					}
-				}
-			});
-		}
-
-		// I3 switched
-		if (node.instance.MultiChannelNodes['2'] && node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_SENSOR_BINARY) {
-			node.instance.MultiChannelNodes['2'].CommandClass.COMMAND_CLASS_SENSOR_BINARY.on('report', (command, report) => {
-				if (command.name === 'SENSOR_BINARY_REPORT') {
-					if (report['Sensor Value'] === 'detected an event') {
-						Homey.manager('flow').triggerDevice('ZMNHIA2_I3_on', {}, {}, node.device_data);
-					} else if (report['Sensor Value'] === 'idle') {
-						Homey.manager('flow').triggerDevice('ZMNHIA2_I3_off', {}, {}, node.device_data);
-					}
-				}
-			});
-		}
-	}
 });
