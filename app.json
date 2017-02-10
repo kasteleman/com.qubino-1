@@ -4,7 +4,7 @@
     "en": "Qubino"
   },
   "version": "1.0.6",
-  "compatibility": ">=0.10.9",
+  "compatibility": ">=1.1.7",
   "description": {
     "en": "Qubino devices for Homey",
     "nl": "Qubino apparaten voor Homey"
