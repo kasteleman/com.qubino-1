@@ -4,7 +4,7 @@
     "en": "Qubino"
   },
   "version": "1.1.0",
-  "compatibility": ">=1.1.7",
+  "compatibility": ">=1.2.0",
   "description": {
     "en": "Qubino devices for Homey",
     "nl": "Qubino apparaten voor Homey"
@@ -69,8 +69,14 @@
         "learnmode": {
           "image": "/drivers/ZMNHAA2/assets/learnmode.svg",
           "instruction": {
-            "en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
-            "nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+            "include": {
+              "en": "Press the service button (S) on the Flush 1 Relay for more than 2 seconds, switch input 1 3 times within 3 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+              "nl": "Houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt, schakel 3 keer binnen 3 seconden input 1, of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
+            },
+            "exclude": {
+              "en": "Press the service button (S) on the Flush 1 Relay for more than 2 and less than 6 seconds, or switch input 1 five times within 3 seconds. Holding the service button for more than 6 seconds will reset the device.",
+              "nl": "Houd de service knop (S) van de Flush 1 Relay meer dan 2 en minder dan 6 seconden ingedrukt, of schakel 5 keer binnen 3 seconden input 1. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
+            }
           }
         },
         "associationGroups": [
@@ -320,8 +326,14 @@
         "learnmode": {
           "image": "/drivers/ZMNHAD1/assets/learnmode.svg",
           "instruction": {
-            "en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
-            "nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+            "include": {
+              "en": "Press the service button (S) on the Flush 1 Relay for more than 2 seconds, switch input 1 3 times within 3 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+              "nl": "Houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt, schakel 3 keer binnen 3 seconden input 1, of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
+            },
+            "exclude": {
+              "en": "Press the service button (S) on the Flush 1 Relay for more than 2 and less than 6 seconds, or switch input 1 five times within 3 seconds. Holding the service button for more than 6 seconds will reset the device.",
+              "nl": "Houd de service knop (S) van de Flush 1 Relay meer dan 2 en minder dan 6 seconden ingedrukt, of schakel 5 keer binnen 3 seconden input 1. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
+            }
           }
         },
         "associationGroups": [
@@ -703,8 +715,14 @@
         "learnmode": {
           "image": "/drivers/ZMNHBA2/assets/learnmode.svg",
           "instruction": {
-            "en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
-            "nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+            "include": {
+              "en": "Press the service button (S) on the Flush 2 Relays for more than 2 seconds, switch input 1 3 times within 3 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+              "nl": "Houd de service knop (S) van de Flush 2 Relays langer dan 2 seconden ingedrukt, schakel 3 keer binnen 3 seconden input 1, of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
+            },
+            "exclude": {
+              "en": "Press the service button (S) on the Flush 2 Relays for more than 2 and less than 6 seconds, or switch input 1 five times within 3 seconds. Holding the service button for more than 6 seconds will reset the device.",
+              "nl": "Houd de service knop (S) van de Flush 2 Relays meer dan 2 en minder dan 6 seconden ingedrukt, of schakel 5 keer binnen 3 seconden input 1. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
+            }
           }
         },
         "associationGroups": [
@@ -991,8 +1009,14 @@
         "learnmode": {
           "image": "/drivers/ZMNHBD1/assets/learnmode.svg",
           "instruction": {
-            "en": "Inclusion: press the service button (S) on the Flush 2 Relays for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
-            "nl": "Toevoegen: houd de service knop (S) van de Flush 2 Relais langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+            "include": {
+              "en": "Press the service button (S) on the Flush 2 Relays for more than 2 seconds, switch input 1 3 times within 3 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+              "nl": "Houd de service knop (S) van de Flush 2 Relays langer dan 2 seconden ingedrukt, schakel 3 keer binnen 3 seconden input 1, of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
+            },
+            "exclude": {
+              "en": "Press the service button (S) on the Flush 2 Relays for more than 2 and less than 6 seconds, or switch input 1 five times within 3 seconds. Holding the service button for more than 6 seconds will reset the device.",
+              "nl": "Houd de service knop (S) van de Flush 2 Relays meer dan 2 en minder dan 6 seconden ingedrukt, of schakel 5 keer binnen 3 seconden input 1. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
+            }
           }
         },
         "associationGroups": [
@@ -1401,8 +1425,14 @@
         "learnmode": {
           "image": "/drivers/ZMNHDA2/assets/learnmode.svg",
           "instruction": {
-            "en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
-            "nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+            "include": {
+              "en": "Press the service button (S) on the Flush Dimmer for more than 2 seconds, switch input 1 3 times within 3 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+              "nl": "Houd de service knop (S) van de Flush Dimmer langer dan 2 seconden ingedrukt, schakel 3 keer binnen 3 seconden input 1, of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
+            },
+            "exclude": {
+              "en": "Press the service button (S) on the Flush Dimmer for more than 2 and less than 6 seconds, or switch input 1 five times within 3 seconds. Holding the service button for more than 6 seconds will reset the device.",
+              "nl": "Houd de service knop (S) van de Flush Dimmer meer dan 2 en minder dan 6 seconden ingedrukt, of schakel 5 keer binnen 3 seconden input 1. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
+            }
           }
         },
         "associationGroups": [
@@ -1716,12 +1746,12 @@
           "image": "/drivers/ZMNHDD1/assets/learnmode.svg",
           "instruction": {
             "include": {
-              "en": "Press the service button (S) on the Flush Dimmer for more than 2 seconds or switch Input 1 three times within 3 seconds.",
-              "nl": "Houd de service knop (S) van de Flush Dimmer langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1."
+              "en": "Press the service button (S) on the Flush Dimmer for more than 2 seconds, switch input 1 3 times within 3 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+              "nl": "Houd de service knop (S) van de Flush Dimmer langer dan 2 seconden ingedrukt, schakel 3 keer binnen 3 seconden input 1, of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
             },
             "exclude": {
-              "en": "Press the service button (S) for more than 2 and less than 6 seconds, or switch Input 1 five times within 3 seconds.",
-              "nl": "Schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+              "en": "Press the service button (S) on the Flush Dimmer for more than 2 and less than 6 seconds, or switch input 1 five times within 3 seconds. Holding the service button for more than 6 seconds will reset the device.",
+              "nl": "Houd de service knop (S) van de Flush Dimmer meer dan 2 en minder dan 6 seconden ingedrukt, of schakel 5 keer binnen 3 seconden input 1. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
             }
           }
         },
@@ -2087,7 +2117,7 @@
     {
       "id": "ZMNHIA2",
       "name": {
-        "en": "ZMNHIA2 Flush on/off thermostat"
+        "en": "ZMNHIA2 Flush on/off Thermostat"
       },
       "zwave": {
         "manufacturerId": 345,
@@ -2096,8 +2126,14 @@
         "learnmode": {
           "image": "/drivers/ZMNHIA2/assets/learnmode.svg",
           "instruction": {
-            "en": "Inclusion: press the service button (S) on the Flush on/off thermostat for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
-            "nl": "Toevoegen: houd de service knop (S) van de Flush on/off thermostat langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+            "include": {
+              "en": "Press the service button (S) on the Flush on/off Thermostat for more than 2 seconds, switch input 1 3 times within 3 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+              "nl": "Houd de service knop (S) van de Flush on/off Thermostat langer dan 2 seconden ingedrukt, schakel 3 keer binnen 3 seconden input 1, of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
+            },
+            "exclude": {
+              "en": "Press the service button (S) on the Flush on/off Thermostat for more than 2 and less than 6 seconds, or switch input 1 five times within 3 seconds. Holding the service button for more than 6 seconds will reset the device.",
+              "nl": "Houd de service knop (S) van de Flush on/off Thermostat meer dan 2 en minder dan 6 seconden ingedrukt, of schakel 5 keer binnen 3 seconden input 1. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
+            }
           }
         },
         "associationGroups": [
@@ -2489,8 +2525,14 @@
         "learnmode": {
           "image": "/drivers/ZMNHKD1/assets/learnmode.svg",
           "instruction": {
-            "en": "Inclusion: press the service button (S) on the Flush heat and cool thermostat for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
-            "nl": "Toevoegen: houd de service knop (S) van de Flush heat and cool thermostat langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+            "include": {
+              "en": "Press the service button (S) on the Flush Heat and Cool Thermostat for more than 2 seconds, switch input 1 3 times within 3 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+              "nl": "Houd de service knop (S) van de Flush Heat and Cool Thermostat langer dan 2 seconden ingedrukt, schakel 3 keer binnen 3 seconden input 1, of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
+            },
+            "exclude": {
+              "en": "Press the service button (S) on the Flush Heat and Cool Thermostat for more than 2 and less than 6 seconds, or switch input 1 five times within 3 seconds. Holding the service button for more than 6 seconds will reset the device.",
+              "nl": "Houd de service knop (S) van de Flush Heat and Cool Thermostat meer dan 2 en minder dan 6 seconden ingedrukt, of schakel 5 keer binnen 3 seconden input 1. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
+            }
           }
         },
         "associationGroups": [
@@ -3018,8 +3060,14 @@
         "learnmode": {
           "image": "/drivers/ZMNHND1/assets/learnmode.svg",
           "instruction": {
-            "en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
-            "nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+            "include": {
+              "en": "Press the service button (S) on the Flush 1D Relay for more than 2 seconds, switch input 1 3 times within 3 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+              "nl": "Houd de service knop (S) van de Flush 1D Relay langer dan 2 seconden ingedrukt, schakel 3 keer binnen 3 seconden input 1, of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
+            },
+            "exclude": {
+              "en": "Press the service button (S) on the Flush 1D Relay for more than 2 and less than 6 seconds, or switch input 1 five times within 3 seconds. Holding the service button for more than 6 seconds will reset the device.",
+              "nl": "Houd de service knop (S) van de Flush 1D Relay meer dan 2 en minder dan 6 seconden ingedrukt, of schakel 5 keer binnen 3 seconden input 1. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
+            }
           }
         },
         "associationGroups": [
@@ -3246,8 +3294,14 @@
         "learnmode": {
           "image": "/drivers/ZMNHSD1/assets/learnmode.svg",
           "instruction": {
-            "en": "Inclusion: press the service button (S) on the Rail Dimmer for more than 2 seconds or start auto-inclusion when powering the device. Exclusion: press the service button (S) for more than 2.",
-            "nl": "Toevoegen: houd de service knop (S) van de Rail Dimmer langer dan 2 seconden ingedrukt of gebruik auto-inclusie zodra het apparaat op stroom is aangesloten. Verwijderen: houd service button (S) meer dan 2 seconden ingedrukt."
+            "include": {
+              "en": "Press the service button (S) on the DIN Rail Dimmer for more than 2 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+              "nl": "Houd de service knop (S) van de DIN Rail Dimmer langer dan 2 seconden ingedrukt of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
+            },
+            "exclude": {
+              "en": "Press the service button (S) on the DIN Rail Dimmer for more than 2 and less than 6 seconds. Holding the service button for more than 6 seconds will reset the device.",
+              "nl": "Houd de service knop (S) van de DIN Rail Dimmer meer dan 2 en minder dan 6 seconden ingedrukt. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
+            }
           }
         },
         "associationGroups": [
@@ -3534,8 +3588,14 @@
         "learnmode": {
           "image": "/drivers/ZMNHTD1/assets/learnmode.svg",
           "instruction": {
-            "en": "Inclusion: press the service button (S) on the Smart Meter for more than 2 seconds or start auto-inclusion when powering the device. Exclusion: press the service button (S) for more than 2.",
-            "nl": "Toevoegen: houd de service knop (S) van de Smart Meter langer dan 2 seconden ingedrukt of gebruik auto-inclusie zodra het apparaat op stroom is aangesloten. Verwijderen: houd service button (S) meer dan 2 seconden ingedrukt."
+            "include": {
+              "en": "Press the service button (S) on the Rail Smart Meter for more than 2 seconds, switch input 1 3 times within 3 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+              "nl": "Houd de service knop (S) van de Rail Smart Meter langer dan 2 seconden ingedrukt, schakel 3 keer binnen 3 seconden input 1, of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
+            },
+            "exclude": {
+              "en": "Press the service button (S) on the Rail Smart Meter for more than 2 and less than 6 seconds, or switch input 1 five times within 3 seconds. Holding the service button for more than 6 seconds will reset the device.",
+              "nl": "Houd de service knop (S) van de Rail Smart Meter meer dan 2 en minder dan 6 seconden ingedrukt, of schakel 5 keer binnen 3 seconden input 1. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
+            }
           }
         },
         "associationGroups": [
@@ -3831,8 +3891,14 @@
         "learnmode": {
           "image": "/drivers/ZMNHVD1/assets/learnmode.svg",
           "instruction": {
-            "en": "Press service button (S) for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds).",
-            "nl": "Houd de service knop (S) langer dan 2 seconden ingedrukt of druk knop I1 3 keer binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden)."
+            "include": {
+              "en": "Press the service button (S) on the Flush Dimmer 0-10V for more than 2 seconds, switch input 1 3 times within 3 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+              "nl": "Houd de service knop (S) van de Flush Dimmer 0-10V langer dan 2 seconden ingedrukt, schakel 3 keer binnen 3 seconden input 1, of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
+            },
+            "exclude": {
+              "en": "Press the service button (S) on the Flush Dimmer 0-10V for more than 2 and less than 6 seconds, or switch input 1 five times within 3 seconds. Holding the service button for more than 6 seconds will reset the device.",
+              "nl": "Houd de service knop (S) van de Flush Dimmer 0-10V meer dan 2 en minder dan 6 seconden ingedrukt, of schakel 5 keer binnen 3 seconden input 1. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
+            }
           }
         },
         "associationGroups": [
