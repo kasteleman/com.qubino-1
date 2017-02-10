@@ -1715,8 +1715,14 @@
         "learnmode": {
           "image": "/drivers/ZMNHDD1/assets/learnmode.svg",
           "instruction": {
-            "en": "Inclusion: press the service button (S) on the Flush Dimmer for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
-            "nl": "Toevoegen: houd de service knop (S) van de Flush Dimmer langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+            "include": {
+              "en": "Press the service button (S) on the Flush Dimmer for more than 2 seconds or switch Input 1 three times within 3 seconds.",
+              "nl": "Houd de service knop (S) van de Flush Dimmer langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1."
+            },
+            "exclude": {
+              "en": "Press the service button (S) for more than 2 and less than 6 seconds, or switch Input 1 five times within 3 seconds.",
+              "nl": "Schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
+            }
           }
         },
         "associationGroups": [
