@@ -29,11 +29,17 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
 			command_set_parser: value => ({
-				Value: Math.round(map(1, 0, 99, 0, value)),
+				Value: Math.round(value * 99),
 				'Dimming Duration': 255
 			}),
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => map(0, 99, 0, 1, report['Value (Raw)'][0]),
+			command_report_parser: report => {
+				if (report && report['Value (Raw)']) {
+					if(report['Value (Raw)'][0] === 255) return 1;
+					return report['Value (Raw)'][0] / 99;
+				}
+				return null;
+			},
 		},
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',

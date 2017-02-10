@@ -1392,6 +1392,11 @@
         "measure_temperature",
         "alarm_contact"
       ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
       "mobile": {
         "components": [
           {
@@ -1705,6 +1710,11 @@
         "meter_power",
         "measure_temperature"
       ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
       "mobile": {
         "components": [
           {
@@ -3205,6 +3215,11 @@
         "meter_power",
         "measure_temperature"
       ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
       "mobile": {
         "components": [
           {
@@ -3783,6 +3798,11 @@
         "dim",
         "measure_temperature"
       ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
       "mobile": {
         "components": [
           {
