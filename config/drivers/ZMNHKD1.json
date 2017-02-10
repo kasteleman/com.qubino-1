@@ -77,7 +77,8 @@
 			],
 			"value": "0",
 			"label": {
-				"en": "Input 1 switch type"
+				"en": "Input 1 switch type",
+				"nl": "Input 1 schakel type"
 			},
 			"hint": {
 				"en": "This parameter sets the type of input switch used.",
@@ -105,7 +106,8 @@
 			],
 			"value": "0",
 			"label": {
-				"en": "Input 2 switch type"
+				"en": "Input 2 switch type",
+				"nl": "Input 2 schakel type"
 			},
 			"hint": {
 				"en": "This parameter sets the type of input switch used.",

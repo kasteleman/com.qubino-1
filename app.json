@@ -69,8 +69,8 @@
         "learnmode": {
           "image": "/drivers/ZMNHAA2/assets/learnmode.svg",
           "instruction": {
-            "en": "For INCLUSION: press service button S your Relay for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-            "nl": "Voor TOEVOEGEN: houd de service knop S van je Relais langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+            "en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
+            "nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
           }
         },
         "associationGroups": [
@@ -123,22 +123,22 @@
             {
               "id": "0",
               "label": {
-                "en": "mono-stable switch type"
+                "en": "Monostable switch type",
+                "nl": "Pulsdrukschakelaar"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "Bi-stable switch type"
+                "en": "Bistable switch type",
+                "nl": "Tuimelschakelaar"
               }
             }
           ],
           "value": "0",
           "label": {
-            "en": "Input 1 switch type"
-          },
-          "hint": {
-            "en": "By this parameter the user can set input based on device type"
+            "en": "Input 1 switch type",
+            "nl": "Input 1 schakel type"
           }
         },
         {
@@ -206,34 +206,40 @@
             {
               "id": "0",
               "label": {
-                "en": "All on is not active, all off is not active"
+                "en": "All on is not active, all off is not active",
+                "nl": "Alles aan is niet actief, alles uit is niet actief"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "All on is not active, all off active"
+                "en": "All on is not active, all off active",
+                "nl": "Alles aan is niet actief, alles uit is actief"
               }
             },
             {
               "id": "2",
               "label": {
-                "en": "All on active, all off is not active"
+                "en": "All on active, all off is not active",
+                "nl": "Alles aan is actief, alles uit is niet actief"
               }
             },
             {
               "id": "255",
               "label": {
-                "en": "All on active, all off active"
+                "en": "All on active, all off active",
+                "nl": "Alles aan is actief, alles uit is actief"
               }
             }
           ],
           "value": "255",
           "label": {
-            "en": "All on / all off"
+            "en": "All on / all off",
+            "nl": "Alles aan / alles uit"
           },
           "hint": {
-            "en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
+            "en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system",
+            "nl": "Module reageert op commando's alles aan / alles uit die mogelijk worden verstuurd door de controller."
           }
         },
         {
@@ -249,20 +255,21 @@
             "max": 325369
           },
           "hint": {
-            "en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+            "en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
+            "nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
           }
         },
         {
           "id": "state_of_device_after_power_failure",
           "type": "checkbox",
           "label": {
-            "en": "Restore previous state of device after power failure",
-            "nl": "Herstel vorige status van het apparaat na stroom onderbreking"
+            "en": "Restore state",
+            "nl": "Herstel status"
           },
           "value": false,
           "hint": {
             "en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
-            "nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
+            "nl": "Deze parameter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
           }
         },
         {
@@ -286,7 +293,7 @@
           "id": "power_report_by_time_interval_q1",
           "type": "number",
           "label": {
-            "en": "Power report by time Interval",
+            "en": "Power report by time interval",
             "nl": "Stroomverbruik update per tijdsinterval"
           },
           "value": 300,
@@ -471,31 +478,36 @@
             {
               "id": "0",
               "label": {
-                "en": "All on is not active, all off is not active"
+                "en": "All on is not active, all off is not active",
+                "nl": "Alles aan is niet actief, alles uit is niet actief"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "All on is not active, all off active"
+                "en": "All on is not active, all off active",
+                "nl": "Alles aan is niet actief, alles uit is actief"
               }
             },
             {
               "id": "2",
               "label": {
-                "en": "All on active, all off is not active"
+                "en": "All on active, all off is not active",
+                "nl": "Alles aan is actief, alles uit is niet actief"
               }
             },
             {
               "id": "255",
               "label": {
-                "en": "All on active, all off active"
+                "en": "All on active, all off active",
+                "nl": "Alles aan is actief, alles uit is actief"
               }
             }
           ],
           "value": "255",
           "label": {
-            "en": "All on / all off"
+            "en": "All on / all off",
+            "nl": "Alles aan / alles uit"
           },
           "hint": {
             "en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system",
@@ -540,13 +552,13 @@
           "id": "state_of_device_after_power_failure",
           "type": "checkbox",
           "label": {
-            "en": "Restore previous state of device after power failure",
-            "nl": "Herstel vorige status van het apparaat na stroom onderbreking"
+            "en": "Restore state",
+            "nl": "Herstel status"
           },
           "value": false,
           "hint": {
-            "en": "The parameter defines if the state of the device should be restored in case of a power failure",
-            "nl": "Deze paramter bepaalt of the status van het apparaat moet worden hersteld na een stroom onderbreking"
+            "en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
+            "nl": "Deze parameter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
           }
         },
         {
@@ -584,7 +596,7 @@
           }
         },
         {
-          "id": "output_switch_selection ",
+          "id": "output_switch_selection",
           "type": "dropdown",
           "values": [
             {
@@ -691,8 +703,8 @@
         "learnmode": {
           "image": "/drivers/ZMNHBA2/assets/learnmode.svg",
           "instruction": {
-            "en": "For INCLUSION: press service button S your Relay for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-            "nl": "Voor TOEVOEGEN: houd de service knop S van je Relais langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+            "en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
+            "nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
           }
         },
         "associationGroups": [
@@ -737,22 +749,22 @@
             {
               "id": "0",
               "label": {
-                "en": "mono-stable switch type"
+                "en": "Monostable switch type",
+                "nl": "Pulsdrukschakelaar"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "Bi-stable switch type"
+                "en": "Bistable switch type",
+                "nl": "Tuimelschakelaar"
               }
             }
           ],
           "value": "0",
           "label": {
-            "en": "Input 1 switch type"
-          },
-          "hint": {
-            "en": "By this parameter the user can set input based on device type"
+            "en": "Input 1 switch type",
+            "nl": "Input 1 schakel type"
           }
         },
         {
@@ -762,22 +774,22 @@
             {
               "id": "0",
               "label": {
-                "en": "mono-stable switch type"
+                "en": "Monostable switch type",
+                "nl": "Pulsdrukschakelaar"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "Bi-stable switch type"
+                "en": "Bistable switch type",
+                "nl": "Tuimelschakelaar"
               }
             }
           ],
           "value": "0",
           "label": {
-            "en": "Input 2 switch type"
-          },
-          "hint": {
-            "en": "By this parameter the user can set input based on device type"
+            "en": "Input 2 switch type",
+            "nl": "Input 2 schakel type"
           }
         },
         {
@@ -787,34 +799,40 @@
             {
               "id": "0",
               "label": {
-                "en": "All on is not active, all off is not active"
+                "en": "All on is not active, all off is not active",
+                "nl": "Alles aan is niet actief, alles uit is niet actief"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "All on is not active, all off active"
+                "en": "All on is not active, all off active",
+                "nl": "Alles aan is niet actief, alles uit is actief"
               }
             },
             {
               "id": "2",
               "label": {
-                "en": "All on active, all off is not active"
+                "en": "All on active, all off is not active",
+                "nl": "Alles aan is actief, alles uit is niet actief"
               }
             },
             {
               "id": "255",
               "label": {
-                "en": "All on active, all off active"
+                "en": "All on active, all off active",
+                "nl": "Alles aan is actief, alles uit is actief"
               }
             }
           ],
           "value": "255",
           "label": {
-            "en": "All on / all off"
+            "en": "All on / all off",
+            "nl": "Alles aan / alles uit"
           },
           "hint": {
-            "en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
+            "en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system",
+            "nl": "Module reageert op commando's alles aan / alles uit die mogelijk worden verstuurd door de controller."
           }
         },
         {
@@ -827,40 +845,41 @@
           "value": 0,
           "attr": {
             "min": 0,
-            "max": 325369
+            "max": 65535
           },
           "hint": {
-            "en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
-            "nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
+            "en": "Time in seconds (1 - 65535), 0 will disable the automatically turning off.",
+            "nl": "Tijd in seconden (1 - 65535), 0 schakelt het automatisch uitschakelen uit."
           }
         },
         {
           "id": "automatic_turning_off_output_q2_after_set_time",
           "type": "number",
           "label": {
-            "en": "Automatic turning off output q2 after set time",
-            "nl": "Automatisch uitschakelen van output q2 na bepaalde tijd"
+            "en": "Automatic turning off output Q2 after set time",
+            "nl": "Automatisch uitschakelen van output Q2 na bepaalde tijd"
           },
           "value": 0,
           "attr": {
             "min": 0,
-            "max": 325369
+            "max": 65535
           },
           "hint": {
-            "en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+            "en": "Time in seconds (1 - 65535), 0 will disable the automatically turning off.",
+            "nl": "Tijd in seconden (1 - 65535), 0 schakelt het automatisch uitschakelen uit."
           }
         },
         {
           "id": "state_of_device_after_power_failure",
           "type": "checkbox",
           "label": {
-            "en": "Restore previous state of device after power failure",
-            "nl": "Herstel vorige status van het apparaat na stroom onderbreking"
+            "en": "Restore state",
+            "nl": "Herstel status"
           },
           "value": false,
           "hint": {
             "en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
-            "nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
+            "nl": "Deze parameter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
           }
         },
         {
@@ -868,7 +887,7 @@
           "type": "number",
           "label": {
             "en": "Power report on power change relay 1",
-            "nl": "Stroomverbruik update bij verandering van Relay 1"
+            "nl": "Stroomverbruik update bij verandering van relais 1"
           },
           "value": 5,
           "attr": {
@@ -885,7 +904,7 @@
           "type": "number",
           "label": {
             "en": "Power report on power change relay 2",
-            "nl": "Stroomverbruik update bij verandering van Relay 2"
+            "nl": "Stroomverbruik update bij verandering van relais 2"
           },
           "value": 5,
           "attr": {
@@ -901,8 +920,8 @@
           "id": "power_report_by_time_interval_q1",
           "type": "number",
           "label": {
-            "en": "Power report by time Interval Relay 1",
-            "nl": "Stroomverbruik update per tijdsinterval Relay 1"
+            "en": "Power report by time interval relay 1",
+            "nl": "Stroomverbruik update per tijdsinterval relais 1"
           },
           "value": 300,
           "attr": {
@@ -918,8 +937,8 @@
           "id": "power_report_by_time_interval_q2",
           "type": "number",
           "label": {
-            "en": "Power report by time Interval Relay 2",
-            "nl": "Stroomverbruik update per tijdsinterval Relay 2"
+            "en": "Power report by time interval relay 2",
+            "nl": "Stroomverbruik update per tijdsinterval relais 2"
           },
           "value": 300,
           "attr": {
@@ -1063,7 +1082,8 @@
           ],
           "value": "0",
           "label": {
-            "en": "Input 1 switch type"
+            "en": "Input 1 switch type",
+            "nl": "Input 1 schakel type"
           }
         },
         {
@@ -1087,7 +1107,8 @@
           ],
           "value": "0",
           "label": {
-            "en": "Input 2 switch type"
+            "en": "Input 2 switch type",
+            "nl": "Input 2 schakel type"
           }
         },
         {
@@ -1380,8 +1401,8 @@
         "learnmode": {
           "image": "/drivers/ZMNHDA2/assets/learnmode.svg",
           "instruction": {
-            "en": "Press service button (S) for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds).",
-            "nl": "Houd de service knop (S) langer dan 2 seconden ingedrukt of druk knop I1 3 keer binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden)."
+            "en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
+            "nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
           }
         },
         "associationGroups": [
@@ -1456,7 +1477,8 @@
           ],
           "value": "0",
           "label": {
-            "en": "Input 1 switch type"
+            "en": "Input 1 switch type",
+            "nl": "Input 1 schakel type"
           },
           "hint": {
             "en": "This parameter sets the type of input switch used.",
@@ -1528,42 +1550,48 @@
             {
               "id": "0",
               "label": {
-                "en": "All on is not active, all off is not active"
+                "en": "All on is not active, all off is not active",
+                "nl": "Alles aan is niet actief, alles uit is niet actief"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "All on is not active, all off active"
+                "en": "All on is not active, all off active",
+                "nl": "Alles aan is niet actief, alles uit is actief"
               }
             },
             {
               "id": "2",
               "label": {
-                "en": "All on active, all off is not active"
+                "en": "All on active, all off is not active",
+                "nl": "Alles aan is actief, alles uit is niet actief"
               }
             },
             {
               "id": "255",
               "label": {
-                "en": "All on active, all off active"
+                "en": "All on active, all off active",
+                "nl": "Alles aan is actief, alles uit is actief"
               }
             }
           ],
           "value": "255",
           "label": {
-            "en": "All on / all off"
+            "en": "All on / all off",
+            "nl": "Alles aan / alles uit"
           },
           "hint": {
-            "en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
+            "en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system",
+            "nl": "Module reageert op commando's alles aan / alles uit die mogelijk worden verstuurd door de controller."
           }
         },
         {
           "id": "state_of_device_after_power_failure",
           "type": "checkbox",
           "label": {
-            "en": "Restore previous state of device after power failure",
-            "nl": "Herstel vorige status van het apparaat na stroom onderbreking"
+            "en": "Restore state",
+            "nl": "Herstel status"
           },
           "value": false,
           "hint": {
@@ -1773,7 +1801,8 @@
           ],
           "value": "0",
           "label": {
-            "en": "Input 1 switch type"
+            "en": "Input 1 switch type",
+            "nl": "Input 1 schakel type"
           }
         },
         {
@@ -1797,7 +1826,8 @@
           ],
           "value": "0",
           "label": {
-            "en": "Input 2 switch type"
+            "en": "Input 2 switch type",
+            "nl": "Input 2 schakel type"
           }
         },
         {
@@ -2126,7 +2156,8 @@
           ],
           "value": "0",
           "label": {
-            "en": "Input 1 switch type"
+            "en": "Input 1 switch type",
+            "nl": "Input 1 schakel type"
           },
           "hint": {
             "en": "This parameter sets the type of input switch used.",
@@ -2154,7 +2185,8 @@
           ],
           "value": "0",
           "label": {
-            "en": "Input 2 switch type"
+            "en": "Input 2 switch type",
+            "nl": "Input 2 schakel type"
           },
           "hint": {
             "en": "This parameter sets the type of input switch used.",
@@ -2517,7 +2549,8 @@
           ],
           "value": "0",
           "label": {
-            "en": "Input 1 switch type"
+            "en": "Input 1 switch type",
+            "nl": "Input 1 schakel type"
           },
           "hint": {
             "en": "This parameter sets the type of input switch used.",
@@ -2545,7 +2578,8 @@
           ],
           "value": "0",
           "label": {
-            "en": "Input 2 switch type"
+            "en": "Input 2 switch type",
+            "nl": "Input 2 schakel type"
           },
           "hint": {
             "en": "This parameter sets the type of input switch used.",
@@ -2978,8 +3012,8 @@
         "learnmode": {
           "image": "/drivers/ZMNHND1/assets/learnmode.svg",
           "instruction": {
-            "en": "For INCLUSION: press service button S your Relay for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-            "nl": "Voor TOEVOEGEN: houd de service knop S van je Relais langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+            "en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
+            "nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
           }
         },
         "associationGroups": [
@@ -3036,7 +3070,8 @@
           ],
           "value": "0",
           "label": {
-            "en": "Input 1 switch type"
+            "en": "Input 1 switch type",
+            "nl": "Input 1 schakel type"
           },
           "hint": {
             "en": "This parameter sets the type of input switch used.",
@@ -3064,7 +3099,8 @@
           ],
           "value": "0",
           "label": {
-            "en": "Input 2 switch type"
+            "en": "Input 2 switch type",
+            "nl": "Input 2 schakel type"
           }
         },
         {
@@ -3278,7 +3314,8 @@
           ],
           "value": "0",
           "label": {
-            "en": "Input 1 switch type"
+            "en": "Input 1 switch type",
+            "nl": "Input 1 schakel type"
           },
           "hint": {
             "en": "This parameter sets the type of input switch used.",
@@ -3569,7 +3606,8 @@
           ],
           "value": "4",
           "label": {
-            "en": "Input 1 switch type"
+            "en": "Input 1 switch type",
+            "nl": "Input 1 schakel type"
           },
           "hint": {
             "en": "This parameter sets the type of input switch used.",

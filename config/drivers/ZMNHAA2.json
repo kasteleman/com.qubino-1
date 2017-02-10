@@ -10,8 +10,8 @@
 		"learnmode": {
 			"image": "/drivers/ZMNHAA2/assets/learnmode.svg",
 			"instruction": {
-				"en": "For INCLUSION: press service button S your Relay for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-				"nl": "Voor TOEVOEGEN: houd de service knop S van je Relais langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+				"en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
+				"nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
 			}
 		},
 		"associationGroups": [
@@ -64,22 +64,22 @@
 				{
 					"id": "0",
 					"label": {
-						"en": "mono-stable switch type"
+						"en": "Monostable switch type",
+						"nl": "Pulsdrukschakelaar"
 					}
 				},
 				{
 					"id": "1",
 					"label": {
-						"en": "Bi-stable switch type"
+						"en": "Bistable switch type",
+						"nl": "Tuimelschakelaar"
 					}
 				}
 			],
 			"value": "0",
 			"label": {
-				"en": "Input 1 switch type"
-			},
-			"hint": {
-				"en": "By this parameter the user can set input based on device type"
+				"en": "Input 1 switch type",
+				"nl": "Input 1 schakel type"
 			}
 		},
 		{
@@ -147,34 +147,40 @@
 				{
 					"id": "0",
 					"label": {
-						"en": "All on is not active, all off is not active"
+						"en": "All on is not active, all off is not active",
+						"nl": "Alles aan is niet actief, alles uit is niet actief"
 					}
 				},
 				{
 					"id": "1",
 					"label": {
-						"en": "All on is not active, all off active"
+						"en": "All on is not active, all off active",
+						"nl": "Alles aan is niet actief, alles uit is actief"
 					}
 				},
 				{
 					"id": "2",
 					"label": {
-						"en": "All on active, all off is not active"
+						"en": "All on active, all off is not active",
+						"nl": "Alles aan is actief, alles uit is niet actief"
 					}
 				},
 				{
 					"id": "255",
 					"label": {
-						"en": "All on active, all off active"
+						"en": "All on active, all off active",
+						"nl": "Alles aan is actief, alles uit is actief"
 					}
 				}
 			],
 			"value": "255",
 			"label": {
-				"en": "All on / all off"
+				"en": "All on / all off",
+				"nl": "Alles aan / alles uit"
 			},
 			"hint": {
-				"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
+				"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system",
+				"nl": "Module reageert op commando's alles aan / alles uit die mogelijk worden verstuurd door de controller."
 			}
 		},
 		{
@@ -190,20 +196,21 @@
 				"max": 325369
 			},
 			"hint": {
-				"en": "0 - Auto OFF disabled. 1 - 32535 = 1 second - 32535 seconds Auto OFF enabled with define time, step is 1 second"
+				"en": "Time in seconds (1 - 32535), 0 will disable the automatically turning off.",
+				"nl": "Tijd in seconden (1 - 32535), 0 schakelt het automatisch uitschakelen uit."
 			}
 		},
 		{
 			"id": "state_of_device_after_power_failure",
 			"type": "checkbox",
 			"label": {
-				"en": "Restore previous state of device after power failure",
-				"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
+				"en": "Restore state",
+				"nl": "Herstel status"
 			},
 			"value": false,
 			"hint": {
 				"en": "The parameter defines if the state of the device should be either saved or not in case of a power failure",
-				"nl": "Deze paramter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
+				"nl": "Deze parameter bepaalt of the status van het apparaat moet worden opgeslagen of niet na een stroom onderbreking"
 			}
 		},
 		{
@@ -227,7 +234,7 @@
 			"id": "power_report_by_time_interval_q1",
 			"type": "number",
 			"label": {
-				"en": "Power report by time Interval",
+				"en": "Power report by time interval",
 				"nl": "Stroomverbruik update per tijdsinterval"
 			},
 			"value": 300,

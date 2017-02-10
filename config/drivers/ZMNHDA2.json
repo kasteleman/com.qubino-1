@@ -10,8 +10,8 @@
 		"learnmode": {
 			"image": "/drivers/ZMNHDA2/assets/learnmode.svg",
 			"instruction": {
-				"en": "Press service button (S) for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds).",
-				"nl": "Houd de service knop (S) langer dan 2 seconden ingedrukt of druk knop I1 3 keer binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden)."
+				"en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
+				"nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
 			}
 		},
 		"associationGroups": [
@@ -86,7 +86,8 @@
 			],
 			"value": "0",
 			"label": {
-				"en": "Input 1 switch type"
+				"en": "Input 1 switch type",
+				"nl": "Input 1 schakel type"
 			},
 			"hint": {
 				"en": "This parameter sets the type of input switch used.",
@@ -158,42 +159,48 @@
 				{
 					"id": "0",
 					"label": {
-						"en": "All on is not active, all off is not active"
+						"en": "All on is not active, all off is not active",
+						"nl": "Alles aan is niet actief, alles uit is niet actief"
 					}
 				},
 				{
 					"id": "1",
 					"label": {
-						"en": "All on is not active, all off active"
+						"en": "All on is not active, all off active",
+						"nl": "Alles aan is niet actief, alles uit is actief"
 					}
 				},
 				{
 					"id": "2",
 					"label": {
-						"en": "All on active, all off is not active"
+						"en": "All on active, all off is not active",
+						"nl": "Alles aan is actief, alles uit is niet actief"
 					}
 				},
 				{
 					"id": "255",
 					"label": {
-						"en": "All on active, all off active"
+						"en": "All on active, all off active",
+						"nl": "Alles aan is actief, alles uit is actief"
 					}
 				}
 			],
 			"value": "255",
 			"label": {
-				"en": "All on / all off"
+				"en": "All on / all off",
+				"nl": "Alles aan / alles uit"
 			},
 			"hint": {
-				"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system"
+				"en": "Module responds to commands all on / all off that may be sent by the main controller or by other controller belonging to the system",
+				"nl": "Module reageert op commando's alles aan / alles uit die mogelijk worden verstuurd door de controller."
 			}
 		},
 		{
 			"id": "state_of_device_after_power_failure",
 			"type": "checkbox",
 			"label": {
-				"en": "Restore previous state of device after power failure",
-				"nl": "Herstel vorige status van het apparaat na stroom onderbreking"
+				"en": "Restore state",
+				"nl": "Herstel status"
 			},
 			"value": false,
 			"hint": {

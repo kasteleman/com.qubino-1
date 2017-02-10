@@ -10,8 +10,8 @@
 		"learnmode": {
 			"image": "/drivers/ZMNHND1/assets/learnmode.svg",
 			"instruction": {
-				"en": "For INCLUSION: press service button S your Relay for more than 2 seconds or press push button I1 three times within 3 seconds (3 times change switch state within 3 seconds). For EXCLUSION: press push button I1 five times within 3 seconds ( 5 times change switch state within 3 seconds) or if service button S is pressed more than 2 and less than 6 seconds.",
-				"nl": "Voor TOEVOEGEN: houd de service knop S van je Relais langer dan 2 seconden ingedrukt of druk knop I1 3x binnen 3 seconden (verander de status van de knop 3x binnen 3 seconden). Voor VERWIJDEREN: druk knop I1 5x binnen 3 seconden (verander de status van de knop 5x binnen 3 seconden) of houd service button S meer dan 2 maar korter dan 6 seconden ingedrukt."
+				"en": "Inclusion: press the service button (S) on the Flush 1 Relay for more than 2 seconds or switch Input 1 three times within 3 seconds. Exclusion: switch Input 1 five times within 3 seconds, or press the service button (S) for more than 2 and less than 6 seconds.",
+				"nl": "Toevoegen: houd de service knop (S) van de Flush 1 Relay langer dan 2 seconden ingedrukt of schakel 3x binnen 3 seconden Input 1. Verwijderen: schakel 5x binnen 3 seconden Input 1, of houd service button (S) meer dan 2 maar minder dan 6 seconden ingedrukt."
 			}
 		},
 		"associationGroups": [
@@ -69,7 +69,8 @@
 			],
 			"value": "0",
 			"label": {
-				"en": "Input 1 switch type"
+				"en": "Input 1 switch type",
+				"nl": "Input 1 schakel type"
 			},
 			"hint": {
 				"en": "This parameter sets the type of input switch used.",
@@ -97,7 +98,8 @@
 			],
 			"value": "0",
 			"label": {
-				"en": "Input 2 switch type"
+				"en": "Input 2 switch type",
+				"nl": "Input 2 schakel type"
 			}
 		},
 		{
