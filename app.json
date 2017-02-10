@@ -19,8 +19,16 @@
     "small": "/assets/images/small.png"
   },
   "author": {
-    "name": "Martin Brasse",
-    "email": "kasteleman@gmail.com"
+    "name": "Athom B.V.",
+    "email": "apps@athom.com"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Martin Brasse",
+        "email": "kasteleman@gmail.com"
+      }
+    ]
   },
   "capabilities": {
     "custom_thermostat_mode": {
