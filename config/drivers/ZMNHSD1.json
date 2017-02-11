@@ -10,15 +10,8 @@
 		"learnmode": {
 			"image": "/drivers/ZMNHSD1/assets/learnmode.svg",
 			"instruction": {
-				"include": {
-					"en": "Press the service button (S) on the DIN Rail Dimmer for more than 2 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
-					"nl": "Houd de service knop (S) van de DIN Rail Dimmer langer dan 2 seconden ingedrukt of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
-
-				},
-				"exclude": {
-					"en": "Press the service button (S) on the DIN Rail Dimmer for more than 2 and less than 6 seconds. Holding the service button for more than 6 seconds will reset the device.",
-					"nl": "Houd de service knop (S) van de DIN Rail Dimmer meer dan 2 en minder dan 6 seconden ingedrukt. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
-				}
+				"en": "Press the service button (S) on the DIN Rail Dimmer for more than 2 seconds or wait for auto-inclusion (5 seconden) after connecting the device to a power source.",
+				"nl": "Houd de service knop (S) van de DIN Rail Dimmer langer dan 2 seconden ingedrukt of wacht op auto-inclusie (5 seconden) na het verbinden van het apparaat met een voedingsbron."
 			}
 		},
 		"associationGroups": [
@@ -26,7 +19,13 @@
 			2,
 			4,
 			5
-		]
+		],
+		"unlearnmode": {
+			"instruction": {
+				"en": "Press the service button (S) on the DIN Rail Dimmer for more than 2 and less than 6 seconds. Holding the service button for more than 6 seconds will reset the device.",
+				"nl": "Houd de service knop (S) van de DIN Rail Dimmer meer dan 2 en minder dan 6 seconden ingedrukt. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
+			}
+		}
 	},
 	"class": "socket",
 	"capabilities": [
