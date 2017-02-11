@@ -4266,6 +4266,7 @@
         "tokens": [
           {
             "name": "measure_temperature",
+            "type": "number",
             "title": {
               "en": "Temperature",
               "nl": "Temperatuur"
@@ -4292,6 +4293,7 @@
         "tokens": [
           {
             "name": "measure_temperature",
+            "type": "number",
             "title": {
               "en": "Temperature",
               "nl": "Temperatuur"
@@ -4318,6 +4320,7 @@
         "tokens": [
           {
             "name": "measure_temperature",
+            "type": "number",
             "title": {
               "en": "Temperature",
               "nl": "Temperatuur"
@@ -4344,6 +4347,7 @@
         "tokens": [
           {
             "name": "measure_temperature",
+            "type": "number",
             "title": {
               "en": "Temperature",
               "nl": "Temperatuur"
@@ -4370,6 +4374,7 @@
         "tokens": [
           {
             "name": "measure_temperature",
+            "type": "number",
             "title": {
               "en": "Temperature",
               "nl": "Temperatuur"
@@ -4432,6 +4437,7 @@
         "tokens": [
           {
             "name": "measure_temperature",
+            "type": "number",
             "title": {
               "en": "Temperature",
               "nl": "Temperatuur"
