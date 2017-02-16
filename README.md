@@ -1,4 +1,4 @@
-﻿# Qubino
+# Qubino
 
 This app adds support for Qubino Z-Wave modules in Homey.
 
