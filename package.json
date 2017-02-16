@@ -5,7 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "homey-log": "~1.0.1",
-    "homey-zwavedriver": "https://github.com/athombv/node-homey-zwavedriver.git"
+    "homey-zwavedriver": "git+https://github.com/athombv/node-homey-zwavedriver.git"
   },
   "devDependencies": {},
   "scripts": {
