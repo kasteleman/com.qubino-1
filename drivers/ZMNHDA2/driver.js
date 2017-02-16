@@ -190,17 +190,3 @@ module.exports.on('initNode', token => {
 		}
 	}
 });
-
-/**
- * Util function that maps values from one range
- * to another
- * @param inputStart
- * @param inputEnd
- * @param outputStart
- * @param outputEnd
- * @param input
- * @returns {*}
- */
-function map(inputStart, inputEnd, outputStart, outputEnd, input) {
-	return outputStart + ((outputEnd - outputStart) / (inputEnd - inputStart)) * (input - inputStart);
-}
