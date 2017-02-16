@@ -36,7 +36,8 @@
 			"instruction": {
 				"en": "Press the service button (S) on the Flush Dimmer for more than 2 and less than 6 seconds, or switch input 1 five times within 3 seconds. Holding the service button for more than 6 seconds will reset the device.",
 				"nl": "Houd de service knop (S) van de Flush Dimmer meer dan 2 en minder dan 6 seconden ingedrukt, of schakel 5 keer binnen 3 seconden input 1. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
-			}
+			},
+			"image": "/drivers/ZMNHDD1/assets/learnmode.svg"
 		}
 	},
 	"class": "socket",

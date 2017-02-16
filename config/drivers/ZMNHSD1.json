@@ -24,7 +24,8 @@
 			"instruction": {
 				"en": "Press the service button (S) on the DIN Rail Dimmer for more than 2 and less than 6 seconds. Holding the service button for more than 6 seconds will reset the device.",
 				"nl": "Houd de service knop (S) van de DIN Rail Dimmer meer dan 2 en minder dan 6 seconden ingedrukt. Het inhouden van de service knop langer dan 6 seconden zal het apparaat resetten."
-			}
+			},
+			"image": "/drivers/ZMNHSD1/assets/learnmode.svg"
 		}
 	},
 	"class": "socket",
