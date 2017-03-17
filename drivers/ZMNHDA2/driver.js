@@ -16,9 +16,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			}),
 			command_report: 'SWITCH_BINARY_REPORT',
 			command_report_parser: report => {
-				if (report['Value'] === 'on/enable') {
+				if (report.Value === 'on/enable') {
 					return true;
-				} else if (report['Value'] === 'off/disable') {
+				} else if (report.Value === 'off/disable') {
 					return false;
 				}
 				return null;
@@ -30,14 +30,23 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_set: 'SWITCH_MULTILEVEL_SET',
 			command_set_parser: value => ({
 				Value: Math.round(value * 99),
-				'Dimming Duration': 255
+				'Dimming Duration': 255,
 			}),
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => {
+			command_report_parser: (report, node) => {
 				if (report && report['Value (Raw)']) {
-					if(report['Value (Raw)'][0] === 255) return 1;
+					if (typeof report !== 'undefined' && typeof report.Value === 'string') {
+						return (report.Value === 'on/enable') ? 1.0 : 0.0;
+					}
+					// Setting on/off state when dimming
+					if (!node.state.onoff || node.state.onoff !== (report['Value (Raw)'][0] > 0)) {
+						node.state.onoff = (report['Value (Raw)'][0] > 0);
+						module.exports.realtime(node.device_data, 'onoff', (report['Value (Raw)'][0] > 0));
+					}
+					if (report['Value (Raw)'][0] === 255) return 1;
 					return report['Value (Raw)'][0] / 99;
 				}
+
 				return null;
 			},
 		},
@@ -105,7 +114,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				multiChannelNodeId: 1,
 				command_class: 'COMMAND_CLASS_BASIC',
 				command_report: 'BASIC_SET',
-				command_report_parser: report => report['Value'] === 255,
+				command_report_parser: report => report.Value === 255,
 			},
 		],
 	},

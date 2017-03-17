@@ -13,7 +13,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_set: 'SWITCH_BINARY_SET',
 			command_set_parser: value => ({
 				'Target Value': (value) ? 'on/enable' : 'off/disable',
-				'Duration': 'Default'
+				Duration: 'Default',
 			}),
 			command_report: 'SWITCH_BINARY_REPORT',
 			command_report_parser: report => {
@@ -31,9 +31,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get_parser: () => ({
 				Properties1: {
 					Scale: 7,
-					'Rate Type': 'Import'
+					'Rate Type': 'Import',
 				},
-				'Scale 2': 1
+				'Scale 2': 1,
 			}),
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {
@@ -51,9 +51,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get_parser: () => ({
 				Properties1: {
 					Scale: 0,
-					'Rate Type': 'Import'
+					'Rate Type': 'Import',
 				},
-				'Scale 2': 1
+				'Scale 2': 1,
 			}),
 			command_report: 'METER_REPORT',
 			command_report_parser: report => {

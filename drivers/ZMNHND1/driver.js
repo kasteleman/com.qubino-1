@@ -16,9 +16,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			}),
 			command_report: 'SWITCH_BINARY_REPORT',
 			command_report_parser: report => {
-				if (report['Value'] === 'on/enable') {
+				if (report.Value === 'on/enable') {
 					return true;
-				} else if (report['Value'] === 'off/disable') {
+				} else if (report.Value === 'off/disable') {
 					return false;
 				}
 				return null;

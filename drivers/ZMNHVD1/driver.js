@@ -6,6 +6,7 @@ const ZwaveDriver = require('homey-zwavedriver');
 // Documentation: http://qubino.com/download/996/
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
+	debug: true,
 	capabilities: {
 		onoff: {
 			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
@@ -16,9 +17,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			}),
 			command_report: 'SWITCH_BINARY_REPORT',
 			command_report_parser: report => {
-				if (report['Value'] === 'on/enable') {
+				if (report.Value === 'on/enable') {
 					return true;
-				} else if (report['Value'] === 'off/disable') {
+				} else if (report.Value === 'off/disable') {
 					return false;
 				}
 				return null;
@@ -30,12 +31,22 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_set: 'SWITCH_MULTILEVEL_SET',
 			command_set_parser: value => ({
 				Value: Math.round(value * 99),
-				'Dimming Duration': 255
+				'Dimming Duration': 255,
 			}),
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
-			command_report_parser: report => {
+			command_report_parser: (report, node) => {
 				if (report && report['Value (Raw)']) {
-					if(report['Value (Raw)'][0] === 255) return 1;
+					console.log(node.state.onoff);
+					if (typeof report !== 'undefined' && typeof report.Value === 'string') {
+						return (report.Value === 'on/enable') ? 1.0 : 0.0;
+					}
+					// Setting on/off state when dimming
+					if (!node.state.onoff || node.state.onoff !== (report['Value (Raw)'][0] > 0)) {
+						node.state.onoff = (report['Value (Raw)'][0] > 0);
+						console.log(node.state.onoff);
+						module.exports.realtime(node.device_data, 'onoff', (report['Value (Raw)'][0] > 0));
+					}
+					if (report['Value (Raw)'][0] === 255) return 1;
 					return report['Value (Raw)'][0] / 99;
 				}
 				return null;
@@ -105,17 +116,3 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 	},
 });
-
-/**
- * Util function that maps values from one range
- * to another
- * @param inputStart
- * @param inputEnd
- * @param outputStart
- * @param outputEnd
- * @param input
- * @returns {*}
- */
-function map(inputStart, inputEnd, outputStart, outputEnd, input) {
-	return outputStart + ((outputEnd - outputStart) / (inputEnd - inputStart)) * (input - inputStart);
-}

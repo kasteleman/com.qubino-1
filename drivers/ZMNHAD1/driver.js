@@ -15,7 +15,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				'Switch Value': (value > 0) ? 255 : 0,
 			}),
 			command_report: 'SWITCH_BINARY_REPORT',
-			command_report_parser: report => report['Value'] === 'on/enable',
+			command_report_parser: report => report.Value === 'on/enable',
 		},
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
